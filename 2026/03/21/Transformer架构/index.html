@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>Nonamer&#39;s Blog</title>
+  <title>Transformer架构 | Nonamer&#39;s Blog</title>
 
   <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -356,965 +356,274 @@
 </header>
         <!-- 内容区域 -->
         
-  <!-- 首页轮播 -->
+<!-- prismjs 代码高亮 -->
+
+
+
+
+<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -1;"></div>
+
+
+  <!-- 文章详情页顶部图片和标题 -->
+
+
+
+
+<div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
+  background-position: center center;position: relative;background-image:url('https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp')">
+  <div class="post-detail-header-mask"></div>
+  <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
-
-  <link href="/js/vue-typed-js/index.css" rel="stylesheet">
-
-
-
-
-
-
-<div class="swiper-length" style="display: none;">0</div>
-<div id="appSwiper"
-  class="swiper-no-swiping"
-  @mouseenter="stopAutoPlay()" 
-  @mouseleave="startAutoPlay()"
->
-  <swiper v-cloak ref="mySwiper" :options="swiperOptions" @slideChangeTransitionEnd="slideChangeTransitionEnd">
-    
-      <swiper-slide>
-        <div class="item swiper-lazy" data-background="https://pic1.zhimg.com/v2-af3ccef61cf58b1a70765747cc1bbeac_b.jpg" style="background-size: 300000px; 
-          background-position: left center;" style="position: relative;">
-          <div class="swiper-bgmask" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;"></div>
-            <div class="flag">
-              
-              <div class="img-mask swiper-lazy swiper-default-bgImg" data-background="https://pic1.zhimg.com/v2-af3ccef61cf58b1a70765747cc1bbeac_b.jpg" style="height: 100%; background-size: cover; 
-                background-position: center center;">
-                <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>   
-              </div>
-              <div class="flag-text">
-                <div class="flag-text-content">
-                  <div class="title ani animated" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s">随便写写的博客</div>
-                  
-                      <div class="excerpt ani animated" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s"></div>
-                    
-                </div>
-                <div style="display: flex;" class="flag-text-btns">
-                  
-                  
-                </div>
-              </div>
-            </div>
-          </div>
-      </swiper-slide>
-    
-  </swiper>
-  
-    <div id="scroll-down" @click="toPostContent()">
-      <a href="javascript:;">
-        <i class="fas fa-angle-down scroll-down-effects"></i>
-      </a>
+  <div class="post-detail-header_info-box">
+    <div class="title-box">
+      <span class="title">
+        Transformer架构
+      </span>
     </div>
-  
-  <canvas id="header_canvas"style="position:absolute;bottom:0;width:100%;pointer-events:none;"></canvas>
-  
-    <svg class="hans-container" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none"><defs><path id="hans-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path></defs><g class="hans-parallax"><use xlink:href="#hans-wave" x="50" y="0" fill="rgba(224,233,239,.5)"></use><use xlink:href="#hans-wave" x="50" y="3" fill="rgba(224,233,239,.5)"></use><use xlink:href="#hans-wave" x="50" y="6" fill="rgba(224,233,239,.5)"></use></g></svg>
     
+    
+      
+        <span class="post-detail-header_date">
+          <i class="fas fa-calendar"></i> 发表于：2026-03-21 |
+        </span>
+      
+
+      
+
+      
+    
+  </div>
+  
+  
+    <script defer src="/js/bubble/bubble.js"></script>
+  
 </div>
 
 
-<style>.hans-parallax>use{animation:hans-wave-move 12s linear infinite}.hans-parallax>use:nth-child(1){animation-delay:-2s}.hans-parallax>use:nth-child(2){animation-delay:-2s;animation-duration:5s}.hans-parallax>use:nth-child(3){animation-delay:-4s;animation-duration:3s}@keyframes hans-wave-move{0%{transform:translate(-90px,0)}100%{transform:translate(85px,0)}}</style>
-<style>
-  .hans-container {
-    position: absolute!important;
-    bottom: 0;
-    width: 100%;
-    height: 120px;
-    z-index: 100;
-    pointer-events:none;
-  }
-</style>
 
+
+
+<div class="post-detail-content post-row" 
+  style="padding-top: 0px;">
+  <div class="main-content">
+    <article class="post post-detail">
+      <div class="post-content">
+        <h1 id="Transformer架构"><a href="#Transformer架构" class="headerlink" title="Transformer架构"></a>Transformer架构</h1><p>最初的文本表示是由统计模型计算的向量空间模型、语言模型，后来进入到神经网络学习时代。神经网络是由CV起源发展出来的，主要包含前馈神经网络（FNN）（常见形式为多层感知机（MLP））、卷积神经网络（CNN）和循环神经网络（RNN）。其中RNN能够在NLP上取得最优效果，但同时因为其注重时序逻辑，限制了计算机的并行计算效果，也难以捕捉长序列间的相关关系，为了解决这些难题，完全由注意力机制搭建的神经网络Transformer诞生了，他是LLM的鼻祖和核心框架，Transformer的创造者将展示Transformer的论文命名为<em><strong>Attention is all you need</strong></em>足见Transformer的地位和重要性。</p>
+<h2 id="注意力机制"><a href="#注意力机制" class="headerlink" title="注意力机制"></a>注意力机制</h2><p>注意力机制起源于CV，却是Transformer架构的核心，这一节主要来介绍注意力机制。</p>
+<h3 id="深入理解注意力机制"><a href="#深入理解注意力机制" class="headerlink" title="深入理解注意力机制"></a>深入理解注意力机制</h3><p>注意力机制有三个核心变量：查询值 Query，键值 Key 和 真值 Value。对于不同的Query，我们赋予Key不同的权重，即注意力分数来通过Key查找Value。利用词向量中语义相似的词在向量空间中距离更近，我们可以采用向量点积来衡量词向量间的相似度，通过Query的词向量q与Key对应的词向量k中的每个值的点积得到的向量，我们可以反映Query和每一个Key的相似程度，再通过Softmax层将其转化为和为1的权重，这样得到的向量就可以作为注意力分数了。最后，我们再将得到的注意力分数和值向量做对应乘积即可。根据上述过程，我们就可以得到注意力机制计算的基本公式：<br>$attention(Q,K,V)&#x3D;softmax(qK^T)V$</p>
+<h3 id="自注意力"><a href="#自注意力" class="headerlink" title="自注意力"></a>自注意力</h3><p>根据上文的分析，我们可以发现，注意力机制的本质是对两段序列的元素依次进行相似度计算，寻找出一个序列的每个元素对另一个序列的每个元素的相关度，然后基于相关度进行加权，即分配注意力。而这两段序列即是我们计算过程中 Q、K、V 的来源。但是，在我们的实际应用中，我们往往只需要计算 Query 和 Key 之间的注意力结果，很少存在额外的真值 Value。也就是说，我们其实只需要拟合两个文本序列。​在经典的注意力机制中，Q 往往来自于一个序列，K 与 V 来自于另一个序列，都通过参数矩阵计算得到，从而可以拟合这两个序列之间的关系。例如在 Transformer 的 Decoder 结构中，Q 来自于 Decoder 的输入，K 与 V 来自于 Encoder 的输出，从而拟合了编码信息与历史信息之间的关系，便于综合这两种信息实现未来的预测。但在 Transformer 的 Encoder 结构中，使用的是注意力机制的变种 —— 自注意力（self-attention，自注意力）机制。所谓自注意力，即是计算本身序列中每个元素对其他元素的注意力分布，即在计算过程中，Q、K、V 都由同一个输入通过不同的参数矩阵计算得到。</p>
+<h3 id="掩码自注意力"><a href="#掩码自注意力" class="headerlink" title="掩码自注意力"></a>掩码自注意力</h3><p>注意力机制还不足以充分发挥计算机并行计算的能力。序列的处理需要遵循时间顺序和步骤，并行计算时同时进行多步，为了防止后面的步数蕴含的信息干扰前面的步骤，就诞生了掩码来遮盖未来信息。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;BOS&gt; 【MASK】【MASK】【MASK】【MASK】</span><br><span class="line">&lt;BOS&gt;    I   【MASK】 【MASK】【MASK】</span><br><span class="line">&lt;BOS&gt;    I     like  【MASK】【MASK】</span><br><span class="line">&lt;BOS&gt;    I     like    you  【MASK】</span><br><span class="line">&lt;BOS&gt;    I     like    you   &lt;/EOS&gt;</span><br></pre></td></tr></table></figure>
+<p>在每一行输入中，模型仍然是只看到前面的 token，预测下一个 token。但是注意，上述输入不再是串行的过程，而可以一起并行地输入到模型中，模型只需要每一个样本根据未被遮蔽的 token 来预测下一个 token 即可，从而实现了并行的语言模型。</p>
+<h3 id="多头注意力"><a href="#多头注意力" class="headerlink" title="多头注意力"></a>多头注意力</h3><p>注意力机制可以实现并行化与长期依赖关系拟合，但一次注意力计算只能拟合一种相关关系，单一的注意力机制很难全面拟合语句序列里的相关关系。因此 Transformer 使用了多头注意力机制（Multi-Head Attention），即同时对一个语料进行多次注意力计算，每次注意力计算都能拟合不同的关系，将最后的多次结果拼接起来作为最后的输出，即可更全面深入地拟合语言信息。事实上，所谓的多头注意力机制其实就是将原始的输入序列进行多组的自注意力处理；然后再将每一组得到的自注意力结果拼接起来，再通过一个线性层进行处理，得到最终的输出。</p>
+<h2 id="Encoder-Decoder"><a href="#Encoder-Decoder" class="headerlink" title="Encoder-Decoder"></a>Encoder-Decoder</h2><p>注意力机制是Transformer的核心，而Encoder-Decoder是Transformer的结构，Happy-LLM本节从 Transformer 所针对的 Seq2Seq 任务出发，解析 Transformer 的 Encoder-Decoder 结构。</p>
+<h3 id="Seq2Seq模型"><a href="#Seq2Seq模型" class="headerlink" title="Seq2Seq模型"></a>Seq2Seq模型</h3><p>Seq2Seq，即序列到序列，是一种经典 NLP 任务。几乎所有的 NLP 任务都可以视为 Seq2Seq 任务。例如文本分类任务，可以视为输出长度为 1 的目标序列（如在上式中 mm &#x3D; 1）；词性标注任务，可以视为输出与输入序列等长的目标序列（如在上式中 mm &#x3D; nn ）。对于 Seq2Seq 任务，一般的思路是对自然语言序列进行编码再解码。所谓编码，就是将输入的自然语言序列通过隐藏层编码成能够表征语义的向量（或矩阵），可以简单理解为更复杂的词向量表示。而解码，就是对输入的自然语言序列编码得到的向量或矩阵通过隐藏层输出，再解码成对应的自然语言目标序列。通过编码再解码，就可以实现 Seq2Seq 任务。Transformer 中的 Encoder，就是用于上述的编码过程；Decoder 则用于上述的解码过程。<br>Transformer 由 Encoder 和 Decoder 组成，每一个 Encoder（Decoder）又由 6个 Encoder（Decoder）Layer 组成。输入源序列会进入 Encoder 进行编码，到 Encoder Layer 的最顶层再将编码结果输出给 Decoder Layer 的每一层，通过 Decoder 解码后就可以得到输出目标序列了。<br>下面介绍Encoder 和 Decoder 内部传统神经网络的经典结构——前馈神经网络（FNN）、层归一化（Layer Norm）和残差连接（Residual Connection），然后进一步分析 Encoder 和 Decoder 的内部结构。</p>
+<h3 id="前馈神经网络"><a href="#前馈神经网络" class="headerlink" title="前馈神经网络"></a>前馈神经网络</h3><p>前馈神经网络（Feed Forward Neural Network，下简称 FNN），也就是我们在上一节提过的每一层的神经元都和上下两层的每一个神经元完全连接的网络结构。每一个 Encoder Layer 都包含一个上文讲的注意力机制和一个前馈神经网络。</p>
+<h3 id="层归一化"><a href="#层归一化" class="headerlink" title="层归一化"></a>层归一化</h3><p>层归一化，也就是 Layer Norm，是深度学习中经典的归一化操作。神经网络主流的归一化一般有两种，批归一化（Batch Norm）和层归一化（Layer Norm）。归一化核心是为了让不同层输入的取值范围或者分布能够比较一致。<br>批归一化存在一些缺陷，例如：</p>
+<ul>
+<li>当显存有限，mini-batch 较小时，Batch Norm 取的样本的均值和方差不能反映全局的统计分布信息，从而导致效果变差；</li>
+<li>对于在时间维度展开的 RNN，不同句子的同一分布大概率不同，所以 Batch Norm 的归一化会失去意义；</li>
+<li>在训练时，Batch Norm 需要保存每个 step 的统计信息（均值和方差）。在测试时，由于变长句子的特性，测试集可能出现比训练集更长的句子，所以对于后面位置的 step，是没有训练的统计量使用的；</li>
+<li>应用 Batch Norm，每个 step 都需要去保存和计算 batch 统计量，耗时又耗力<br>因此，出现了在深度神经网络中更常用、效果更好的层归一化（Layer Norm）。相较于 Batch Norm 在每一层统计所有样本的均值和方差，Layer Norm 在每个样本上计算其所有层的均值和方差，从而使每个样本的分布达到稳定。</li>
+</ul>
+<h3 id="残差连接"><a href="#残差连接" class="headerlink" title="残差连接"></a>残差连接</h3><p>由于 Transformer 模型结构较复杂、层数较深，​为了避免模型退化，Transformer 采用了残差连接的思想来连接每一个子层。残差连接，即下一层的输入不仅是上一层的输出，还包括上一层的输入。残差连接允许最底层信息直接传到最高层，让高层专注于残差的学习。<br>​例如，在 Encoder 中，在第一个子层，输入会先进行层归一化（Layer Norm），然后进入多头自注意力层，其输出会与原输入相加。在第二个子层也是一样。即：<br>$x&#x3D;x+MultiHeadSelfAttention(LayerNorm(x))$<br>$output&#x3D;x+FNN(LayerNorm(x))$</p>
+<h3 id="Encoder"><a href="#Encoder" class="headerlink" title="Encoder"></a>Encoder</h3><p>在实现上述组件之后，我们可以搭建起 Transformer 的 Encoder。Encoder 由 N 个 Encoder Layer 组成，每一个 Encoder Layer 包括一个注意力层和一个前馈神经网络。因此，我们可以首先实现一个 Encoder Layer：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class EncoderLayer(nn.Module):</span><br><span class="line">  &#x27;&#x27;&#x27;Encoder层&#x27;&#x27;&#x27;</span><br><span class="line">    def __init__(self, args):</span><br><span class="line">        super().__init__()</span><br><span class="line">        # 一个 Layer 中有两个 LayerNorm，分别在 Attention 之前和 MLP 之前</span><br><span class="line">        self.attention_norm = LayerNorm(args.n_embd)</span><br><span class="line">        # Encoder 不需要掩码，传入 is_causal=False</span><br><span class="line">        self.attention = MultiHeadAttention(args, is_causal=False)</span><br><span class="line">        self.fnn_norm = LayerNorm(args.n_embd)</span><br><span class="line">        self.feed_forward = MLP(args.dim, args.dim, args.dropout)</span><br><span class="line"></span><br><span class="line">    def forward(self, x):</span><br><span class="line">        # Layer Norm</span><br><span class="line">        norm_x = self.attention_norm(x)</span><br><span class="line">        # 自注意力</span><br><span class="line">        h = x + self.attention.forward(norm_x, norm_x, norm_x)</span><br><span class="line">        # 经过前馈神经网络</span><br><span class="line">        out = h + self.feed_forward.forward(self.fnn_norm(h))</span><br><span class="line">        return out</span><br></pre></td></tr></table></figure>
+<p>然后我们搭建一个 Encoder，由 N 个 Encoder Layer 组成，在最后会加入一个 Layer Norm 实现规范化：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class Encoder(nn.Module):</span><br><span class="line">    &#x27;&#x27;&#x27;Encoder 块&#x27;&#x27;&#x27;</span><br><span class="line">    def __init__(self, args):</span><br><span class="line">        super(Encoder, self).__init__() </span><br><span class="line">        # 一个 Encoder 由 N 个 Encoder Layer 组成</span><br><span class="line">        self.layers = nn.ModuleList([EncoderLayer(args) for _ in range(args.n_layer)])</span><br><span class="line">        self.norm = LayerNorm(args.n_embd)</span><br><span class="line"></span><br><span class="line">    def forward(self, x):</span><br><span class="line">        &quot;分别通过 N 层 Encoder Layer&quot;</span><br><span class="line">        for layer in self.layers:</span><br><span class="line">            x = layer(x)</span><br><span class="line">        return self.norm(x)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Decoder"><a href="#Decoder" class="headerlink" title="Decoder"></a>Decoder</h3><p>类似的，我们也可以先搭建 Decoder Layer，再将 N 个 Decoder Layer 组装为 Decoder。但是和 Encoder 不同的是，Decoder 由两个注意力层和一个前馈神经网络组成。第一个注意力层是一个掩码自注意力层，即使用 Mask 的注意力计算，保证每一个 token 只能使用该 token 之前的注意力分数；第二个注意力层是一个多头注意力层，该层将使用第一个注意力层的输出作为 query，使用 Encoder 的输出作为 key 和 value，来计算注意力分数。最后，再经过前馈神经网络：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">class DecoderLayer(nn.Module):</span><br><span class="line">  &#x27;&#x27;&#x27;解码层&#x27;&#x27;&#x27;</span><br><span class="line">    def __init__(self, args):</span><br><span class="line">        super().__init__()</span><br><span class="line">        # 一个 Layer 中有三个 LayerNorm，分别在 Mask Attention 之前、Self Attention 之前和 MLP 之前</span><br><span class="line">        self.attention_norm_1 = LayerNorm(args.n_embd)</span><br><span class="line">        # Decoder 的第一个部分是 Mask Attention，传入 is_causal=True</span><br><span class="line">        self.mask_attention = MultiHeadAttention(args, is_causal=True)</span><br><span class="line">        self.attention_norm_2 = LayerNorm(args.n_embd)</span><br><span class="line">        # Decoder 的第二个部分是 类似于 Encoder 的 Attention，传入 is_causal=False</span><br><span class="line">        self.attention = MultiHeadAttention(args, is_causal=False)</span><br><span class="line">        self.ffn_norm = LayerNorm(args.n_embd)</span><br><span class="line">        # 第三个部分是 MLP</span><br><span class="line">        self.feed_forward = MLP(args.dim, args.dim, args.dropout)</span><br><span class="line"></span><br><span class="line">    def forward(self, x, enc_out):</span><br><span class="line">        # Layer Norm</span><br><span class="line">        norm_x = self.attention_norm_1(x)</span><br><span class="line">        # 掩码自注意力</span><br><span class="line">        x = x + self.mask_attention.forward(norm_x, norm_x, norm_x)</span><br><span class="line">        # 多头注意力</span><br><span class="line">        norm_x = self.attention_norm_2(x)</span><br><span class="line">        h = x + self.attention.forward(norm_x, enc_out, enc_out)</span><br><span class="line">        # 经过前馈神经网络</span><br><span class="line">        out = h + self.feed_forward.forward(self.ffn_norm(h))</span><br><span class="line">        return out</span><br></pre></td></tr></table></figure>
+<p>然后同样的，我们搭建一个 Decoder 块：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class Decoder(nn.Module):</span><br><span class="line">    &#x27;&#x27;&#x27;解码器&#x27;&#x27;&#x27;</span><br><span class="line">    def __init__(self, args):</span><br><span class="line">        super(Decoder, self).__init__() </span><br><span class="line">        # 一个 Decoder 由 N 个 Decoder Layer 组成</span><br><span class="line">        self.layers = nn.ModuleList([DecoderLayer(args) for _ in range(args.n_layer)])</span><br><span class="line">        self.norm = LayerNorm(args.n_embd)</span><br><span class="line"></span><br><span class="line">    def forward(self, x, enc_out):</span><br><span class="line">        &quot;Pass the input (and mask) through each layer in turn.&quot;</span><br><span class="line">        for layer in self.layers:</span><br><span class="line">            x = layer(x, enc_out)</span><br><span class="line">        return self.norm(x)</span><br></pre></td></tr></table></figure>
+
+<h2 id="搭建一个Transformer"><a href="#搭建一个Transformer" class="headerlink" title="搭建一个Transformer"></a>搭建一个Transformer</h2><h3 id="Embedding层"><a href="#Embedding层" class="headerlink" title="Embedding层"></a>Embedding层</h3><p>在 NLP 任务中，我们往往需要将自然语言的输入转化为机器可以处理的向量。在深度学习中，承担这个任务的组件就是 Embedding 层。Embedding 层其实是一个存储固定大小的词典的嵌入向量查找表。也就是说，在输入神经网络之前，我们往往会先让自然语言输入通过分词器 tokenizer，分词器的作用是把自然语言输入切分成 token 并转化成一个固定的 index。因此，Embedding 层的输入往往是一个形状为 （batch_size，seq_len，1）的矩阵，第一个维度是一次批处理的数量，第二个维度是自然语言序列的长度，第三个维度则是 token 经过 tokenizer 转化成的 index 值。</p>
+<h3 id="位置编码"><a href="#位置编码" class="headerlink" title="位置编码"></a>位置编码</h3><p>注意力机制可以实现良好的并行计算，但同时，其注意力计算的方式也导致序列中相对位置的丢失。在 RNN、LSTM 中，输入序列会沿着语句本身的顺序被依次递归处理，因此输入序列的顺序提供了极其重要的信息，这也和自然语言的本身特性非常吻合。但从上文对注意力机制的分析我们可以发现，在注意力机制的计算过程中，对于序列中的每一个 token，其他各个位置对其来说都是平等的，即“我喜欢你”和“你喜欢我”在注意力机制看来是完全相同的，但无疑这是注意力机制存在的一个巨大问题。因此，为使用序列顺序信息，保留序列中的相对位置信息，Transformer 采用了位置编码机制，该机制也在之后被多种模型沿用。<br>位置编码的方式有很多，Transformer 使用了正余弦函数来进行位置编码（绝对位置编码Sinusoidal），其编码方式为：<br>$PE(pos,2i)&#x3D;sin(pos&#x2F;100002^{i&#x2F;dmodel})$<br>$PE(pos,2i)&#x3D;sin(pos&#x2F;100002^{i&#x2F;dmodel}​)$<br>上式中，pos 为 token 在句子中的位置，2i 和 2i+1 则指示了位置编码向量的维度索引是奇数还是偶数，从上式中我们可以看出对于奇数维度和偶数维度，Transformer 采用了不同的函数进行编码。</p>
+<h3 id="一个完整的Transformer"><a href="#一个完整的Transformer" class="headerlink" title="一个完整的Transformer"></a>一个完整的Transformer</h3><p>说实话后面这些知识和代码，我也看的迷迷糊糊，没有完全看懂，就直接贴代码吧，感觉这块光看还是比较难理解，说不定后面实践的多了就好理解了，所以这里就不求甚解了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line">class Transformer(nn.Module):</span><br><span class="line">   &#x27;&#x27;&#x27;整体模型&#x27;&#x27;&#x27;</span><br><span class="line">    def __init__(self, args):</span><br><span class="line">        super().__init__()</span><br><span class="line">        # 必须输入词表大小和 block size</span><br><span class="line">        assert args.vocab_size is not None</span><br><span class="line">        assert args.block_size is not None</span><br><span class="line">        self.args = args</span><br><span class="line">        self.transformer = nn.ModuleDict(dict(</span><br><span class="line">            wte = nn.Embedding(args.vocab_size, args.n_embd),</span><br><span class="line">            wpe = PositionalEncoding(args),</span><br><span class="line">            drop = nn.Dropout(args.dropout),</span><br><span class="line">            encoder = Encoder(args),</span><br><span class="line">            decoder = Decoder(args),</span><br><span class="line">        ))</span><br><span class="line">        # 最后的线性层，输入是 n_embd，输出是词表大小</span><br><span class="line">        self.lm_head = nn.Linear(args.n_embd, args.vocab_size, bias=False)</span><br><span class="line"></span><br><span class="line">        # 初始化所有的权重</span><br><span class="line">        self.apply(self._init_weights)</span><br><span class="line"></span><br><span class="line">        # 查看所有参数的数量</span><br><span class="line">        print(&quot;number of parameters: %.2fM&quot; % (self.get_num_params()/1e6,))</span><br><span class="line"></span><br><span class="line">    &#x27;&#x27;&#x27;统计所有参数的数量&#x27;&#x27;&#x27;</span><br><span class="line">    def get_num_params(self, non_embedding=False):</span><br><span class="line">        # non_embedding: 是否统计 embedding 的参数</span><br><span class="line">        n_params = sum(p.numel() for p in self.parameters())</span><br><span class="line">        # 如果不统计 embedding 的参数，就减去</span><br><span class="line">        if non_embedding:</span><br><span class="line">            n_params -= self.transformer.wte.weight.numel()</span><br><span class="line">        return n_params</span><br><span class="line"></span><br><span class="line">    &#x27;&#x27;&#x27;初始化权重&#x27;&#x27;&#x27;</span><br><span class="line">    def _init_weights(self, module):</span><br><span class="line">        # 线性层和 Embedding 层初始化为正则分布</span><br><span class="line">        if isinstance(module, nn.Linear):</span><br><span class="line">            torch.nn.init.normal_(module.weight, mean=0.0, std=0.02)</span><br><span class="line">            if module.bias is not None:</span><br><span class="line">                torch.nn.init.zeros_(module.bias)</span><br><span class="line">        elif isinstance(module, nn.Embedding):</span><br><span class="line">            torch.nn.init.normal_(module.weight, mean=0.0, std=0.02)</span><br><span class="line">    </span><br><span class="line">    &#x27;&#x27;&#x27;前向计算函数&#x27;&#x27;&#x27;</span><br><span class="line">    def forward(self, idx, targets=None):</span><br><span class="line">        # 输入为 idx，维度为 (batch size, sequence length, 1)；targets 为目标序列，用于计算 loss</span><br><span class="line">        device = idx.device</span><br><span class="line">        b, t = idx.size()</span><br><span class="line">        assert t &lt;= self.args.block_size, f&quot;不能计算该序列，该序列长度为 &#123;t&#125;, 最大序列长度只有 &#123;self.args.block_size&#125;&quot;</span><br><span class="line"></span><br><span class="line">        # 通过 self.transformer</span><br><span class="line">        # 首先将输入 idx 通过 Embedding 层，得到维度为 (batch size, sequence length, n_embd)</span><br><span class="line">        print(&quot;idx&quot;,idx.size())</span><br><span class="line">        # 通过 Embedding 层</span><br><span class="line">        tok_emb = self.transformer.wte(idx)</span><br><span class="line">        print(&quot;tok_emb&quot;,tok_emb.size())</span><br><span class="line">        # 然后通过位置编码</span><br><span class="line">        pos_emb = self.transformer.wpe(tok_emb) </span><br><span class="line">        # 再进行 Dropout</span><br><span class="line">        x = self.transformer.drop(pos_emb)</span><br><span class="line">        # 然后通过 Encoder</span><br><span class="line">        print(&quot;x after wpe:&quot;,x.size())</span><br><span class="line">        enc_out = self.transformer.encoder(x)</span><br><span class="line">        print(&quot;enc_out:&quot;,enc_out.size())</span><br><span class="line">        # 再通过 Decoder</span><br><span class="line">        x = self.transformer.decoder(x, enc_out)</span><br><span class="line">        print(&quot;x after decoder:&quot;,x.size())</span><br><span class="line"></span><br><span class="line">        if targets is not None:</span><br><span class="line">            # 训练阶段，如果我们给了 targets，就计算 loss</span><br><span class="line">            # 先通过最后的 Linear 层，得到维度为 (batch size, sequence length, vocab size)</span><br><span class="line">            logits = self.lm_head(x)</span><br><span class="line">            # 再跟 targets 计算交叉熵</span><br><span class="line">            loss = F.cross_entropy(logits.view(-1, logits.size(-1)), targets.view(-1), ignore_index=-1)</span><br><span class="line">        else:</span><br><span class="line">            # 推理阶段，我们只需要 logits，loss 为 None</span><br><span class="line">            # 取 -1 是只取序列中的最后一个作为输出</span><br><span class="line">            logits = self.lm_head(x[:, [-1], :]) # note: using list [-1] to preserve the time dim</span><br><span class="line">            loss = None</span><br><span class="line"></span><br><span class="line">        return logits, loss</span><br></pre></td></tr></table></figure>
+      </div>
+      <div class="post-tags-categories">
+        
+        <div class="tags">
+          
+            <a href="/tags/Happy-LLM/" class="">
+              Happy-LLM
+            </a>
+          
+        </div>
+        
+      </div>
+      
+        <div class="copyright">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+    <strong>作者:  </strong>yiwei Rong</a>
+    </li>
+    <li class="post-copyright-link">
+    <strong>文章链接:  </strong>
+    <a href="/2026/03/21/Transformer架构/" target="_blank" title="Transformer架构">https://nonamer-kkk.github.io/2026/03/21/Transformer架构/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明:   </strong>
+      本网站所有文章除特别声明外,均采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+      许可协议。转载请注明出处!
+    </li>
+  </ul>
+<div>
+      
+    </article>
+    <!-- 上一篇文章和下一篇文章 -->
+    
+      <!-- 文章详情页的上一页和下一页 -->
+<div class="post-nav">
+
+
+
+
+
+  
+  <div class="post-nav-next post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="https://pica.zhimg.com/80/v2-573ac3e25de03fad9c32add5a05e5cfc_1440w.webp" class="lazyload placeholder" data-srcset="https://pica.zhimg.com/80/v2-573ac3e25de03fad9c32add5a05e5cfc_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
+    </div>
+    <a href="/2026/03/19/24371119-%E5%AE%B9%E6%98%93%E4%B8%BA-%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BD%9C%E4%B8%9A/" class="post-nav-link">
+      <div class="title">
+        下一篇: <i class="fas fa-angle-right"></i>
+        <div class="title-text">仓颉第一次作业</div>
+      </div>
+      <!-- <div class="content">
+        第一次作业第一题简要思路丑数是只含有2，3，5质因数的正整数，提示中说n可能为0或负数，那么首先判断n若小于1的话直接输
+      </div> -->
+    </a>
+  </div>
+
+</div>
+
+    
+    
+
+    <!-- 打赏 -->
+    
+      <div id="appDonate" class="post-donate">
+  <div id="donate_board" class="donate_bar center" ref="donate">
+    <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏" @click="showDialogDrawer()"></a>
+  </div>
+  <transition name="fade">
+    <div 
+      class="donate-box-mask"
+      v-cloak 
+      v-show="visible"
+      @click="cancelDialogDrawer()"
+    >
+    </div>
+  </transition>
+  <transition name="bounce">
+    <div class="donate-box" v-cloak v-show="visible">
+      <div class="donate-box_close">
+        <i class="fas fa-times" aria-hidden="true" @click="cancelDialogDrawer" pointer></i>
+      </div>
+      <div class="donate-box_title">
+        <h4>
+          你的赏识是我前进的动力
+        </h4>
+      </div>
+      <div class="donate-box_tab">
+        <div class="Alipay" pointer :class="{'active': tabActive === 'Alipay'}" @click="changeTabActive('Alipay')">
+          支付宝
+        </div>
+        <div class="WeChatpay" pointer :class="{'active': tabActive === 'WeChatpay'}" @click="changeTabActive('WeChatpay')">
+          微信
+        </div>
+      </div>
+      <div class="donate-box_img">
+        <div class="AlipayImg" v-show="tabActive === 'Alipay'">
+          <img src="/" class="lazyload placeholder" data-srcset="/" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="支付宝打赏" />
+        </div> 
+        <div class="WeChatpayImg" v-show="tabActive === 'WeChatpay'">
+          <img src="/" class="lazyload placeholder" data-srcset="/" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="微信打赏" />
+        </div>
+      </div>
+    </div>
+  </transition>
+</div>
 
 <script>
-  var autoplay = JSON.parse('false');
-  var delay = '5000';
-  var loop = JSON.parse('true') ? false : JSON.parse('true');
-  var effect = 'slide';
-  var swiperLength = parseInt(document.querySelector(".swiper-length").innerText);
-  var defaultDesc = '';
-  defaultDesc = defaultDesc.split(',');
-  var defaultDescTypedLoop = JSON.parse('true');
+  var body = document.body || document.documentElement || window;
   var vm = new Vue({
-    el: '#appSwiper',
+    el: '#appDonate',
     data: {
-      defaultDesc: defaultDesc,
-      defaultDescTypedLoop,
-      swiperOptions: {
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true // 允许点击小圆点跳转
-        },
-        loop: loop ? true : false,
-        effect, // fade
-        autoplay: (autoplay && swiperLength > 1) ? {
-  　　　　delay,
-  　　　　disableOnInteraction: false // 手动切换之后继续自动轮播
-    　　} : false,
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-        lazy: {
-          loadPrevNext: true,
-        },
-        on:{
-          init: function() {
-            swiperAnimateCache(this); //隐藏动画元素 
-            swiperAnimate(this); //初始化完成开始动画
-          }, 
-          slideChangeTransitionEnd: function(){ 
-            swiperAnimate(this); //每个slide切换结束时也运行当前slide动画
-          } 
-        }
-        // Some Swiper option/callback...
-      }
+      visible: false,
+      tabActive: 'Alipay',
+      top: 0,
     },
     computed: {
-      swiper() {
-        return this.$refs.mySwiper.$swiper
-      }
     },
     mounted() {
-      // console.log('Current Swiper instance object', this.swiper)
-      // this.swiper.slideTo(0, 1000, false)
     },
     methods: {
-      stopAutoPlay() {
-        (autoplay && swiperLength > 1) && this.swiper.autoplay.stop();
+      showDialogDrawer() {
+        this.visible = true;
+        // 防止页面滚动，只能让弹框滚动
+        // function getScroll() {
+        //   return {
+        //     left: window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0,
+        //     top: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+        //   };
+        // }
+        this.top = $(document).scrollTop() // or getScroll().top
+        // console.log('aa', $('.main-content'));
+        body.style.cssText = 'overflow: hidden;';
       },
-      startAutoPlay() {
-        (autoplay && swiperLength > 1) && this.swiper.autoplay.start();
+      cancelDialogDrawer() {
+        this.visible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
       },
-      slideChangeTransitionEnd() {
-        console.log('1');
-      },
-      toPostContent() {
-        const fullHeight = $(window).height() - 60;
-        $('html,body').animate({scrollTop: fullHeight},500);
+      changeTabActive(name) {
+        this.tabActive = name;
       }
     },
     created() {}
   })
 </script>
-
-  <script src="/js/bubble/homeBubble.js"></script>
-
-<style>
-#appSwiper {
-  position: relative;
-  user-select: none;
-  overflow: hidden;
-  font-family: Titillium Web,'PingFang SC','Hiragino Sans GB','Microsoft JhengHei','Microsoft YaHei',sans-serif;
-}
-.default-excerpt {
-  font-size: 1.6em;
-  margin-top: 1em;
-  color: #eee;
-}
-.bottom-one-btn {
-  margin-top: 15px;
-}
-.swiper-container {
-  overflow: hidden;
-  z-index: 0;
-}
-.swiper-slide {
-  height: 350px;
-  position: relative;
-}
-.swiper-button-prev,
-.swiper-button-next {
-  padding: 10px 10px;
-  transition: background 0.2s;
-}
-.swiper-button-prev:hover,
-.swiper-button-next:hover {
-  background: rgba(0, 0, 0, 0.2);
-}
-.swiper-slide .item {
-  width: 100%;
-  height: 100%;
-}
-.flag {
-  position: relative;
-  width: 70%;
-  margin: 0 auto;
-  color: #ffffff;
-  height: 100%;
-  background: #000;
-}
-.flag img {
-  min-height: 100%;
-}
-.flag-text {
-  position: absolute;
-  top: 50px;
-  left: 50px;
-  width: 80%;
-  height: 280px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  z-index: 9999;
-}
-.flag-text .title {
-  font-size: 1.8em;
-}
-.flag-text .title a {
-  color: #fff;
-  transition: color 0.3s;
-}
-.flag-text .title a:hover {
-  color: rgba(66, 185, 133, 0.8);
-}
-.flag-text .excerpt {
-  color: #eee;
-  width: 70%;
-  line-height: 30px;
-  height: 150px;
-  margin-top: 2%;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5;
-  overflow: hidden;
-}
-.swiper-pagination-bullet-active {
-  opacity: 1;
-  background-color: #42b983;
-}
-.img-mask {
-  opacity:0.6; filter: alpha(opacity=60);
-}
-.flag-text .read-more {
-  margin-bottom: 30px;
-  padding: 5px 15px;
-  color: #ffffff;
-  border-radius: 20px;
-}
-#scroll-down {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 2.5em;
-  color: #fff;
-  cursor: pointer;
-  z-index: 2;
-}
-#scroll-down a {
-  color: #fff;
-}
-@-webkit-keyframes rightan
-  {
-  
-  0%
-  {
-    transform: translateY(0);
-    opacity: 0.5;
-  }
-  50% {
-    transform: translateY(-30px);
-    opacity: 1;
-  }
-  100%
-  {
-    transform: translateY(0);
-    opacity: 0.5;
-  }
-}
-.scroll-down-effects {
-  animation: rightan 1.5s infinite;
-}
-/* 当头部导航设置为背景透明的时候 */
-.swiper-slide {
-  height: 400px;
-}
-.flag-text {
-  top: 80px;
-}
-
-@media (min-width: 992px) {
-  .swiper-button-prev {
-    margin-left: 15%;
-    transform: translateX(-180%);
-  }
-  .swiper-button-next {
-    margin-right: 15%;
-    transform: translateX(180%);
-  }
-  .flag-text .title {
-    width: 80%;
-    line-height: 35px;
-    max-height: 70px;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
-  }
-}
-@media screen and (max-width: 1200px) { 
-  .flag {
-    width: 80%;
-  }
-  .swiper-button-prev {
-    margin-left: 10%;
-    transform: translateX(-180%);
-  }
-  .swiper-button-next {
-    margin-right: 10%;
-    transform: translateX(180%);
-  }
-}
-@media (max-width: 992px) {
-  .flag {
-    width: 100%;
-  }
-  .flag-text .title {
-    font-size: 1.5em;
-    margin-top: 50px;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
-  }
-  .flag-text {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 80%;
-    height: 100%;
-    margin-left: 50%;
-    transform: translateX(-50%);
-  }
-  .flag-text .excerpt {
-    width: 100%;
-    line-height: 25px;
-    height: 125px;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 5;
-    overflow: hidden;
-  }
-  .flag-text .read-more {
-    margin-bottom: 80px;
-  }
-}
-@media (max-width: 992px) and (min-width: 551px) {
-  .flag-text .excerpt {
-    width: 70%;
-  }
-}
-@media (max-width: 551px) {
-  .swiper-slide {
-    height: 250px;
-  }
-  .flag-text .title {
-    line-height: 30px;
-    max-height: 60px;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
-    margin-top: 20px;
-  }
-  .flag-text .excerpt {
-    font-size: 1em;
-    line-height: 20px;
-    height: 80px;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 4;
-  }
-  .flag-text .excerpt { 
-    margin-top: 10px;
-  }
-  .flag-text .read-more {
-    margin-top: 10px;
-    margin-bottom: 50px;
-  }
-  .swiper-button-prev,
-  .swiper-button-next {
-    transform: scale(0.5);
-  }
-  .swiper-button-prev {
-    left: 0;
-  }
-  .swiper-button-next {
-    right: 0;
-  }
-}
-/* 当头部导航设置为背景透明的时候 */
-  @media (max-width: 992px) {
-    .flag-text {
-      top: 60px;
-      height: 80%;
-    }
-  }
-  @media (max-width: 551px) {
-    .swiper-slide {
-      height: 310px;
-    }
-  }
-
-/* 文字或者按钮居中显示 */
-
-  .flag-text {
-    left: 10%;
-  }
-  .flag-text .flag-text-content {
-    width: 100%;
-    text-align: center;
-  }
-  .flag-text .title {
-    width: 100%;
-    text-align: center;
-  }
-  .flag-text .excerpt { 
-    width: 100%;
-    text-align: center;
-  }
-  .bottom-one-btn {
-    display: flex;
-    justify-content: center;
-  }
-  .default-excerpt {
-    display: flex;
-    justify-content: center;
-    font-size: 1.6em;
-  }
-  .flag-text-btns {
-    justify-content: center;
-  }
-  @media (min-width: 992px) {
-    .flag-text .excerpt {
-      line-height: 30px;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 5;
-      overflow: hidden;
-    }
-  }
-  @media (max-width: 992px) {
-    .flag-text {
-      margin-left: 0;
-      transform: translateX(0);
-    }
-  }
-
-
-
-
-/* 全屏显示 */
-
-  .flag {
-    width: 100%;
-  }
-  .swiper-slide {
-    height: 100vh;
-  }
-  .flag-text {
-    top: 50%;
-    left: 15%;
-    transform: translateY(-50%);
-    width: 70%;
-    height: auto;
-  }
-  .flag-text .title {
-    font-size: 2.8em;
-    line-height: 1.5em;
-    max-height: none;
-  }
-  .flag-text .excerpt {
-    font-size: 1.25em;
-    height: 150px;
-  }
-  .flag-text .read-more {
-    margin-top: 10px;
-  }
-  .swiper-button-prev,
-  .swiper-button-next {
-    margin-top: -60px!important;
-  }
-  .swiper-btn-color,
-  .swiper-btn-color2 {
-    background-color: transparent;
-    border: 1px solid #fff;
-  }
-  .swiper-btn-color:hover,
-  .swiper-btn-color2:hover {
-    background-color: rgba(66, 185, 133, 0.8);
-    border: 1px solid rgba(66, 185, 133, 0.8)!important;
-  }
-  .flag-text-btns {
-    justify-content: center;
-  }
-  .swiper-button-prev {
-    margin-left: 10px;
-    transform: translateX(0);
-    border-radius: 50%;
-    padding: 0;
-    width: 50px;
-    height: 50px;
-  }
-  .swiper-button-next {
-    margin-right: 10px;
-    transform: translateX(0);
-    border-radius: 50%;
-    padding: 0;
-    width: 50px;
-    height: 50px;
-  }
-  .swiper-button-next:after, .swiper-button-prev:after {
-    font-size: 1.2em;
-  }
-  @media (min-width: 992px) {
-    .flag-text .excerpt {
-      line-height: 35px;
-      height: 175px;
-    }
-    .default-excerpt {
-      min-height: 150px;
-    }
-    .typed-element {
-      align-items: unset;
-    }
-  }
-  @media (max-width: 992px) {
-    .flag-text {
-      margin-left: 0;
-      height: 60%;
-      top: 55%;
-    }
-    .flag-text .title {
-      font-size: 2.4em;
-      margin-top: 0;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 2;
-      overflow: hidden;
-    }
-    .flag-text .excerpt {
-      line-height: 35px;
-      height: 185px;
-    }
-    .flag-text .read-more {
-      margin-top: 20px;
-    }
-  }
-  @media (max-width: 551px) {
-    .flag-text {
-      height: 60%;
-    }
-    .flag-text .title {
-      font-size: 2.2em;
-    }
-    .flag-text .excerpt {
-      line-height: 30px;
-    }
-    .flag-text .read-more {
-      margin-top: 50px;
-      padding: 10px 30px;
-    }
-    .swiper-button-prev {
-      margin-left: 0;
-    }
-    .swiper-button-next {
-      margin-right: 0;
-    }
-    .default-excerpt {
-      margin-top: 1em;
-    }
-  }
-
-
-/* video */
-.swiper-video {
-  width: 100%;
-  height: 100%;
-}
-.swiper-video video {
-  pointer-events: none;
-}
-.swiper-video-maskBox{
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: #000;
-  opacity: 0.2;
-  z-index: 1;
-}
-@media (min-width: 992px) {
-  
-    .swiper-video {
-      display: none;
-    }
-    .swiper-default-bgImg {
-      display: block;  
-    }
-  
-}
-@media (max-width: 992px) {
-  .swiper-video {
-    display: none;
-  }
-  .swiper-default-bgImg {
-    display: block;  
-  }
-}
-/* video-end */
-</style>
-
-
-<div id="l_main">
-  <div class="l_content">
-    <!-- 自定义的内容 -->
     
-    <!-- 首页座右铭 -->
+
+    <!-- 分享 -->
     
-  <div class="motto">
-      <h3 class="motto-title">座右铭</h3>
-      <div class="motto-content">
-        <p>
-          null  
-        </p> 
-      </div>
-  </div>
+      <!-- https://github.com/overtrue/share.js -->
+<!-- 文章详情页的分享 -->
+<div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
 
-    <!-- 首页公告 -->
-    
-<style>
-  .index-notice-content {
-    margin-top: 10px;
-  }
-  .warp {
-    width: 100%;
-    margin: 0 auto;
-    overflow: hidden;
-  }
-  .index-notice-content__ul {
-    list-style: none;
-    padding: 0;
-    margin: 0 auto;
-  }
-  .index-notice-content__ul li,
-  .index-notice-content__ul a {
-    display: block;
-    height: 30px;
-    line-height: 30px;
-    display: flex;
-    justify-content: space-between;
-    font-size: 15px;
-  }
-  .index-notice-content__title {
-    flex: 1;
-    overflow: hidden;
-  }
-  .index-notice-content__title a,
-  .index-notice-content__title span {
-    overflow: hidden;
-    display: block;
-    text-overflow:ellipsis; 
-    white-space: nowrap;
-    height: 100%;
-    width: 100%;
-    color: #000;
-  }
-  .index-notice-content__title a:hover,
-  .index-notice-content__title span:hover {
-    text-decoration: underline;
-  }
-  .index-notice-content__date {
-    min-width: 80px;
-    margin-left: 5px;
-    color: #000;
-  }
-</style>
-<div class="index-notice" id="appIndexNotice">
-    <h3>
-      <i class="fas fa-bullhorn index-notice-icon"></i>公告
-    </h3>
-    <div class="index-notice-content">
-      
-      <vue-seamless-scroll
-        :data="listData"
-        :class-option="classOption"
-        class="warp"
-        style="height: 0px"
-      >
-        <ul class="index-notice-content__ul">
-          
-           
-        </ul>
-      </vue-seamless-scroll>
-    </div>
-</div>
-<script src="/js/vue-seamless-scroll/index.js"></script>
-
-<!-- 滚动插件采用 vue-seamless-scroll
-  https://chenxuan0000.github.io/vue-seamless-scroll/zh/guide/06-singleStop.html 
--->
-
-<script>
-  var seamless = JSON.parse('false');
-  seamless = seamless ? 0 : 30;
-  var listData = '' || '';
-  listData = listData.split(',');
-  var vm = new Vue({
-    el: '#appIndexNotice',
-    data: {
-      listData: listData,
-      moveNum: 2,
-      classOption: {
-        singleHeight: seamless,
-        limitMoveNum: listData.length
-      },
-    },
-    computed: {
-    },
-    mounted() {
-    },
-    methods: {
-    },
-    created() {
-      this.moveNum = parseInt(this.listData.length);
-    }
-  })
+<script defer src="/js/shareJs/social-share.min.js"></script>
 </script>
 
+<style>
+  .social-share {
+    margin: 20px 0;
+  }
+</style>
 
 
-    <!-- 首页文章置顶 -->
     
-
-
-<div class="topArticle reveal">
-	<h3><i class="fas fa-thumbs-o-up" aria-hidden="true"></i>推荐文章</h3>
-	<div class="articles">
-		
-			
-		
-			
-		
-			
-		
-			
-		
-	</div>
-</div>
-
-
-    <div class="bg-floor" id="home-bg-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"></div>
-    <!-- 每一篇文章卡片 -->
-    <!-- hash算法 -->
-
-<section class="posts">
-  
     
-    <article class="post reveal" style="flex-direction: row-reverse;   ">
-      <div class="post-main">
-        <div class="post-info">
-          <div class="post-time">
-            <i class="fas fa-clock" aria-hidden="true"></i>
-            <span class="post-time">2026-03-21</span>
-          </div>
-          <div class="post-title">
-            <a class="post-title-link" href="/2026/03/21/Transformer%E6%9E%B6%E6%9E%84/">Transformer架构</a>
-          </div>
-          <div class="post-meta">
-            <div class="post-tags">
-              <!-- 文章详情页的标签 -->
+    <!-- 评论 -->
+    <!-- 评论 -->
 
-    <i class="iconfont icontag"></i>
-    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Happy-LLM/" rel="tag">Happy-LLM</a></li></ul>
-
-            </div>
-            <div class="post-categories">
-              <!-- 文章详情页的分类 -->
-
-
-            </div>
-          </div>
-          <div class="post-img-mobile">
-            <a href="/2026/03/21/Transformer%E6%9E%B6%E6%9E%84/" style="background-size: cover; 
-              background-position: center center;">
-              <img class="lazyload lazyload placeholder" src="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" class="lazyload placeholder" data-srcset="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-            </a>
-          </div>
-          <div class="post-content">
-            Transformer架构最初的文本表示是由统计模型计算的向量空间模型、语言模型，后来进入到神经网络学习时代。神经网络是由CV起源发展出来的，主要包含前馈神经网络（FNN）（常见形式为多层感知机（MLP））、卷积神经网络（CNN）和循环神经
-          </div>
-        </div>
-        <div class="post-more">
-          <a href="/2026/03/21/Transformer%E6%9E%B6%E6%9E%84/">
-            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
-          </a>
-        </div>
-      </div>
-      <div class="post-img">
-        <a href="/2026/03/21/Transformer%E6%9E%B6%E6%9E%84/" style="background-size: cover; 
-          background-position: center center;">
-          <img class="lazyload lazyload placeholder" src="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" class="lazyload placeholder" data-srcset="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-        </a>
-      </div>
-    </article>
-  
+  <div id="myComment">
     
-    <article class="post reveal" style="   ">
-      <div class="post-main">
-        <div class="post-info">
-          <div class="post-time">
-            <i class="fas fa-clock" aria-hidden="true"></i>
-            <span class="post-time">2026-03-19</span>
-          </div>
-          <div class="post-title">
-            <a class="post-title-link" href="/2026/03/19/24371119-%E5%AE%B9%E6%98%93%E4%B8%BA-%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BD%9C%E4%B8%9A/">仓颉第一次作业</a>
-          </div>
-          <div class="post-meta">
-            <div class="post-tags">
-              <!-- 文章详情页的标签 -->
+      <div id="gitment-container"></div>
 
-    <i class="iconfont icontag"></i>
-    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BB%93%E9%A2%89/" rel="tag">仓颉</a></li></ul>
-
-            </div>
-            <div class="post-categories">
-              <!-- 文章详情页的分类 -->
-
-
-            </div>
-          </div>
-          <div class="post-img-mobile">
-            <a href="/2026/03/19/24371119-%E5%AE%B9%E6%98%93%E4%B8%BA-%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BD%9C%E4%B8%9A/" style="background-size: cover; 
-              background-position: center center;">
-              <img class="lazyload lazyload placeholder" src="https://pica.zhimg.com/80/v2-573ac3e25de03fad9c32add5a05e5cfc_1440w.webp" class="lazyload placeholder" data-srcset="https://pica.zhimg.com/80/v2-573ac3e25de03fad9c32add5a05e5cfc_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-            </a>
-          </div>
-          <div class="post-content">
-            第一次作业第一题简要思路丑数是只含有2，3，5质因数的正整数，提示中说n可能为0或负数，那么首先判断n若小于1的话直接输出false。当n=&#x3D;1时，1不含质因数直接输出true。其他情况时，通过while循环，若n含有2，3，5作
-          </div>
-        </div>
-        <div class="post-more">
-          <a href="/2026/03/19/24371119-%E5%AE%B9%E6%98%93%E4%B8%BA-%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BD%9C%E4%B8%9A/">
-            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
-          </a>
-        </div>
-      </div>
-      <div class="post-img">
-        <a href="/2026/03/19/24371119-%E5%AE%B9%E6%98%93%E4%B8%BA-%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BD%9C%E4%B8%9A/" style="background-size: cover; 
-          background-position: center center;">
-          <img class="lazyload lazyload placeholder" src="https://pica.zhimg.com/80/v2-573ac3e25de03fad9c32add5a05e5cfc_1440w.webp" class="lazyload placeholder" data-srcset="https://pica.zhimg.com/80/v2-573ac3e25de03fad9c32add5a05e5cfc_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-        </a>
-      </div>
-    </article>
-  
-    
-    <article class="post reveal" style="flex-direction: row-reverse;   ">
-      <div class="post-main">
-        <div class="post-info">
-          <div class="post-time">
-            <i class="fas fa-clock" aria-hidden="true"></i>
-            <span class="post-time">2026-03-19</span>
-          </div>
-          <div class="post-title">
-            <a class="post-title-link" href="/2026/03/19/lab0%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">OS-lab0实验报告</a>
-          </div>
-          <div class="post-meta">
-            <div class="post-tags">
-              <!-- 文章详情页的标签 -->
-
-    <i class="iconfont icontag"></i>
-    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li></ul>
-
-            </div>
-            <div class="post-categories">
-              <!-- 文章详情页的分类 -->
-
-
-            </div>
-          </div>
-          <div class="post-img-mobile">
-            <a href="/2026/03/19/lab0%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" style="background-size: cover; 
-              background-position: center center;">
-              <img class="lazyload lazyload placeholder" src="https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-            </a>
-          </div>
-          <div class="post-content">
-            实验报告思考题1.123456789101112131415161718192021222324252627282930313233343536373839404142touch README.txtgit initgit status &
-          </div>
-        </div>
-        <div class="post-more">
-          <a href="/2026/03/19/lab0%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">
-            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
-          </a>
-        </div>
-      </div>
-      <div class="post-img">
-        <a href="/2026/03/19/lab0%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" style="background-size: cover; 
-          background-position: center center;">
-          <img class="lazyload lazyload placeholder" src="https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-        </a>
-      </div>
-    </article>
-  
-    
-    <article class="post reveal" style="   ">
-      <div class="post-main">
-        <div class="post-info">
-          <div class="post-time">
-            <i class="fas fa-clock" aria-hidden="true"></i>
-            <span class="post-time">2026-03-16</span>
-          </div>
-          <div class="post-title">
-            <a class="post-title-link" href="/2026/03/16/NPL%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/">NLP基本概念</a>
-          </div>
-          <div class="post-meta">
-            <div class="post-tags">
-              <!-- 文章详情页的标签 -->
-
-    <i class="iconfont icontag"></i>
-    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Happy-LLM/" rel="tag">Happy-LLM</a></li></ul>
-
-            </div>
-            <div class="post-categories">
-              <!-- 文章详情页的分类 -->
-
-
-            </div>
-          </div>
-          <div class="post-img-mobile">
-            <a href="/2026/03/16/NPL%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" style="background-size: cover; 
-              background-position: center center;">
-              <img class="lazyload lazyload placeholder" src="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-            </a>
-          </div>
-          <div class="post-content">
-            NLP基本概念由于我最近打算跟着Happy-LLM学一点大模型的智识，因此开这个博客系列做一点笔记，这篇博客对应Happy-LLM第一章的内容，主要是整理NPL的基础概念。为什么要给这些概念做笔记呢，我觉得一是基础的概念有助于我们理解后续的
-          </div>
-        </div>
-        <div class="post-more">
-          <a href="/2026/03/16/NPL%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/">
-            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
-          </a>
-        </div>
-      </div>
-      <div class="post-img">
-        <a href="/2026/03/16/NPL%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" style="background-size: cover; 
-          background-position: center center;">
-          <img class="lazyload lazyload placeholder" src="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-        </a>
-      </div>
-    </article>
-  
-</section>
-    <!-- 翻页 -->
     
   </div>
 
+
+<!-- 还需要在后面这个地址里设置script, comment script in themes\hexo-theme-bamboo\layout\_partial\scripts\index.ejs -->
+
+
+  </div>
+
+  <!-- 目录 -->
   <aside id='l_side'>
   
     
@@ -1394,27 +703,29 @@
   <div class="layout_sticky">    
     
       
-        
+<section class="widget side_toc">
   
-      
-      
-        
-<section class="widget side_tagcloud">
-    
   <header>
     
-      <a style="color: " href='/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+      <i style="color: " class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name' style="color: ">本文目录</span>
     
   </header>
 
 
-    <div class='content'>
-    <a href="/tags/Happy-LLM/" style="font-size: 24px; color: #555">Happy-LLM</a> <a href="/tags/%E4%BB%93%E9%A2%89/" style="font-size: 14px; color: #999">仓颉</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 14px; color: #999">操作系统</a>
+  <div class='content'>
+    <div class="toc-main">
+      <div class="toc-content">
+        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Transformer%E6%9E%B6%E6%9E%84"><span class="toc-text">Transformer架构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6"><span class="toc-text">注意力机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6"><span class="toc-text">深入理解注意力机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B"><span class="toc-text">自注意力</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A9%E7%A0%81%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B"><span class="toc-text">掩码自注意力</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E5%A4%B4%E6%B3%A8%E6%84%8F%E5%8A%9B"><span class="toc-text">多头注意力</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Encoder-Decoder"><span class="toc-text">Encoder-Decoder</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Seq2Seq%E6%A8%A1%E5%9E%8B"><span class="toc-text">Seq2Seq模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E9%A6%88%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-text">前馈神经网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%82%E5%BD%92%E4%B8%80%E5%8C%96"><span class="toc-text">层归一化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AE%8B%E5%B7%AE%E8%BF%9E%E6%8E%A5"><span class="toc-text">残差连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Encoder"><span class="toc-text">Encoder</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Decoder"><span class="toc-text">Decoder</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AATransformer"><span class="toc-text">搭建一个Transformer</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Embedding%E5%B1%82"><span class="toc-text">Embedding层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%8D%E7%BD%AE%E7%BC%96%E7%A0%81"><span class="toc-text">位置编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E5%AE%8C%E6%95%B4%E7%9A%84Transformer"><span class="toc-text">一个完整的Transformer</span></a></li></ol></li></ol></li></ol> -->
+        <div class="toc"></div>
+      </div>
     </div>
+  </div>
 </section>
+<!-- 手机端目录按钮 -->
+<div id="toc-mobile-btn">
+  <i class="fas fa-list-ul" aria-hidden="true"></i>
+</div>
 
-  
-      
       
   <section class="widget side_recent_post">
     
@@ -1519,139 +830,163 @@
     </div>
   </section>
 
-      
-  <section class="widget side_archives">
-    
-    <header><a style="color: red" href='/archives/'><i class="fas fa-archive fa-fw" aria-hidden="true"></i><span class='name'>归档</span></a></header><div class="content"><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/03/"><span class="card-archive-list-date">三月 2026</span><span class="card-archive-list-count">4</span></a></li></ul></div>
-  </section>
-
-      <section class="widget side_webinfo">
-  
-  <header>
-    
-      <i style="color: " class="fas fa-chart-line fa-fw" aria-hidden="true"></i><span class='name' style="color: ">站点信息</span>
-    
-  </header>
-
-
-  <div class='content'>
-    <div class="webinfo">
-      
-        <div class="webinfo-item">
-          <div>文章数目：</div>
-          <div>4 篇</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>已运行时间：</div>
-          <div id="webinfo-runtime-count" publish_date="03/24/2020 21:34:09"></div>
-        </div>
-        <script>
-          var BirthDay = new Date(new Date('2020/01/01'));
-          var today = new Date();
-          var timeold = (today.getTime() - BirthDay.getTime());
-          var daysold = Math.floor(timeold / (24 * 60 * 60 * 1000));
-          document.getElementById('webinfo-runtime-count').innerHTML = daysold + ' 天';
-        </script>
-      
-
-
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站访客数：</div>
-          
-          <div><span id="busuanzi_value_site_uv"><i class="fas fa-fan fa-spin fa-fw" aria-hidden="true"></i></span> 人</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站总访问量：</div>
-          
-          <div><span id="busuanzi_value_site_pv"><i class="fas fa-fan fa-spin fa-fw" aria-hidden="true"></i></span> 次</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>最后活动时间：</div>
-          
-            <div id="last-update" style="display: none;">Sat Mar 21 2026 15:07:18 GMT+0800 (中国标准时间)</div>
-            <div id="last-update-show">2026-03-21 日</div>
-          
-        </div>
-        
-        <script>
-          function timeago(dateTimeStamp) {
-              var minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示
-              var hour = minute * 60;
-              var day = hour * 24;
-              var week = day * 7;
-              var month = day * 30;
-              var now = new Date().getTime(); //获取当前时间毫秒
-              var diffValue = now - dateTimeStamp; //时间差
-              if (diffValue < 0) {
-                  return;
-              }
-              var minC = diffValue / minute; //计算时间差的分，时，天，周，月
-              var hourC = diffValue / hour;
-              var dayC = diffValue / day;
-              var weekC = diffValue / week;
-              var monthC = diffValue / month;
-              if (monthC >= 1 && monthC <= 3) {
-                  result = " " + parseInt(monthC) + " 月前"
-              } else if (weekC >= 1 && weekC <= 3) {
-                  result = " " + parseInt(weekC) + " 周前"
-              } else if (dayC >= 1 && dayC <= 6) {
-                  result = " " + parseInt(dayC) + " 天前"
-              } else if (hourC >= 1 && hourC <= 23) {
-                  result = " " + parseInt(hourC) + " 小时前"
-              } else if (minC >= 1 && minC <= 59) {
-                  result = " " + parseInt(minC) + " 分钟前"
-              } else if (diffValue >= 0 && diffValue <= minute) {
-                  result = "刚刚"
-              } else {
-                  var datetime = new Date();
-                  datetime.setTime(dateTimeStamp);
-                  var Nyear = datetime.getFullYear();
-                  var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
-                  var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
-                  var Nhour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
-                  var Nminute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
-                  var Nsecond = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
-                  result = Nyear + "-" + Nmonth + "-" + Ndate
-              }
-              return result;
-          }
-          var lastUpDate = document.getElementById('last-update').innerHTML;
-          try {
-            document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
-          } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2026-03-21 日';
-          }
-        </script>
-        
-      
-    </div>
-  </div>
-</section>
-      
     
   </div>
 </aside>
+
+  <!-- 图片放大 Wrap images with fancybox support -->
+  <script defer src="/js/wrapImage.js"></script>
 </div>
-<!-- 花瓣和雪花飘落 -->
-<!-- 雪花和花瓣特效 -->
+
+<!-- 文章详情页背景图 -->
+<div id="appBgSwiper" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"
+	:style="{'background-color': bgColor ? bgColor : 'transparent'}">
+	<transition-group tag="ul" :name="names">
+		<li v-for='(image,index) in img' :key='index' v-show="index === mark" class="bg-swiper-box">
+			<img :src="image" class="bg-swiper-img no-lazy">
+		</li>
+	</transition-group>
+</div>
+<script>
+	var vm = new Vue({
+		el: '#appBgSwiper',
+		data: {
+			names: '' || 'fade' || 'fade', // translate-fade fade
+			mark: 0,
+			img: [],
+			bgColor: '',
+			time: null
+		},
+		methods: {   //添加方法
+			change(i, m) {
+				if (i > m) {
+					// this.names = 'fade';
+				} else if (i < m) {
+					// this.names = 'fade';
+				} else {
+					return;
+				}
+				this.mark = i;
+			},
+			prev() {
+				// this.names = 'fade';
+				this.mark--;
+				if (this.mark === -1) {
+					this.mark = 3;
+					return
+				}
+			},
+			next() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			autoPlay() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			play() {
+				let bgImgDelay = '' || '180000'
+				let delay = parseInt(bgImgDelay) || 180000;
+				this.time = setInterval(this.autoPlay, delay);
+			},
+			enter() {
+				clearInterval(this.time);
+			},
+			leave() {
+				this.play();
+			}
+		},
+		created() {
+			this.play()
+		},
+		beforeDestroy() {
+			clearInterval(this.time);
+		},
+		mounted() {
+			let prop = '' || '';
+			let isImg = prop.includes('.bmp') || prop.includes('.jpg') || prop.includes('.png') || prop.includes('.tif') || prop.includes('.gif') || prop.includes('.pcx') || prop.includes('.tga') || prop.includes('.exif') || prop.includes('.fpx') || prop.includes('.psd') || prop.includes('.cdr') || prop.includes('.pcd') || prop.includes('.dxf') || prop.includes('.ufo') || prop.includes('.eps') || prop.includes('.ai') || prop.includes('.raw') || prop.includes('.WMF') || prop.includes('.webp') || prop.includes('.jpeg') || prop.includes('http://') || prop.includes('https://')
+			if (isImg) {
+				let img = prop.split(',');
+				let configRoot = '/'
+				let arrImg = [];
+				img.forEach(el => {
+					var Expression = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
+					var objExp = new RegExp(Expression);
+
+					if (objExp.test(el)) {
+						// http or https
+						arrImg.push(el);
+					} else {
+						// 非http or https开头
+						// 本地文件
+						let firstStr = el.charAt(0);
+						if (firstStr == '/') {
+							el = el.substr(1); // 删除第一个字符 '/',因为 configRoot最后一个字符为 /
+						}
+						el = configRoot + el;
+						arrImg.push(el);
+					}
+				})
+				this.img = arrImg;
+			} else {
+				this.bgColor = prop;
+			}
+		}
+	})
+</script>
+
+<style>
+	.bg-swiper-box {
+		position: absolute;
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	.bg-swiper-img {
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+	}
+</style>
 
 
 
-<!-- 灯笼 -->
+
+  <script>
+  function loadMermaid() {
+    if (document.getElementsByClassName('mermaid').length) {
+      if (window.mermaidJsLoad) mermaid.init()
+      else {
+        loadScript('https://unpkg.com/mermaid/dist/mermaid.min.js').then(() => {
+          window.mermaidJsLoad = true
+          mermaid.initialize({
+            theme: 'default',
+          })
+          if ('true') {
+            mermaid.init();
+          }
+        })
+      }
+    }
+  };
+  document.addEventListener("DOMContentLoaded", function () {
+    loadMermaid();
+  })
+
+  document.addEventListener('pjax:complete', function () {
+    loadMermaid();
+  })
+  
+</script>
 
 
       </main>
