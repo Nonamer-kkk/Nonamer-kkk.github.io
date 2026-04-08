@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>归档 | Nonamer&#39;s Blog</title>
+  <title>预训练语言模型 | Nonamer&#39;s Blog</title>
 
   <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -355,225 +355,661 @@
   
 </header>
         <!-- 内容区域 -->
-        <div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"></div>
-<div class="bg-light-floor-archive" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -3;"></div>
-<div class="archive-header" style="background-image:url('https://pic1.zhimg.com/80/v2-1414b3a4b205e19060db18a20d08723a_1440w.jpg?source=1940ef5c')">
-  <div class="archive-header-title">
-    archive
-  </div>
-  <div class="archive-header-desc">
-  
-  <span class="title" id="archive-header-desc"></span>
-  <script>
-  function typedFn() {
-    const el = '#archive-header-desc';
-    const type = 'archive';
-    let desc = '愿你如风，被人温柔以待'
-    var typed = new Typed(el, {
-      strings: [desc],
-      startDelay: 100,
-      typeSpeed: 100,
-      loop: true,
-      backSpeed: 50,
-      showCursor: true
-    });
-  }
-  typedFn();
-</script>
-  
-  </div>
-  <div class="mask-box"></div>
-</div>
+        
+<!-- prismjs 代码高亮 -->
 
-<div class="archive-video">
-  <video class="full-video" autoplay loop muted>
-      <source style="width: 100%;height: 100vh;" src="/">
-  </video>
-  <div class="video-header-title">
-    archive
-  </div>
-  <div class="video-header-desc">
+
+
+
+<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -1;"></div>
+
+
+  <!-- 文章详情页顶部图片和标题 -->
+
+
+
+
+<div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
+  background-position: center center;position: relative;background-image:url('https://pic3.zhimg.com/80/v2-7cfc909ebe8d83683909846edd6b5232_1440w.webp')">
+  <div class="post-detail-header-mask"></div>
+  <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
-      <span class="title" id="archive-video-header-desc"></span>
-      <script>
-  function typedFn() {
-    const el = '#archive-video-header-desc';
-    const type = 'archive';
-    let desc = '愿你如风，被人温柔以待'
-    var typed = new Typed(el, {
-      strings: [desc],
-      startDelay: 100,
-      typeSpeed: 100,
-      loop: true,
-      backSpeed: 50,
-      showCursor: true
-    });
-  }
-  typedFn();
-</script>
+  <div class="post-detail-header_info-box">
+    <div class="title-box">
+      <span class="title">
+        预训练语言模型
+      </span>
+    </div>
+    
+    
       
+        <span class="post-detail-header_date">
+          <i class="fas fa-calendar"></i> 发表于：2026-04-08 |
+        </span>
+      
+
+      
+
+      
+    
   </div>
-  <div class="mask-box"></div>
+  
+  
+    <script defer src="/js/bubble/bubble.js"></script>
+  
 </div>
 
-<!-- hash算法 -->
 
 
-<div class="archive-main">
-  <section class="archive">
-    <div class="archive-content">
-      <ul class="post-archive">
+
+
+<div class="post-detail-content post-row" 
+  style="padding-top: 0px;">
+  <div class="main-content">
+    <article class="post post-detail">
+      <div class="post-content">
+        <h1 id="预训练语言模型"><a href="#预训练语言模型" class="headerlink" title="预训练语言模型"></a>预训练语言模型</h1><p>预训练语言模型，英文缩写为PLM，是一种基于大量文本数据预训练，并通过微调的方式来适用于特定任务的神经网络模型。基于transformer架构，PLM存在有三种主流架构：Encoder-Only、Encoder-Decoder、Decoder-Only。</p>
+<h2 id="1-Encoder-Only-PLM"><a href="#1-Encoder-Only-PLM" class="headerlink" title="1. Encoder-Only PLM"></a>1. Encoder-Only PLM</h2><p>顾名思义就是由Transformer的Encoder部分组成的模型，只使用Encoder部分的输出作为预训练语言模型的输入，而不使用Decoder部分。下面介绍几个代表模型：</p>
+<h3 id="BERT"><a href="#BERT" class="headerlink" title="BERT"></a>BERT</h3><p>全名为Bidirectional Encoder Representations from Transformers。可以说，BERT 是自然语言处理的一个阶段性成果，标志着各种自然语言处理任务的重大进展以及预训练模型的统治地位建立，一直到 LLM 的诞生，NLP 领域的主导地位才从 BERT 系模型进行迁移。即使在 LLM 时代，要深入理解 LLM 与 NLP，BERT 也是无法绕过的一环。<br>BERT是针对于 NLU 任务打造的预训练模型，其输入一般是文本序列，而输出一般是Label，例如情感分类的积极、消极Label。</p>
+<h5 id="预训练任务"><a href="#预训练任务" class="headerlink" title="预训练任务"></a>预训练任务</h5><p>BERT采用了MLM+NLP预训练任务，即Masked Language Modeling（MLM）和Next Sentence Prediction（NSP）两个任务。MLM类似完形填空，即将文本中的一些词语随机替换成[MASK]，模型需要预测这些词语的正确词汇。NSP任务则是判断两个句子是否是连贯的，即判断两个句子是否是属于同一个文档的。通过这样的预训练，迫使模型学习到文本的上下文信息，这是其相对于传统的LM预训练方式的优势。</p>
+<h5 id="下游微调"><a href="#下游微调" class="headerlink" title="下游微调"></a>下游微调</h5><p>在完成预训练后，针对每一个下游任务，只需要使用一定量的全监督人工标注数据，对预训练的BERT在该任务上进行微调即可。所谓微调，其实和训练时更新模型参数的策略一致，只不过在特定的任务、更少的训练数据、更小的batch_size上进行训练，更新参数的幅度更小。对于绝大部分下游任务，都可以直接使用BERT的输出。</p>
+<h3 id="RoBERTa"><a href="#RoBERTa" class="headerlink" title="RoBERTa"></a>RoBERTa</h3><p>RoBERTa是BERT的改进版本，在训练数据、预训练任务、训练参数等方面上进行了优化，以取得能力更强大、在下游任务上表现更亮眼的预训练模型。</p>
+<h5 id="优化点1：去掉NSP任务"><a href="#优化点1：去掉NSP任务" class="headerlink" title="优化点1：去掉NSP任务"></a>优化点1：去掉NSP任务</h5><p>在预训练任务上，有学者质疑 NSP 任务并不能提高模型性能，因为其太过简单，加入到预训练中并不能使下游任务微调时明显受益，甚至会带来负面效果。RoBERTa通过实验发现，去掉NSP任务后，模型的性能提升明显。因此，RoBERTa只使用MLM任务进行预训练。同时RoBERTa也改进了MLM任务，使用动态遮蔽策略。</p>
+<h5 id="优化点2：更大规模的预训练数据和预训练步长"><a href="#优化点2：更大规模的预训练数据和预训练步长" class="headerlink" title="优化点2：更大规模的预训练数据和预训练步长"></a>优化点2：更大规模的预训练数据和预训练步长</h5><p>RoBERTa使用了更大量的无监督语料进行预训练，共计160GB的数据，十倍于BERT。<br>同时，RoBERTa认为更大的batch size既可以提高优化速度，也可以提高任务结束性能。因此，实验在8K的batch size（对比BERT的batch size为256）下训练31K Step，也就是总训练token数和BERT一样是3.3B时，模型性能更好，从而证明了大batch size的意义。在此基础上，RoBERTa一共训练了500K Step（约合66个Epoch）。同时，RoBERTa不再采用BERT在256长度上进行大部分训练再在512长度上完成训练的策略，而是全部在512长度上进行训练。</p>
+<h5 id="优化点3：更大的bpe词表"><a href="#优化点3：更大的bpe词表" class="headerlink" title="优化点3：更大的bpe词表"></a>优化点3：更大的bpe词表</h5><p>RoBERTa使用了BPE作为Tokenizer的编码策略。BPE，即Byte Pair Encoding，字节对编码，是指以子词对作为分词的单位。BERT原始的BPE词表大小为30K，RoBERTa选择了50K大小的词表来优化模型的编码能力。</p>
+<h3 id="ALBERT"><a href="#ALBERT" class="headerlink" title="ALBERT"></a>ALBERT</h3><p>ALBERT从是否能够减小模型参数保持模型能力的角度展开了探究。通过对模型结构进行优化并对NSP预训练任务进行改进，ALBERT成功地以更小规模的参数实现了超越BERT的能力。</p>
+<h5 id="优化点1：将Embedding参数进行分解"><a href="#优化点1：将Embedding参数进行分解" class="headerlink" title="优化点1：将Embedding参数进行分解"></a>优化点1：将Embedding参数进行分解</h5><p>ALBERT对Embedding层的参数矩阵进行了分解，让Embedding层的输出维度和隐藏层维度解绑，也就是在Embedding层的后面加入一个线性矩阵进行维度变换。ALBERT设置了Embedding层的输出为128，因此在Embedding层后面加入了一个$128∗1024$的线性矩阵来将 Embedding 层的输出再升维到隐藏层大小。也就是说，Embedding 层的参数从 $V∗H$降低到了$V∗E+E∗H$，当E的大小远小于H时，该方法对Embedding层参数的优化就会很明显。</p>
+<h5 id="优化点2：跨层进行参数共享"><a href="#优化点2：跨层进行参数共享" class="headerlink" title="优化点2：跨层进行参数共享"></a>优化点2：跨层进行参数共享</h5><p>ALBERT仅初始化了一个Encoder层。在计算过程中，仍然会进行24次计算，但是每一次计算都是经过这一个Encoder层。因此，虽然是24个Encoder计算的模型，但只有一层Encoder参数，从而大大降低了模型参数量。</p>
+<h5 id="优化点3：提出SOP预训练任务"><a href="#优化点3：提出SOP预训练任务" class="headerlink" title="优化点3：提出SOP预训练任务"></a>优化点3：提出SOP预训练任务</h5><p>类似于RoBERTa，ALBERT也同样认为NSP任务过于简单，在预训练中无法对模型效果的提升带来显著影响。但是不同于RoBERTa选择直接去掉NSP，ALBERT选择改进NSP，增加其难度，来优化模型的预训练。<br>在传统的NSP任务中，正例是由两个连续句子组成的句对，而负例则是从任意两篇文档中抽取出的句对，模型可以较容易地判断正负例，并不能很好地学习深度语义。而SOP任务提出的改进是，正例同样由两个连续句子组成，但负例是将这两个的顺序反过来。也就是说，模型不仅要拟合两个句子之间的关系，更要学习其顺序关系，这样就大大提升了预训练的难度。</p>
+<h2 id="2-Encoder-Decoder-PLM"><a href="#2-Encoder-Decoder-PLM" class="headerlink" title="2. Encoder-Decoder PLM"></a>2. Encoder-Decoder PLM</h2><p>BERT存在一些问题，例如MLM任务和下游任务微调的不一致性，以及无法处理超过模型训练长度的输入等问题。为了解决这些问题，研究者们提出了Encoder-Decoder模型，通过引入Decoder部分来解决这些问题，同时也为NLP领域带来了新的思路和方法。我们可以通过T5模型来了解这种模型架构。</p>
+<h3 id="T5"><a href="#T5" class="headerlink" title="T5"></a>T5</h3><p>T5（Text-To-Text Transfer Transformer）是由Google提出的一种预训练语言模型，通过将所有NLP任务统一表示为文本到文本的转换问题，大大简化了模型设计和任务处理。通过这种统一处理方式，T5不仅减少了任务特定的模型调试工作，还能够使用相同的数据处理和训练框架，极大地提升了多任务学习的性能和应用的便捷性。</p>
+<h5 id="模型结构：Encoder-Decoder"><a href="#模型结构：Encoder-Decoder" class="headerlink" title="模型结构：Encoder-Decoder"></a>模型结构：Encoder-Decoder</h5><p>T5采用了Encoder-Decoder结构，其中编码器和解码器都是基于Transformer架构设计。编码器用于处理输入文本，解码器用于生成输出文本。编码器和解码器之间通过注意力机制进行信息交互，从而实现输入文本到输出文本的转换。<br>T5模型的Encoder和Decoder部分都是基于Transformer架构设计的，主要包括Self-Attention和前馈神经网络两种结构。Self-Attention用于捕捉输入序列中的全局依赖关系，前馈神经网络用于处理特征的非线性变换。<br>和Encoder不一样的是，在Decoder中还包含了Encoder-Decoder Attention结构，用于捕捉输入和输出序列之间的依赖关系。这两种Attention结构几乎完全一致，只有在位置编码和Mask机制上有所不同。</p>
+<h5 id="预训练任务-1"><a href="#预训练任务-1" class="headerlink" title="预训练任务"></a>预训练任务</h5><p>T5采用了MLM来进行预训练，预训练时，T5将输入文本转换为”文本到文本”的格式。对于一个给定的文本序列，随机选择一些token进行遮蔽，并用特殊的占位符(token)替换。然后将被遮蔽的token序列作为模型的输出目标。T5还尝试了将多个任务混合在一起进行预训练，而不仅仅是单独的MLM任务。这有助于模型学习更通用的语言表示。</p>
+<h5 id="大一统思想"><a href="#大一统思想" class="headerlink" title="大一统思想"></a>大一统思想</h5><p>T5模型的一个核心理念是“大一统思想”，即所有的NLP任务都可以统一为文本到文本的任务，这一思想在自然语言处理领域具有深远的影响。其设计理念是将所有不同类型的NLP任务（如文本分类、翻译、文本生成、问答等）转换为一个统一的格式：输入和输出都是纯文本。<br>对于不同的NLP任务，每次输入前都会加上一个任务描述前缀，明确指定当前任务的类型。这不仅帮助模型在预训练阶段学习到不同任务之间的通用特征，也便于在微调阶段迅速适应具体任务。例如，任务前缀可以是“summarize: ”用于摘要任务，或“translate English to German: ”用于翻译任务。<br>T5的大一统思想通过将所有NLP任务统一为文本到文本的形式，简化了任务处理流程，增强了模型的通用性和适应性。这一思想不仅推动了自然语言处理技术的发展，也为实际应用提供了更为便捷和高效的解决方案。</p>
+<h2 id="3-Decoder-Only-PLM"><a href="#3-Decoder-Only-PLM" class="headerlink" title="3. Decoder-Only PLM"></a>3. Decoder-Only PLM</h2><p>Decoder-Only是目前大火的LLM的基础架构，目前所有的LLM基本都是Decoder-Only模型。首先，让我们学习打开LLM世界大门的代表模型——由OpenAI发布的GPT。</p>
+<h3 id="GPT"><a href="#GPT" class="headerlink" title="GPT"></a>GPT</h3><p>GPT，全名Generative Pre-Training Language Model。GPT提出了通用预训练的概念，也就是在海量无监督语料上预训练，进而在每个特定任务上进行微调，从而实现这些任务的巨大收益。2020年发布的GPT-3成就了LLM时代的基础，并以GPT-3为基座模型的ChatGPT成功打开新时代的大门，成为LLM时代的最强竞争者也是目前的最大赢家。</p>
+<h5 id="模型架构：Decoder-Only"><a href="#模型架构：Decoder-Only" class="headerlink" title="模型架构：Decoder-Only"></a>模型架构：Decoder-Only</h5><p>GPT的整体结构和BERT是有一些类似的，只是相较于BERT的Encoder，选择使用了Decoder来进行模型结构的堆叠。由于Decoder-Only结构也天生适用于文本生成任务，所以相较于更贴合NLU任务设计的BERT，GPT和T5的模型设计更契合于NLG任务和Seq2Seq任务。<br>另外一个结构上的区别在于，GPT的MLP层没有选择线性矩阵来进行特征提取，而是选择了两个一维卷积核来提取，不过，从效果上说这两者是没有太大区别的。</p>
+<h5 id="预训练任务–CLM"><a href="#预训练任务–CLM" class="headerlink" title="预训练任务–CLM"></a>预训练任务–CLM</h5><p>Decoder-Only的模型结构往往更适合于文本生成任务，因此，Decoder-Only模型往往选择了最传统也最直接的预训练任务——因果语言模型，Causal Language Model，CLM可以看作N-gram语言模型的一个直接扩展。N-gram语言模型是基于前N个token来预测下一个token，CLM则是基于一个自然语言序列的前面所有token来预测下一个token，通过不断重复该过程来实现目标文本序列的生成。<br>CLM 是更直接的预训练任务，其天生和人类书写自然语言文本的习惯相契合，也和下游任务直接匹配，相对于 MLM 任务更加直接，可以在任何自然语言文本上直接应用。</p>
+<h3 id="LLaMA"><a href="#LLaMA" class="headerlink" title="LLaMA"></a>LLaMA</h3><p>LLaMA模型是由Meta（前Facebook）开发的一系列大型预训练语言模型。</p>
+<h5 id="模型架构：Decoder-Only-1"><a href="#模型架构：Decoder-Only-1" class="headerlink" title="模型架构：Decoder-Only"></a>模型架构：Decoder-Only</h5><p>与GPT系列模型一样，LLaMA模型也是基于Decoder-Only架构的预训练语言模型。LLaMA模型的整体结构与GPT系列模型类似，只是在模型规模和预训练数据集上有所不同。</p>
+<h3 id="GLM"><a href="#GLM" class="headerlink" title="GLM"></a>GLM</h3><p>GLM是智谱开发的主流中文LLM之一。在整个中文LLM的发展历程中，GLM具有独特且重大的技术意义。本节将简要叙述GLM系列的发展，并介绍其不同于GPT、LLaMA系列模型的独特技术思路。</p>
+<h5 id="模型架构：相对于GPT的略微调整"><a href="#模型架构：相对于GPT的略微调整" class="headerlink" title="模型架构：相对于GPT的略微调整"></a>模型架构：相对于GPT的略微调整</h5><p>GLM和GPT的模型架构基本相同，只有以下的区别：</p>
+<ul>
+<li>使用 Post Norm 而非 Pre Norm。Post Norm 由于在残差之后做归一化，对参数正则化的效果更强，进而模型的鲁棒性也会更好；Pre Norm相对于因为有一部分参数直接加在了后面，不需要对这部分参数进行正则化，正好可以防止模型的梯度爆炸或者梯度消失。因此，对于更大体量的模型来说，一般认为 Pre Norm 效果会更好。但 GLM 论文提出，使用 Post Norm 可以避免 LLM 的数值错误。</li>
+<li>使用单个线性层实现最终 token 的预测，而不是使用 MLP。</li>
+<li>激活函数从 ReLU 换成了 GeLUs。</li>
+</ul>
+<h5 id="预训练任务–GLM"><a href="#预训练任务–GLM" class="headerlink" title="预训练任务–GLM"></a>预训练任务–GLM</h5><p>GLM的核心创新点主要在于其提出的GLM（General Language Model，通用语言模型）任务，这也是GLM的名字由来。GLM是一种结合了自编码思想和自回归思想的预训练方法。所谓自编码思想，其实也就是MLM的任务学习思路，在输入文本中随机删除连续的tokens，要求模型学习被删除的tokens；所谓自回归思想，其实就是传统的CLM任务学习思路，也就是要求模型按顺序重建连续tokens。<br>GLM通过优化一个自回归空白填充任务来实现MLM与CLM思想的结合。其核心思想是，对于一个输入序列，会类似于MLM一样进行随机的掩码，但遮蔽的不是和MLM一样的单个token，而是每次遮蔽一连串token；模型在学习时，既需要使用遮蔽部分的上下文预测遮蔽部分，在遮蔽部分内部又需要以CLM的方式完成被遮蔽的tokens的预测。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>说实话这一章的内容很多，我因为很多事耽搁，断断续续看了很久才看完。但大概就是介绍了几种模型架构，内容大差不差，从不同模型的优劣对比，也能更深入的理解模型的训练过程和效果，这些不同的预训练思路和架构优化设计，加深了我对预训练语言模型的理解。Happy-LLM的原文中，这一章还有很多的数学公式和介绍，我看的也不是很懂，感觉想要完全理解这些，还是得后续的学习和大量的练习。</p>
+
+      </div>
+      <div class="post-tags-categories">
+        
+        <div class="tags">
+          
+            <a href="/tags/Happy-LLM/" class="">
+              Happy-LLM
+            </a>
+          
+        </div>
+        
+      </div>
+      
+        <div class="copyright">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+    <strong>作者:  </strong>yiwei Rong</a>
+    </li>
+    <li class="post-copyright-link">
+    <strong>文章链接:  </strong>
+    <a href="/2026/04/08/预训练语言模型/" target="_blank" title="预训练语言模型">https://nonamer-kkk.github.io/2026/04/08/预训练语言模型/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明:   </strong>
+      本网站所有文章除特别声明外,均采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+      许可协议。转载请注明出处!
+    </li>
+  </ul>
+<div>
+      
+    </article>
+    <!-- 上一篇文章和下一篇文章 -->
+    
+      <!-- 文章详情页的上一页和下一页 -->
+<div class="post-nav">
+
+
+
+
+
+  
+  <div class="post-nav-next post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" class="lazyload placeholder" data-srcset="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
+    </div>
+    <a href="/2026/04/02/24371119-%E5%AE%B9%E6%98%93%E4%B8%BA-%E7%AC%AC%E4%B8%89%E6%AC%A1%E4%BD%9C%E4%B8%9A/" class="post-nav-link">
+      <div class="title">
+        下一篇: <i class="fas fa-angle-right"></i>
+        <div class="title-text">仓颉第三次作业</div>
+      </div>
+      <!-- <div class="content">
+        第三次作业第一题简要思路由于可以按任意顺序返回答案，我们可以使用哈希表+前缀的思路将复杂度从枚举的O(n^2)降低到O(
+      </div> -->
+    </a>
+  </div>
+
+</div>
+
+    
+    
+
+    <!-- 打赏 -->
+    
+      <div id="appDonate" class="post-donate">
+  <div id="donate_board" class="donate_bar center" ref="donate">
+    <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏" @click="showDialogDrawer()"></a>
+  </div>
+  <transition name="fade">
+    <div 
+      class="donate-box-mask"
+      v-cloak 
+      v-show="visible"
+      @click="cancelDialogDrawer()"
+    >
+    </div>
+  </transition>
+  <transition name="bounce">
+    <div class="donate-box" v-cloak v-show="visible">
+      <div class="donate-box_close">
+        <i class="fas fa-times" aria-hidden="true" @click="cancelDialogDrawer" pointer></i>
+      </div>
+      <div class="donate-box_title">
+        <h4>
+          你的赏识是我前进的动力
+        </h4>
+      </div>
+      <div class="donate-box_tab">
+        <div class="Alipay" pointer :class="{'active': tabActive === 'Alipay'}" @click="changeTabActive('Alipay')">
+          支付宝
+        </div>
+        <div class="WeChatpay" pointer :class="{'active': tabActive === 'WeChatpay'}" @click="changeTabActive('WeChatpay')">
+          微信
+        </div>
+      </div>
+      <div class="donate-box_img">
+        <div class="AlipayImg" v-show="tabActive === 'Alipay'">
+          <img src="/" class="lazyload placeholder" data-srcset="/" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="支付宝打赏" />
+        </div> 
+        <div class="WeChatpayImg" v-show="tabActive === 'WeChatpay'">
+          <img src="/" class="lazyload placeholder" data-srcset="/" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="微信打赏" />
+        </div>
+      </div>
+    </div>
+  </transition>
+</div>
+
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appDonate',
+    data: {
+      visible: false,
+      tabActive: 'Alipay',
+      top: 0,
+    },
+    computed: {
+    },
+    mounted() {
+    },
+    methods: {
+      showDialogDrawer() {
+        this.visible = true;
+        // 防止页面滚动，只能让弹框滚动
+        // function getScroll() {
+        //   return {
+        //     left: window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0,
+        //     top: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+        //   };
+        // }
+        this.top = $(document).scrollTop() // or getScroll().top
+        // console.log('aa', $('.main-content'));
+        body.style.cssText = 'overflow: hidden;';
+      },
+      cancelDialogDrawer() {
+        this.visible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      },
+      changeTabActive(name) {
+        this.tabActive = name;
+      }
+    },
+    created() {}
+  })
+</script>
+    
+
+    <!-- 分享 -->
+    
+      <!-- https://github.com/overtrue/share.js -->
+<!-- 文章详情页的分享 -->
+<div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+
+<script defer src="/js/shareJs/social-share.min.js"></script>
+</script>
+
+<style>
+  .social-share {
+    margin: 20px 0;
+  }
+</style>
+
+
+    
+    
+    <!-- 评论 -->
+    <!-- 评论 -->
+
+  <div id="myComment">
+    
+      <div id="gitment-container"></div>
+
+    
+  </div>
+
+
+<!-- 还需要在后面这个地址里设置script, comment script in themes\hexo-theme-bamboo\layout\_partial\scripts\index.ejs -->
+
+
+  </div>
+
+  <!-- 目录 -->
+  <aside id='l_side'>
+  
+    
+      <section class="widget side_blogger">
+  <div class='content'>
+    
+      
+        <a class='avatar flat-box rectangle' href='/about/'>
+          <img src='https://pic2.zhimg.com/80/v2-42b72d5ebee4b8d8aa70d9687effe87b_1440w.webp'/>
+        </a>
+      
+    
+    
+      <div class='text'>
+        
+          <h2>学习博客</h2>
         
         
+          <p>随便写写</p>
+
+        
+        
+          <p><span id="jinrishici-sentence">Nonamer's Blog</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
           
-            
-            <div class="year" data-aos="zoom-in-up">
-                <div class="bullet"></div>
-                <a href="/archives/2026">2026</a>
-            </div>
+            <a href="/atom.xml"
+              class="social fas fa-rss flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
           
-          <li class="post-item" data-aos="fade-left">
+        
+          
+            <a href="mailto:me@xxx.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="https://github.com/yuang01/hexo-theme-bamboo"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=你的qq号码"
+              class="social fab fa-qq flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+    
+  
+  
+  
+
+  <div class="layout_sticky">    
+    
+      
+<section class="widget side_toc">
+  
+  <header>
+    
+      <i style="color: " class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name' style="color: ">本文目录</span>
+    
+  </header>
+
+
+  <div class='content'>
+    <div class="toc-main">
+      <div class="toc-content">
+        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%84%E8%AE%AD%E7%BB%83%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B"><span class="toc-text">预训练语言模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Encoder-Only-PLM"><span class="toc-text">1. Encoder-Only PLM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BERT"><span class="toc-text">BERT</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%A2%84%E8%AE%AD%E7%BB%83%E4%BB%BB%E5%8A%A1"><span class="toc-text">预训练任务</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%8B%E6%B8%B8%E5%BE%AE%E8%B0%83"><span class="toc-text">下游微调</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RoBERTa"><span class="toc-text">RoBERTa</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E7%82%B91%EF%BC%9A%E5%8E%BB%E6%8E%89NSP%E4%BB%BB%E5%8A%A1"><span class="toc-text">优化点1：去掉NSP任务</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E7%82%B92%EF%BC%9A%E6%9B%B4%E5%A4%A7%E8%A7%84%E6%A8%A1%E7%9A%84%E9%A2%84%E8%AE%AD%E7%BB%83%E6%95%B0%E6%8D%AE%E5%92%8C%E9%A2%84%E8%AE%AD%E7%BB%83%E6%AD%A5%E9%95%BF"><span class="toc-text">优化点2：更大规模的预训练数据和预训练步长</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E7%82%B93%EF%BC%9A%E6%9B%B4%E5%A4%A7%E7%9A%84bpe%E8%AF%8D%E8%A1%A8"><span class="toc-text">优化点3：更大的bpe词表</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ALBERT"><span class="toc-text">ALBERT</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E7%82%B91%EF%BC%9A%E5%B0%86Embedding%E5%8F%82%E6%95%B0%E8%BF%9B%E8%A1%8C%E5%88%86%E8%A7%A3"><span class="toc-text">优化点1：将Embedding参数进行分解</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E7%82%B92%EF%BC%9A%E8%B7%A8%E5%B1%82%E8%BF%9B%E8%A1%8C%E5%8F%82%E6%95%B0%E5%85%B1%E4%BA%AB"><span class="toc-text">优化点2：跨层进行参数共享</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E7%82%B93%EF%BC%9A%E6%8F%90%E5%87%BASOP%E9%A2%84%E8%AE%AD%E7%BB%83%E4%BB%BB%E5%8A%A1"><span class="toc-text">优化点3：提出SOP预训练任务</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Encoder-Decoder-PLM"><span class="toc-text">2. Encoder-Decoder PLM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#T5"><span class="toc-text">T5</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84%EF%BC%9AEncoder-Decoder"><span class="toc-text">模型结构：Encoder-Decoder</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%A2%84%E8%AE%AD%E7%BB%83%E4%BB%BB%E5%8A%A1-1"><span class="toc-text">预训练任务</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A4%A7%E4%B8%80%E7%BB%9F%E6%80%9D%E6%83%B3"><span class="toc-text">大一统思想</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Decoder-Only-PLM"><span class="toc-text">3. Decoder-Only PLM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GPT"><span class="toc-text">GPT</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%9E%B6%E6%9E%84%EF%BC%9ADecoder-Only"><span class="toc-text">模型架构：Decoder-Only</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%A2%84%E8%AE%AD%E7%BB%83%E4%BB%BB%E5%8A%A1%E2%80%93CLM"><span class="toc-text">预训练任务–CLM</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LLaMA"><span class="toc-text">LLaMA</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%9E%B6%E6%9E%84%EF%BC%9ADecoder-Only-1"><span class="toc-text">模型架构：Decoder-Only</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GLM"><span class="toc-text">GLM</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%9E%B6%E6%9E%84%EF%BC%9A%E7%9B%B8%E5%AF%B9%E4%BA%8EGPT%E7%9A%84%E7%95%A5%E5%BE%AE%E8%B0%83%E6%95%B4"><span class="toc-text">模型架构：相对于GPT的略微调整</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%A2%84%E8%AE%AD%E7%BB%83%E4%BB%BB%E5%8A%A1%E2%80%93GLM"><span class="toc-text">预训练任务–GLM</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol></li></ol> -->
+        <div class="toc"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- 手机端目录按钮 -->
+<div id="toc-mobile-btn">
+  <i class="fas fa-list-ul" aria-hidden="true"></i>
+</div>
+
+      
+  <section class="widget side_recent_post">
+    
+  <header>
+    
+      <a style="color: " href='/tags/'><i class="fas fa-book fa-fw" aria-hidden="true"></i><span class='name'>最新文章</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      
+      <!-- hash算法 -->
+      
+      <div class="aside-list">
+        
+          <div class="aside-list-item">
             
+            
+            
+
             <div class="post-img-box">
               <a href="/2026/04/08/%E9%A2%84%E8%AE%AD%E7%BB%83%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" class="post-img " style="background-size: cover; 
                 background-position: center center;">
-                <img class="lazyload lazyload placeholder" src="https://pic3.zhimg.com/80/v2-7cfc909ebe8d83683909846edd6b5232_1440w.webp" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/80/v2-7cfc909ebe8d83683909846edd6b5232_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic3.zhimg.com/80/v2-7cfc909ebe8d83683909846edd6b5232_1440w.webp" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/80/v2-7cfc909ebe8d83683909846edd6b5232_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
             </div>
             <div class="post-date-title">
               <div>
-                <span class="post-date">04-08</span>
+                
+                  <span class="post-date">04-08</span>
+                
               </div>
               <a class="post-title" href="/2026/04/08/%E9%A2%84%E8%AE%AD%E7%BB%83%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/">预训练语言模型</a>
             </div>
-          </li>
+          </div>
         
-          
-          <li class="post-item" data-aos="fade-left">
+          <div class="aside-list-item">
             
+            
+            
+
             <div class="post-img-box">
               <a href="/2026/04/02/24371119-%E5%AE%B9%E6%98%93%E4%B8%BA-%E7%AC%AC%E4%B8%89%E6%AC%A1%E4%BD%9C%E4%B8%9A/" class="post-img " style="background-size: cover; 
                 background-position: center center;">
-                <img class="lazyload lazyload placeholder" src="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" class="lazyload placeholder" data-srcset="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" class="lazyload placeholder" data-srcset="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
             </div>
             <div class="post-date-title">
               <div>
-                <span class="post-date">04-02</span>
+                
+                  <span class="post-date">04-02</span>
+                
               </div>
               <a class="post-title" href="/2026/04/02/24371119-%E5%AE%B9%E6%98%93%E4%B8%BA-%E7%AC%AC%E4%B8%89%E6%AC%A1%E4%BD%9C%E4%B8%9A/">仓颉第三次作业</a>
             </div>
-          </li>
+          </div>
         
-          
-          <li class="post-item" data-aos="fade-left">
+          <div class="aside-list-item">
             
+            
+            
+
             <div class="post-img-box">
               <a href="/2026/04/02/lab1%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" class="post-img " style="background-size: cover; 
                 background-position: center center;">
-                <img class="lazyload lazyload placeholder" src="https://pic3.zhimg.com/v2-a5267dfbf175991d4b3a69b41f3f678a_b.jpg" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/v2-a5267dfbf175991d4b3a69b41f3f678a_b.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic3.zhimg.com/v2-a5267dfbf175991d4b3a69b41f3f678a_b.jpg" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/v2-a5267dfbf175991d4b3a69b41f3f678a_b.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
             </div>
             <div class="post-date-title">
               <div>
-                <span class="post-date">04-02</span>
+                
+                  <span class="post-date">04-02</span>
+                
               </div>
               <a class="post-title" href="/2026/04/02/lab1%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">OS-lab1实验报告</a>
             </div>
-          </li>
+          </div>
         
-          
-          <li class="post-item" data-aos="fade-left">
+          <div class="aside-list-item">
             
+            
+            
+
             <div class="post-img-box">
               <a href="/2026/03/28/24371119-%E5%AE%B9%E6%98%93%E4%B8%BA-%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/" class="post-img " style="background-size: cover; 
                 background-position: center center;">
-                <img class="lazyload lazyload placeholder" src="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
             </div>
             <div class="post-date-title">
               <div>
-                <span class="post-date">03-28</span>
+                
+                  <span class="post-date">03-28</span>
+                
               </div>
               <a class="post-title" href="/2026/03/28/24371119-%E5%AE%B9%E6%98%93%E4%B8%BA-%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/">仓颉第二次作业</a>
             </div>
-          </li>
+          </div>
         
-          
-          <li class="post-item" data-aos="fade-left">
+          <div class="aside-list-item">
             
+            
+            
+
             <div class="post-img-box">
               <a href="/2026/03/21/Transformer%E6%9E%B6%E6%9E%84/" class="post-img " style="background-size: cover; 
                 background-position: center center;">
-                <img class="lazyload lazyload placeholder" src="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" class="lazyload placeholder" data-srcset="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" class="lazyload placeholder" data-srcset="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
             </div>
             <div class="post-date-title">
               <div>
-                <span class="post-date">03-21</span>
+                
+                  <span class="post-date">03-21</span>
+                
               </div>
               <a class="post-title" href="/2026/03/21/Transformer%E6%9E%B6%E6%9E%84/">Transformer架构</a>
             </div>
-          </li>
+          </div>
         
-          
-          <li class="post-item" data-aos="fade-left">
-            
-            <div class="post-img-box">
-              <a href="/2026/03/19/lab0%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload placeholder" src="https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                <span class="post-date">03-19</span>
-              </div>
-              <a class="post-title" href="/2026/03/19/lab0%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">OS-lab0实验报告</a>
-            </div>
-          </li>
-        
-          
-          <li class="post-item" data-aos="fade-left">
-            
-            <div class="post-img-box">
-              <a href="/2026/03/19/24371119-%E5%AE%B9%E6%98%93%E4%B8%BA-%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BD%9C%E4%B8%9A/" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload placeholder" src="https://pica.zhimg.com/80/v2-573ac3e25de03fad9c32add5a05e5cfc_1440w.webp" class="lazyload placeholder" data-srcset="https://pica.zhimg.com/80/v2-573ac3e25de03fad9c32add5a05e5cfc_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                <span class="post-date">03-19</span>
-              </div>
-              <a class="post-title" href="/2026/03/19/24371119-%E5%AE%B9%E6%98%93%E4%B8%BA-%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BD%9C%E4%B8%9A/">仓颉第一次作业</a>
-            </div>
-          </li>
-        
-          
-          <li class="post-item" data-aos="fade-left">
-            
-            <div class="post-img-box">
-              <a href="/2026/03/16/NPL%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload placeholder" src="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                <span class="post-date">03-16</span>
-              </div>
-              <a class="post-title" href="/2026/03/16/NPL%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/">NLP基本概念</a>
-            </div>
-          </li>
-        
-      </ul>
+      </div>
     </div>
   </section>
-  <div class="w-70">
+
     
   </div>
+</aside>
+
+  <!-- 图片放大 Wrap images with fancybox support -->
+  <script defer src="/js/wrapImage.js"></script>
 </div>
+
+<!-- 文章详情页背景图 -->
+<div id="appBgSwiper" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"
+	:style="{'background-color': bgColor ? bgColor : 'transparent'}">
+	<transition-group tag="ul" :name="names">
+		<li v-for='(image,index) in img' :key='index' v-show="index === mark" class="bg-swiper-box">
+			<img :src="image" class="bg-swiper-img no-lazy">
+		</li>
+	</transition-group>
+</div>
+<script>
+	var vm = new Vue({
+		el: '#appBgSwiper',
+		data: {
+			names: '' || 'fade' || 'fade', // translate-fade fade
+			mark: 0,
+			img: [],
+			bgColor: '',
+			time: null
+		},
+		methods: {   //添加方法
+			change(i, m) {
+				if (i > m) {
+					// this.names = 'fade';
+				} else if (i < m) {
+					// this.names = 'fade';
+				} else {
+					return;
+				}
+				this.mark = i;
+			},
+			prev() {
+				// this.names = 'fade';
+				this.mark--;
+				if (this.mark === -1) {
+					this.mark = 3;
+					return
+				}
+			},
+			next() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			autoPlay() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			play() {
+				let bgImgDelay = '' || '180000'
+				let delay = parseInt(bgImgDelay) || 180000;
+				this.time = setInterval(this.autoPlay, delay);
+			},
+			enter() {
+				clearInterval(this.time);
+			},
+			leave() {
+				this.play();
+			}
+		},
+		created() {
+			this.play()
+		},
+		beforeDestroy() {
+			clearInterval(this.time);
+		},
+		mounted() {
+			let prop = '' || '';
+			let isImg = prop.includes('.bmp') || prop.includes('.jpg') || prop.includes('.png') || prop.includes('.tif') || prop.includes('.gif') || prop.includes('.pcx') || prop.includes('.tga') || prop.includes('.exif') || prop.includes('.fpx') || prop.includes('.psd') || prop.includes('.cdr') || prop.includes('.pcd') || prop.includes('.dxf') || prop.includes('.ufo') || prop.includes('.eps') || prop.includes('.ai') || prop.includes('.raw') || prop.includes('.WMF') || prop.includes('.webp') || prop.includes('.jpeg') || prop.includes('http://') || prop.includes('https://')
+			if (isImg) {
+				let img = prop.split(',');
+				let configRoot = '/'
+				let arrImg = [];
+				img.forEach(el => {
+					var Expression = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
+					var objExp = new RegExp(Expression);
+
+					if (objExp.test(el)) {
+						// http or https
+						arrImg.push(el);
+					} else {
+						// 非http or https开头
+						// 本地文件
+						let firstStr = el.charAt(0);
+						if (firstStr == '/') {
+							el = el.substr(1); // 删除第一个字符 '/',因为 configRoot最后一个字符为 /
+						}
+						el = configRoot + el;
+						arrImg.push(el);
+					}
+				})
+				this.img = arrImg;
+			} else {
+				this.bgColor = prop;
+			}
+		}
+	})
+</script>
+
+<style>
+	.bg-swiper-box {
+		position: absolute;
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	.bg-swiper-img {
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+	}
+</style>
+
+
+
+
+  <script>
+  function loadMermaid() {
+    if (document.getElementsByClassName('mermaid').length) {
+      if (window.mermaidJsLoad) mermaid.init()
+      else {
+        loadScript('https://unpkg.com/mermaid/dist/mermaid.min.js').then(() => {
+          window.mermaidJsLoad = true
+          mermaid.initialize({
+            theme: 'default',
+          })
+          if ('true') {
+            mermaid.init();
+          }
+        })
+      }
+    }
+  };
+  document.addEventListener("DOMContentLoaded", function () {
+    loadMermaid();
+  })
+
+  document.addEventListener('pjax:complete', function () {
+    loadMermaid();
+  })
+  
+</script>
+
 
       </main>
     </div>
