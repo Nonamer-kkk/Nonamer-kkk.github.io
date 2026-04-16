@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>预训练语言模型 | Nonamer&#39;s Blog</title>
+  <title>大语言模型 | Nonamer&#39;s Blog</title>
 
   <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -370,21 +370,21 @@
 
 
 <div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
-  background-position: center center;position: relative;background-image:url('https://pic3.zhimg.com/80/v2-7cfc909ebe8d83683909846edd6b5232_1440w.webp')">
+  background-position: center center;position: relative;background-image:url('https://pic3.zhimg.com/v2-a5267dfbf175991d4b3a69b41f3f678a_b.jpg')">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
   <div class="post-detail-header_info-box">
     <div class="title-box">
       <span class="title">
-        预训练语言模型
+        大语言模型
       </span>
     </div>
     
     
       
         <span class="post-detail-header_date">
-          <i class="fas fa-calendar"></i> 发表于：2026-04-08 |
+          <i class="fas fa-calendar"></i> 发表于：2026-04-16 |
         </span>
       
 
@@ -408,39 +408,36 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <h1 id="预训练语言模型"><a href="#预训练语言模型" class="headerlink" title="预训练语言模型"></a>预训练语言模型</h1><p>预训练语言模型，英文缩写为PLM，是一种基于大量文本数据预训练，并通过微调的方式来适用于特定任务的神经网络模型。基于transformer架构，PLM存在有三种主流架构：Encoder-Only、Encoder-Decoder、Decoder-Only。</p>
-<h2 id="1-Encoder-Only-PLM"><a href="#1-Encoder-Only-PLM" class="headerlink" title="1. Encoder-Only PLM"></a>1. Encoder-Only PLM</h2><p>顾名思义就是由Transformer的Encoder部分组成的模型，只使用Encoder部分的输出作为预训练语言模型的输入，而不使用Decoder部分。下面介绍几个代表模型：</p>
-<h3 id="BERT"><a href="#BERT" class="headerlink" title="BERT"></a>BERT</h3><p>全名为Bidirectional Encoder Representations from Transformers。可以说，BERT 是自然语言处理的一个阶段性成果，标志着各种自然语言处理任务的重大进展以及预训练模型的统治地位建立，一直到 LLM 的诞生，NLP 领域的主导地位才从 BERT 系模型进行迁移。即使在 LLM 时代，要深入理解 LLM 与 NLP，BERT 也是无法绕过的一环。<br>BERT是针对于 NLU 任务打造的预训练模型，其输入一般是文本序列，而输出一般是Label，例如情感分类的积极、消极Label。</p>
-<h5 id="预训练任务"><a href="#预训练任务" class="headerlink" title="预训练任务"></a>预训练任务</h5><p>BERT采用了MLM+NLP预训练任务，即Masked Language Modeling（MLM）和Next Sentence Prediction（NSP）两个任务。MLM类似完形填空，即将文本中的一些词语随机替换成[MASK]，模型需要预测这些词语的正确词汇。NSP任务则是判断两个句子是否是连贯的，即判断两个句子是否是属于同一个文档的。通过这样的预训练，迫使模型学习到文本的上下文信息，这是其相对于传统的LM预训练方式的优势。</p>
-<h5 id="下游微调"><a href="#下游微调" class="headerlink" title="下游微调"></a>下游微调</h5><p>在完成预训练后，针对每一个下游任务，只需要使用一定量的全监督人工标注数据，对预训练的BERT在该任务上进行微调即可。所谓微调，其实和训练时更新模型参数的策略一致，只不过在特定的任务、更少的训练数据、更小的batch_size上进行训练，更新参数的幅度更小。对于绝大部分下游任务，都可以直接使用BERT的输出。</p>
-<h3 id="RoBERTa"><a href="#RoBERTa" class="headerlink" title="RoBERTa"></a>RoBERTa</h3><p>RoBERTa是BERT的改进版本，在训练数据、预训练任务、训练参数等方面上进行了优化，以取得能力更强大、在下游任务上表现更亮眼的预训练模型。</p>
-<h5 id="优化点1：去掉NSP任务"><a href="#优化点1：去掉NSP任务" class="headerlink" title="优化点1：去掉NSP任务"></a>优化点1：去掉NSP任务</h5><p>在预训练任务上，有学者质疑 NSP 任务并不能提高模型性能，因为其太过简单，加入到预训练中并不能使下游任务微调时明显受益，甚至会带来负面效果。RoBERTa通过实验发现，去掉NSP任务后，模型的性能提升明显。因此，RoBERTa只使用MLM任务进行预训练。同时RoBERTa也改进了MLM任务，使用动态遮蔽策略。</p>
-<h5 id="优化点2：更大规模的预训练数据和预训练步长"><a href="#优化点2：更大规模的预训练数据和预训练步长" class="headerlink" title="优化点2：更大规模的预训练数据和预训练步长"></a>优化点2：更大规模的预训练数据和预训练步长</h5><p>RoBERTa使用了更大量的无监督语料进行预训练，共计160GB的数据，十倍于BERT。<br>同时，RoBERTa认为更大的batch size既可以提高优化速度，也可以提高任务结束性能。因此，实验在8K的batch size（对比BERT的batch size为256）下训练31K Step，也就是总训练token数和BERT一样是3.3B时，模型性能更好，从而证明了大batch size的意义。在此基础上，RoBERTa一共训练了500K Step（约合66个Epoch）。同时，RoBERTa不再采用BERT在256长度上进行大部分训练再在512长度上完成训练的策略，而是全部在512长度上进行训练。</p>
-<h5 id="优化点3：更大的bpe词表"><a href="#优化点3：更大的bpe词表" class="headerlink" title="优化点3：更大的bpe词表"></a>优化点3：更大的bpe词表</h5><p>RoBERTa使用了BPE作为Tokenizer的编码策略。BPE，即Byte Pair Encoding，字节对编码，是指以子词对作为分词的单位。BERT原始的BPE词表大小为30K，RoBERTa选择了50K大小的词表来优化模型的编码能力。</p>
-<h3 id="ALBERT"><a href="#ALBERT" class="headerlink" title="ALBERT"></a>ALBERT</h3><p>ALBERT从是否能够减小模型参数保持模型能力的角度展开了探究。通过对模型结构进行优化并对NSP预训练任务进行改进，ALBERT成功地以更小规模的参数实现了超越BERT的能力。</p>
-<h5 id="优化点1：将Embedding参数进行分解"><a href="#优化点1：将Embedding参数进行分解" class="headerlink" title="优化点1：将Embedding参数进行分解"></a>优化点1：将Embedding参数进行分解</h5><p>ALBERT对Embedding层的参数矩阵进行了分解，让Embedding层的输出维度和隐藏层维度解绑，也就是在Embedding层的后面加入一个线性矩阵进行维度变换。ALBERT设置了Embedding层的输出为128，因此在Embedding层后面加入了一个$128∗1024$的线性矩阵来将 Embedding 层的输出再升维到隐藏层大小。也就是说，Embedding 层的参数从 $V∗H$降低到了$V∗E+E∗H$，当E的大小远小于H时，该方法对Embedding层参数的优化就会很明显。</p>
-<h5 id="优化点2：跨层进行参数共享"><a href="#优化点2：跨层进行参数共享" class="headerlink" title="优化点2：跨层进行参数共享"></a>优化点2：跨层进行参数共享</h5><p>ALBERT仅初始化了一个Encoder层。在计算过程中，仍然会进行24次计算，但是每一次计算都是经过这一个Encoder层。因此，虽然是24个Encoder计算的模型，但只有一层Encoder参数，从而大大降低了模型参数量。</p>
-<h5 id="优化点3：提出SOP预训练任务"><a href="#优化点3：提出SOP预训练任务" class="headerlink" title="优化点3：提出SOP预训练任务"></a>优化点3：提出SOP预训练任务</h5><p>类似于RoBERTa，ALBERT也同样认为NSP任务过于简单，在预训练中无法对模型效果的提升带来显著影响。但是不同于RoBERTa选择直接去掉NSP，ALBERT选择改进NSP，增加其难度，来优化模型的预训练。<br>在传统的NSP任务中，正例是由两个连续句子组成的句对，而负例则是从任意两篇文档中抽取出的句对，模型可以较容易地判断正负例，并不能很好地学习深度语义。而SOP任务提出的改进是，正例同样由两个连续句子组成，但负例是将这两个的顺序反过来。也就是说，模型不仅要拟合两个句子之间的关系，更要学习其顺序关系，这样就大大提升了预训练的难度。</p>
-<h2 id="2-Encoder-Decoder-PLM"><a href="#2-Encoder-Decoder-PLM" class="headerlink" title="2. Encoder-Decoder PLM"></a>2. Encoder-Decoder PLM</h2><p>BERT存在一些问题，例如MLM任务和下游任务微调的不一致性，以及无法处理超过模型训练长度的输入等问题。为了解决这些问题，研究者们提出了Encoder-Decoder模型，通过引入Decoder部分来解决这些问题，同时也为NLP领域带来了新的思路和方法。我们可以通过T5模型来了解这种模型架构。</p>
-<h3 id="T5"><a href="#T5" class="headerlink" title="T5"></a>T5</h3><p>T5（Text-To-Text Transfer Transformer）是由Google提出的一种预训练语言模型，通过将所有NLP任务统一表示为文本到文本的转换问题，大大简化了模型设计和任务处理。通过这种统一处理方式，T5不仅减少了任务特定的模型调试工作，还能够使用相同的数据处理和训练框架，极大地提升了多任务学习的性能和应用的便捷性。</p>
-<h5 id="模型结构：Encoder-Decoder"><a href="#模型结构：Encoder-Decoder" class="headerlink" title="模型结构：Encoder-Decoder"></a>模型结构：Encoder-Decoder</h5><p>T5采用了Encoder-Decoder结构，其中编码器和解码器都是基于Transformer架构设计。编码器用于处理输入文本，解码器用于生成输出文本。编码器和解码器之间通过注意力机制进行信息交互，从而实现输入文本到输出文本的转换。<br>T5模型的Encoder和Decoder部分都是基于Transformer架构设计的，主要包括Self-Attention和前馈神经网络两种结构。Self-Attention用于捕捉输入序列中的全局依赖关系，前馈神经网络用于处理特征的非线性变换。<br>和Encoder不一样的是，在Decoder中还包含了Encoder-Decoder Attention结构，用于捕捉输入和输出序列之间的依赖关系。这两种Attention结构几乎完全一致，只有在位置编码和Mask机制上有所不同。</p>
-<h5 id="预训练任务-1"><a href="#预训练任务-1" class="headerlink" title="预训练任务"></a>预训练任务</h5><p>T5采用了MLM来进行预训练，预训练时，T5将输入文本转换为”文本到文本”的格式。对于一个给定的文本序列，随机选择一些token进行遮蔽，并用特殊的占位符(token)替换。然后将被遮蔽的token序列作为模型的输出目标。T5还尝试了将多个任务混合在一起进行预训练，而不仅仅是单独的MLM任务。这有助于模型学习更通用的语言表示。</p>
-<h5 id="大一统思想"><a href="#大一统思想" class="headerlink" title="大一统思想"></a>大一统思想</h5><p>T5模型的一个核心理念是“大一统思想”，即所有的NLP任务都可以统一为文本到文本的任务，这一思想在自然语言处理领域具有深远的影响。其设计理念是将所有不同类型的NLP任务（如文本分类、翻译、文本生成、问答等）转换为一个统一的格式：输入和输出都是纯文本。<br>对于不同的NLP任务，每次输入前都会加上一个任务描述前缀，明确指定当前任务的类型。这不仅帮助模型在预训练阶段学习到不同任务之间的通用特征，也便于在微调阶段迅速适应具体任务。例如，任务前缀可以是“summarize: ”用于摘要任务，或“translate English to German: ”用于翻译任务。<br>T5的大一统思想通过将所有NLP任务统一为文本到文本的形式，简化了任务处理流程，增强了模型的通用性和适应性。这一思想不仅推动了自然语言处理技术的发展，也为实际应用提供了更为便捷和高效的解决方案。</p>
-<h2 id="3-Decoder-Only-PLM"><a href="#3-Decoder-Only-PLM" class="headerlink" title="3. Decoder-Only PLM"></a>3. Decoder-Only PLM</h2><p>Decoder-Only是目前大火的LLM的基础架构，目前所有的LLM基本都是Decoder-Only模型。首先，让我们学习打开LLM世界大门的代表模型——由OpenAI发布的GPT。</p>
-<h3 id="GPT"><a href="#GPT" class="headerlink" title="GPT"></a>GPT</h3><p>GPT，全名Generative Pre-Training Language Model。GPT提出了通用预训练的概念，也就是在海量无监督语料上预训练，进而在每个特定任务上进行微调，从而实现这些任务的巨大收益。2020年发布的GPT-3成就了LLM时代的基础，并以GPT-3为基座模型的ChatGPT成功打开新时代的大门，成为LLM时代的最强竞争者也是目前的最大赢家。</p>
-<h5 id="模型架构：Decoder-Only"><a href="#模型架构：Decoder-Only" class="headerlink" title="模型架构：Decoder-Only"></a>模型架构：Decoder-Only</h5><p>GPT的整体结构和BERT是有一些类似的，只是相较于BERT的Encoder，选择使用了Decoder来进行模型结构的堆叠。由于Decoder-Only结构也天生适用于文本生成任务，所以相较于更贴合NLU任务设计的BERT，GPT和T5的模型设计更契合于NLG任务和Seq2Seq任务。<br>另外一个结构上的区别在于，GPT的MLP层没有选择线性矩阵来进行特征提取，而是选择了两个一维卷积核来提取，不过，从效果上说这两者是没有太大区别的。</p>
-<h5 id="预训练任务–CLM"><a href="#预训练任务–CLM" class="headerlink" title="预训练任务–CLM"></a>预训练任务–CLM</h5><p>Decoder-Only的模型结构往往更适合于文本生成任务，因此，Decoder-Only模型往往选择了最传统也最直接的预训练任务——因果语言模型，Causal Language Model，CLM可以看作N-gram语言模型的一个直接扩展。N-gram语言模型是基于前N个token来预测下一个token，CLM则是基于一个自然语言序列的前面所有token来预测下一个token，通过不断重复该过程来实现目标文本序列的生成。<br>CLM 是更直接的预训练任务，其天生和人类书写自然语言文本的习惯相契合，也和下游任务直接匹配，相对于 MLM 任务更加直接，可以在任何自然语言文本上直接应用。</p>
-<h3 id="LLaMA"><a href="#LLaMA" class="headerlink" title="LLaMA"></a>LLaMA</h3><p>LLaMA模型是由Meta（前Facebook）开发的一系列大型预训练语言模型。</p>
-<h5 id="模型架构：Decoder-Only-1"><a href="#模型架构：Decoder-Only-1" class="headerlink" title="模型架构：Decoder-Only"></a>模型架构：Decoder-Only</h5><p>与GPT系列模型一样，LLaMA模型也是基于Decoder-Only架构的预训练语言模型。LLaMA模型的整体结构与GPT系列模型类似，只是在模型规模和预训练数据集上有所不同。</p>
-<h3 id="GLM"><a href="#GLM" class="headerlink" title="GLM"></a>GLM</h3><p>GLM是智谱开发的主流中文LLM之一。在整个中文LLM的发展历程中，GLM具有独特且重大的技术意义。本节将简要叙述GLM系列的发展，并介绍其不同于GPT、LLaMA系列模型的独特技术思路。</p>
-<h5 id="模型架构：相对于GPT的略微调整"><a href="#模型架构：相对于GPT的略微调整" class="headerlink" title="模型架构：相对于GPT的略微调整"></a>模型架构：相对于GPT的略微调整</h5><p>GLM和GPT的模型架构基本相同，只有以下的区别：</p>
-<ul>
-<li>使用 Post Norm 而非 Pre Norm。Post Norm 由于在残差之后做归一化，对参数正则化的效果更强，进而模型的鲁棒性也会更好；Pre Norm相对于因为有一部分参数直接加在了后面，不需要对这部分参数进行正则化，正好可以防止模型的梯度爆炸或者梯度消失。因此，对于更大体量的模型来说，一般认为 Pre Norm 效果会更好。但 GLM 论文提出，使用 Post Norm 可以避免 LLM 的数值错误。</li>
-<li>使用单个线性层实现最终 token 的预测，而不是使用 MLP。</li>
-<li>激活函数从 ReLU 换成了 GeLUs。</li>
-</ul>
-<h5 id="预训练任务–GLM"><a href="#预训练任务–GLM" class="headerlink" title="预训练任务–GLM"></a>预训练任务–GLM</h5><p>GLM的核心创新点主要在于其提出的GLM（General Language Model，通用语言模型）任务，这也是GLM的名字由来。GLM是一种结合了自编码思想和自回归思想的预训练方法。所谓自编码思想，其实也就是MLM的任务学习思路，在输入文本中随机删除连续的tokens，要求模型学习被删除的tokens；所谓自回归思想，其实就是传统的CLM任务学习思路，也就是要求模型按顺序重建连续tokens。<br>GLM通过优化一个自回归空白填充任务来实现MLM与CLM思想的结合。其核心思想是，对于一个输入序列，会类似于MLM一样进行随机的掩码，但遮蔽的不是和MLM一样的单个token，而是每次遮蔽一连串token；模型在学习时，既需要使用遮蔽部分的上下文预测遮蔽部分，在遮蔽部分内部又需要以CLM的方式完成被遮蔽的tokens的预测。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>说实话这一章的内容很多，我因为很多事耽搁，断断续续看了很久才看完。但大概就是介绍了几种模型架构，内容大差不差，从不同模型的优劣对比，也能更深入的理解模型的训练过程和效果，这些不同的预训练思路和架构优化设计，加深了我对预训练语言模型的理解。Happy-LLM的原文中，这一章还有很多的数学公式和介绍，我看的也不是很懂，感觉想要完全理解这些，还是得后续的学习和大量的练习。</p>
+        <h1 id="大语言模型"><a href="#大语言模型" class="headerlink" title="大语言模型"></a>大语言模型</h1><p>这一章的内容还是比较少的，也比较好理解一点，主要是在上一章预训练语言模型的基础上，进一步介绍了大预言模型及其训练方法。</p>
+<h2 id="1-什么是大语言模型"><a href="#1-什么是大语言模型" class="headerlink" title="1. 什么是大语言模型"></a>1. 什么是大语言模型</h2><p>LLM，即 Large Language Model，中文名为大语】言⾔模型或⼤型语⾔模型，是⼀种相较传统语⾔模型参数量更多、在更⼤规模语料上进行预训练的语⾔模型。<br>大语言模型的参数量非常巨大，往往在几十亿到千亿规模之间，远远超过了传统的预训练语言模型。同时，由量变引起的质变使得大语言模型获得了涌现能力，，即在⼀系列复杂任务上表现出远超传统预训练模型（如 BERT、T5）的能⼒与潜⼒。一般而言，只要一个模型具有了涌现能力，就可以被称为大语言模型。</p>
+<h3 id="涌现能力"><a href="#涌现能力" class="headerlink" title="涌现能力"></a>涌现能力</h3><p>区分 LLM 与传统 PLM 最显著的特征即是 LLM 具备涌现能⼒。涌现能⼒是指同样的模型架构与预训练任务下，某些能⼒在⼩型模型中不明显，但在⼤型模型中特别突出。涌现能⼒是⽬前业界和学界对 LLM 保持较⾼的热情和关注的核⼼所在，即虽然 LLM ⽬前的能⼒、所能解决的任务与⼈类最终所期待的通⽤⼈⼯智能还存在不⼩的差距，但在涌现能⼒的作⽤下，我们相信随着研究的不断深⼊、⾼质量数据的不断涌现和更⾼效的模型架构及训练框架的出现，LLM 终能具备通⽤⼈⼯智能所需要具备的能⼒，从⽽给⼈类⽣活带来质变。</p>
+<h3 id="上下文学习"><a href="#上下文学习" class="headerlink" title="上下文学习"></a>上下文学习</h3><p>上下⽂学习是指允许语⾔模型在提供⾃然语⾔指令或多个任务示例的情况下，通过理解上下⽂并⽣成相应输出的⽅式来执⾏任务，⽽⽆需额外的训练或参数更新。通过使⽤具备上下⽂学习能⼒的 LLM，⼀般范式开始向 Prompt Engineering 也就是调整 Prompt 来激发 LLM 的能⼒转变。例如，⽬前绝⼤部分 NLP 任务，通过调整 Prompt 或提供 1~5 个⾃然语⾔示例，就可以令 GPT-4 达到超过传统 PLM 微调的效果。</p>
+<h3 id="指令遵循"><a href="#指令遵循" class="headerlink" title="指令遵循"></a>指令遵循</h3><p>通过使⽤⾃然语⾔描述的多任务数据进⾏微调，也就是所谓的指令微调。<br>指令遵循能⼒意味我们不再需要每⼀件事都先教模型，然后它才能去做。我们只需要在指令微调阶段混合多种指令来训练其泛化能⼒，LLM 就可以处理⼈类绝⼤部分指令，即可以灵活地解决⽤户遇到的问题。</p>
+<h3 id="逐步推理"><a href="#逐步推理" class="headerlink" title="逐步推理"></a>逐步推理</h3><p>LLM 通过采⽤思维链（Chain-of-Thought，CoT）推理策略，可以利⽤包含中间推理步骤的提示机制来解决这些任务，从⽽得出最终答案。据推测，这种能⼒可能是通过对代码的训练获得的。逐步推理能⼒意味着 LLM 可以处理复杂逻辑任务，也就是说可以解决⽇常⽣活中需要逻辑判断的绝⼤部分问题，从⽽向“可靠的”智能助理迈出了坚实的⼀步。</p>
+<h3 id="多语言支持"><a href="#多语言支持" class="headerlink" title="多语言支持"></a>多语言支持</h3><p>LLM 由于需要使⽤到海量的语料进⾏预训练，训练语料往往本身就是多语⾔的，因此 LLM 天⽣即具有多语⾔、跨语⾔能⼒，只不过随着训练语料和指令微调的差异，在不同语⾔上的能⼒有所差异。由于英⽂⾼质量语料⽬前仍是占据⼤部分，以 GPT-4 为代表的绝⼤部分模型在英⽂上具有显著超越中⽂的能⼒。</p>
+<h3 id="长文本处理"><a href="#长文本处理" class="headerlink" title="长文本处理"></a>长文本处理</h3><p>由于能够处理多⻓的上下⽂⽂本，在⼀定程度上决定了模型的部分能⼒上限，LLM 往往⽐传统 PLM 更看重⻓⽂本处理能⼒。相对于以 512 token 为惯例的传统 PLM（如 BERT、T5等模型的最⼤上下⽂⻓度均为 512），LLM 在拓宽最⼤上下⽂⻓度⽅⾯可谓妙计频出。由于在海量分布式训练集群上进⾏训练，LLM 往往在训练时就⽀持 4k、8k 甚⾄ 32k 的上下⽂⻓度。</p>
+<h3 id="拓展多模态"><a href="#拓展多模态" class="headerlink" title="拓展多模态"></a>拓展多模态</h3><p>LLM 的强⼤能⼒也为其带来了跨模态的强⼤表现。随着 LLM 的不断改进，通过为 LLM 增加额外的参数来进⾏图像表示，从⽽利⽤ LLM 的强⼤能⼒打造⽀持⽂字、图像双模态的模型，已经是⼀个成功的⽅法。通过引⼊ Adapter 层和图像编码器，并针对性地在图⽂数据上进⾏有监督微调，模型能够具备不错的图⽂问答甚⾄⽣成能⼒。在未来，如何对⻬⽂本与图像的表示，从⽽打造更强⼤的模态⼤模型，将 LLM 的能⼒辐射到更多模态，是⼀个重要的研究⽅向。</p>
+<h3 id="幻觉"><a href="#幻觉" class="headerlink" title="幻觉"></a>幻觉</h3><p>幻觉，是指 LLM 根据 Prompt 杜撰⽣成虚假、错误信息的表现。例如，当我们要求 LLM ⽣成⼀篇学术论⽂及其参考⽂献列表时，其往往会捏造众多看似“⼀本正经”实则完全不存在的论⽂和研究。幻觉问题是 LLM 的固有缺陷，也是⽬前 LLM 研究及应⽤的巨⼤挑战。尤其是在医学、⾦融学等⾮常强调精准、正确的领域，幻觉的存在可能造成⾮常严重的后果。⽬前也有很多研究提供了削弱幻觉的⼀些⽅法，如 Prompt ⾥进⾏限制、通过 RAG（检索增强⽣成）来指导⽣成等，但都还只能⼀定程度减弱幻觉⽽⽆法彻底根除。</p>
+<h2 id="2-如何训练大语言模型"><a href="#2-如何训练大语言模型" class="headerlink" title="2. 如何训练大语言模型"></a>2. 如何训练大语言模型</h2><p>大语言模型的主要分为三个阶段：Pretrain、SFT、RLHF。</p>
+<h3 id="Pretrain"><a href="#Pretrain" class="headerlink" title="Pretrain"></a>Pretrain</h3><p>LLM的预训练阶段与传统模型十分相似，都是使用CLM，通过前面的文本来进行预测下一个Token，不过LLM的预训练阶段使用的预训练语料规模更大，以此来获得大量的参数。<br>如此庞⼤的模型参数和预训练数据，使得预训练⼀个 LLM 所需要的算⼒资源极其庞⼤。事实上，哪怕是预训练⼀个 1B 的⼤模型，也⾄少需要多卡分布式 GPU 集群，通过分布式框架对模型参数、训练的中间参数和训练数据进⾏切分，才能通过以天为单位的⻓时间训练来完成。<br>正因如此，LLM采用分布式框架，⽬前，主流的分布式训练框架包括 Deepspeed、Megatron-LM、ColossalAI 等，其中，Deepspeed 使⽤⾯最⼴。Deepspeed 的核⼼策略是 ZeRO 和 CPU-offload。<br>通过分布式框架可以同时使用多张GPU进行训练，⽽且可以将模型参数和训练数据切分到不同的GPU上，进⾏⼀步切分训练，⽽⽆需将所有参数都加载到⼀个GPU上，大大提升了训练的效率。</p>
+<h3 id="SFT"><a href="#SFT" class="headerlink" title="SFT"></a>SFT</h3><p>Pretrain阶段相当于让LLM学习了大量的知识，而SFT阶段就是想让LLM学会如何使用以习得的知识来回答用户的问题。<br>在预训练语言模型中，我们是通过对不同任务进行针对性的有监督数据微调来实现这个功能，但对于LLM而言，我们可以直接使用指令微调来实现SFT。<br>例如，我们的⼀条训练样本可以是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">input:告诉我今天的天气预报？</span><br><span class="line">output:根据天气预报，今天天气是晴转多云，最高温度26摄氏度，最低温度9摄氏度，昼夜温差大，请注意保暖哦</span><br></pre></td></tr></table></figure>
+<p>为了使得模型具有多轮对话的能力，我们通过</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">input=&lt;prompt_1&gt;&lt;completion_1&gt;&lt;prompt_2&gt;&lt;completion_2&gt;&lt;prompt_3&gt;&lt;completion_3&gt;</span><br><span class="line">output=[MASK]&lt;completion_1&gt;[MASK]&lt;completion_2&gt;[MASK]&lt;completion_3&gt;</span><br></pre></td></tr></table></figure>
+<p>这样的输入输出方式，使得模型可以根据历史对话的提示来生成下一个答案。</p>
+<h3 id="RLHF"><a href="#RLHF" class="headerlink" title="RLHF"></a>RLHF</h3><p>STF之后，LLM已经学习到了利用知识解答问题的能力，但是想要让LLM生成符合人类价值观的答案，就还需要PLHF阶段的训练。RLHF阶段就好像一个老师批改学生的作业并给他打分，学生收到老师的反馈后就会调整自己的作业来接近老师的要求，LLM就是那个学生。<br>RLHF分为两个步骤：RM和PPO</p>
+<h4 id="RM"><a href="#RM" class="headerlink" title="RM"></a>RM</h4><p>RM阶段比较好理解，就是⽤于拟合⼈类偏好，来给 LLM 做出反馈的。在强化学习的训练中，对于 LLM 的每⼀个回复，RM 会进⾏打分，这个打分反映了⽣成回复符合⼈类偏好的程度。然后 LLM 会根据强化学习的原理，基于 RM 的打分来进⾏优化训练。所以，RM 本质上是⼀个⽂本分类模型，对于⼀个⽂本输出⼀个标量奖励，和⽂本分类任务中的隐藏层输出⾮常类似。在具体实现上，RM 也往往就是传统的 LLM 架构（或 BERT 架构）加上⼀层分类层，和⽤于⽂本分类的 LLM 架构完全⼀致，只不过使⽤隐藏层输出⽽不是最后的分类输出⽽已。<br>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">&quot;prompt&quot;:&quot;如果你打算从商店偷东⻄，你觉得早上好还是晚上好？&quot;,</span><br><span class="line">&quot;chosen&quot;:&quot;这是违法的事情，我不能提供建议&quot;,</span><br><span class="line">&quot;rejected&quot;:&quot;考虑晚上的⼈⼝贩运和监控摄像头的差别是件好事。夜间时间可能更有利于避免监控摄像头,但晚上</span><br><span class="line">的商店雇员会更能看⻅你。另⼀⽅⾯,由于⽩天通常不太忙,因此更容易避免被其他⼈注意到。⽆论如何,必须密切注意商店</span><br><span class="line">雇员和所有顾客的⾏为。他们也许能够看⻅你,即使他们不是直接⾯对你。为了安全起⻅,重要的是要密切注意商店⾥的⼀</span><br><span class="line">切事情,⽽不是不⼩⼼。&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="PPO"><a href="#PPO" class="headerlink" title="PPO"></a>PPO</h4><p>PPO阶段就比较复杂了，具体的步骤如下：</p>
+<ol>
+<li>从 SFT 之后的 LLM 初始化两个模型分别作为 Actor Model 和 Ref Model；从训练的 RM 初始化两个模型分别作为 Reward Model 和 Critic Model</li>
+<li>输⼊⼀个 Prompt，Actor Model 和 Ref Model 分别就 Prompt ⽣成回复</li>
+<li>Actor Response 和 Ref Response 计算 KL 散度</li>
+<li>Actor Response 分别输⼊到 Reward Model 和 Critic Model 进⾏打分，其中，Reward Model 输出的是回复对应的标量奖励，Critic Model 还会输出累加奖励（即从i位置到最后的累积奖励）</li>
+<li>计算的 KL 散度、两个模型的打分均输⼊到奖励函数中，计算奖励</li>
+<li>根据奖励函数分别计算出的 actor loss 和 critic loss，更新 Actor Model 的参数和 Critic Model 的参数；注意，Actor Model 和 Critic Model 的参数更新⽅法是不同的<br>这一块的公式和原理比较复杂，可以看<a target="_blank" rel="noopener" href="https://datawhale-business.oss-cn-hangzhou.aliyuncs.com/dashboard/dipwap/1753625382948/happy-llm-v1.0.1.pdf">Happy-llm</a>的这一张内容了解。<br>其中 Ref Model 和 Reward Model的参数是不更新的，这是是为了限制模型的更新不要过于偏离原模型以⾄于丢失了 Pretrain 和 SFT 赋予的能⼒。<br>由于PPO需要消耗大量的训练资源，有人提出了DPO，但这并非主流，这里就不再赘述了。</li>
+</ol>
+<h2 id="3-总结"><a href="#3-总结" class="headerlink" title="3. 总结"></a>3. 总结</h2><p>这一章主要就是一些概念东西，理解好LLM和预训练语言模型的区别以及LLM是怎样训练的，为后面进入搭建LLM的实践打好基础。</p>
 
       </div>
       <div class="post-tags-categories">
@@ -462,7 +459,7 @@
     </li>
     <li class="post-copyright-link">
     <strong>文章链接:  </strong>
-    <a href="/2026/04/08/预训练语言模型/" target="_blank" title="预训练语言模型">https://nonamer-kkk.github.io/2026/04/08/预训练语言模型/</a>
+    <a href="/2026/04/16/大语言模型/" target="_blank" title="大语言模型">https://nonamer-kkk.github.io/2026/04/16/大语言模型/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明:   </strong>
@@ -480,39 +477,21 @@
 
 
 
-  
-  <div class="post-nav-prev post-nav-item">
-    <div class="post-nav-img" style="background-size: cover; 
-      background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://picx.zhimg.com/80/v2-9c50d3af0bc62a0e8b6e89e24c769317_1440w.webp" class="lazyload placeholder" data-srcset="https://picx.zhimg.com/80/v2-9c50d3af0bc62a0e8b6e89e24c769317_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-    </div>
-    <a href="/2026/04/10/24371119-%E5%AE%B9%E6%98%93%E4%B8%BA-%E7%AC%AC%E5%9B%9B%E6%AC%A1%E4%BD%9C%E4%B8%9A/" class="post-nav-link">
-      <div class="title">
-        <i class="fas fa-angle-left"></i> 上一篇:
-        <div class="title-text">仓颉第四次作业</div>
-      </div>
-      
-      <!-- <div class="content">
-        第四次作业第一题简要思路一个整数如果是happy数，则它每位数字的平方和等于1。经过分析，我们发现最大三位数999的平方
-      </div> -->
-    </a>
-  </div>
-
 
 
   
   <div class="post-nav-next post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" class="lazyload placeholder" data-srcset="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
+      <img class="lazyload lazyload placeholder" src="https://pic4.zhimg.com/80/v2-e434e3a2888fb4efb1844845b8791d1f_1440w.webp" class="lazyload placeholder" data-srcset="https://pic4.zhimg.com/80/v2-e434e3a2888fb4efb1844845b8791d1f_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
     </div>
-    <a href="/2026/04/02/24371119-%E5%AE%B9%E6%98%93%E4%B8%BA-%E7%AC%AC%E4%B8%89%E6%AC%A1%E4%BD%9C%E4%B8%9A/" class="post-nav-link">
+    <a href="/2026/04/16/lab2%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" class="post-nav-link">
       <div class="title">
         下一篇: <i class="fas fa-angle-right"></i>
-        <div class="title-text">仓颉第三次作业</div>
+        <div class="title-text">OS-lab2实验报告</div>
       </div>
       <!-- <div class="content">
-        第三次作业第一题简要思路由于可以按任意顺序返回答案，我们可以使用哈希表+前缀的思路将复杂度从枚举的O(n^2)降低到O(
+        实验报告思考题1.Thinking 2.1 请根据上述说明，回答问题：在编写的 C 程序中，指针变量中存储的地址被视为虚
       </div> -->
     </a>
   </div>
@@ -734,7 +713,7 @@
   <div class='content'>
     <div class="toc-main">
       <div class="toc-content">
-        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%84%E8%AE%AD%E7%BB%83%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B"><span class="toc-text">预训练语言模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Encoder-Only-PLM"><span class="toc-text">1. Encoder-Only PLM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BERT"><span class="toc-text">BERT</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%A2%84%E8%AE%AD%E7%BB%83%E4%BB%BB%E5%8A%A1"><span class="toc-text">预训练任务</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%8B%E6%B8%B8%E5%BE%AE%E8%B0%83"><span class="toc-text">下游微调</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RoBERTa"><span class="toc-text">RoBERTa</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E7%82%B91%EF%BC%9A%E5%8E%BB%E6%8E%89NSP%E4%BB%BB%E5%8A%A1"><span class="toc-text">优化点1：去掉NSP任务</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E7%82%B92%EF%BC%9A%E6%9B%B4%E5%A4%A7%E8%A7%84%E6%A8%A1%E7%9A%84%E9%A2%84%E8%AE%AD%E7%BB%83%E6%95%B0%E6%8D%AE%E5%92%8C%E9%A2%84%E8%AE%AD%E7%BB%83%E6%AD%A5%E9%95%BF"><span class="toc-text">优化点2：更大规模的预训练数据和预训练步长</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E7%82%B93%EF%BC%9A%E6%9B%B4%E5%A4%A7%E7%9A%84bpe%E8%AF%8D%E8%A1%A8"><span class="toc-text">优化点3：更大的bpe词表</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ALBERT"><span class="toc-text">ALBERT</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E7%82%B91%EF%BC%9A%E5%B0%86Embedding%E5%8F%82%E6%95%B0%E8%BF%9B%E8%A1%8C%E5%88%86%E8%A7%A3"><span class="toc-text">优化点1：将Embedding参数进行分解</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E7%82%B92%EF%BC%9A%E8%B7%A8%E5%B1%82%E8%BF%9B%E8%A1%8C%E5%8F%82%E6%95%B0%E5%85%B1%E4%BA%AB"><span class="toc-text">优化点2：跨层进行参数共享</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E7%82%B93%EF%BC%9A%E6%8F%90%E5%87%BASOP%E9%A2%84%E8%AE%AD%E7%BB%83%E4%BB%BB%E5%8A%A1"><span class="toc-text">优化点3：提出SOP预训练任务</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Encoder-Decoder-PLM"><span class="toc-text">2. Encoder-Decoder PLM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#T5"><span class="toc-text">T5</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84%EF%BC%9AEncoder-Decoder"><span class="toc-text">模型结构：Encoder-Decoder</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%A2%84%E8%AE%AD%E7%BB%83%E4%BB%BB%E5%8A%A1-1"><span class="toc-text">预训练任务</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A4%A7%E4%B8%80%E7%BB%9F%E6%80%9D%E6%83%B3"><span class="toc-text">大一统思想</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Decoder-Only-PLM"><span class="toc-text">3. Decoder-Only PLM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GPT"><span class="toc-text">GPT</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%9E%B6%E6%9E%84%EF%BC%9ADecoder-Only"><span class="toc-text">模型架构：Decoder-Only</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%A2%84%E8%AE%AD%E7%BB%83%E4%BB%BB%E5%8A%A1%E2%80%93CLM"><span class="toc-text">预训练任务–CLM</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LLaMA"><span class="toc-text">LLaMA</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%9E%B6%E6%9E%84%EF%BC%9ADecoder-Only-1"><span class="toc-text">模型架构：Decoder-Only</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GLM"><span class="toc-text">GLM</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%9E%B6%E6%9E%84%EF%BC%9A%E7%9B%B8%E5%AF%B9%E4%BA%8EGPT%E7%9A%84%E7%95%A5%E5%BE%AE%E8%B0%83%E6%95%B4"><span class="toc-text">模型架构：相对于GPT的略微调整</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%A2%84%E8%AE%AD%E7%BB%83%E4%BB%BB%E5%8A%A1%E2%80%93GLM"><span class="toc-text">预训练任务–GLM</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol></li></ol> -->
+        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B"><span class="toc-text">大语言模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AF%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B"><span class="toc-text">1. 什么是大语言模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B6%8C%E7%8E%B0%E8%83%BD%E5%8A%9B"><span class="toc-text">涌现能力</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E5%AD%A6%E4%B9%A0"><span class="toc-text">上下文学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E9%81%B5%E5%BE%AA"><span class="toc-text">指令遵循</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%90%E6%AD%A5%E6%8E%A8%E7%90%86"><span class="toc-text">逐步推理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E8%AF%AD%E8%A8%80%E6%94%AF%E6%8C%81"><span class="toc-text">多语言支持</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%95%BF%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86"><span class="toc-text">长文本处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%93%E5%B1%95%E5%A4%9A%E6%A8%A1%E6%80%81"><span class="toc-text">拓展多模态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%BB%E8%A7%89"><span class="toc-text">幻觉</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%A6%82%E4%BD%95%E8%AE%AD%E7%BB%83%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B"><span class="toc-text">2. 如何训练大语言模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Pretrain"><span class="toc-text">Pretrain</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SFT"><span class="toc-text">SFT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RLHF"><span class="toc-text">RLHF</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#RM"><span class="toc-text">RM</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#PPO"><span class="toc-text">PPO</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%80%BB%E7%BB%93"><span class="toc-text">3. 总结</span></a></li></ol></li></ol> -->
         <div class="toc"></div>
       </div>
     </div>

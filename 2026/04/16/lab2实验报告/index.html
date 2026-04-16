@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>预训练语言模型 | Nonamer&#39;s Blog</title>
+  <title>OS-lab2实验报告 | Nonamer&#39;s Blog</title>
 
   <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -370,21 +370,21 @@
 
 
 <div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
-  background-position: center center;position: relative;background-image:url('https://pic3.zhimg.com/80/v2-7cfc909ebe8d83683909846edd6b5232_1440w.webp')">
+  background-position: center center;position: relative;background-image:url('https://pic4.zhimg.com/80/v2-e434e3a2888fb4efb1844845b8791d1f_1440w.webp')">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
   <div class="post-detail-header_info-box">
     <div class="title-box">
       <span class="title">
-        预训练语言模型
+        OS-lab2实验报告
       </span>
     </div>
     
     
       
         <span class="post-detail-header_date">
-          <i class="fas fa-calendar"></i> 发表于：2026-04-08 |
+          <i class="fas fa-calendar"></i> 发表于：2026-04-16 |
         </span>
       
 
@@ -408,47 +408,64 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <h1 id="预训练语言模型"><a href="#预训练语言模型" class="headerlink" title="预训练语言模型"></a>预训练语言模型</h1><p>预训练语言模型，英文缩写为PLM，是一种基于大量文本数据预训练，并通过微调的方式来适用于特定任务的神经网络模型。基于transformer架构，PLM存在有三种主流架构：Encoder-Only、Encoder-Decoder、Decoder-Only。</p>
-<h2 id="1-Encoder-Only-PLM"><a href="#1-Encoder-Only-PLM" class="headerlink" title="1. Encoder-Only PLM"></a>1. Encoder-Only PLM</h2><p>顾名思义就是由Transformer的Encoder部分组成的模型，只使用Encoder部分的输出作为预训练语言模型的输入，而不使用Decoder部分。下面介绍几个代表模型：</p>
-<h3 id="BERT"><a href="#BERT" class="headerlink" title="BERT"></a>BERT</h3><p>全名为Bidirectional Encoder Representations from Transformers。可以说，BERT 是自然语言处理的一个阶段性成果，标志着各种自然语言处理任务的重大进展以及预训练模型的统治地位建立，一直到 LLM 的诞生，NLP 领域的主导地位才从 BERT 系模型进行迁移。即使在 LLM 时代，要深入理解 LLM 与 NLP，BERT 也是无法绕过的一环。<br>BERT是针对于 NLU 任务打造的预训练模型，其输入一般是文本序列，而输出一般是Label，例如情感分类的积极、消极Label。</p>
-<h5 id="预训练任务"><a href="#预训练任务" class="headerlink" title="预训练任务"></a>预训练任务</h5><p>BERT采用了MLM+NLP预训练任务，即Masked Language Modeling（MLM）和Next Sentence Prediction（NSP）两个任务。MLM类似完形填空，即将文本中的一些词语随机替换成[MASK]，模型需要预测这些词语的正确词汇。NSP任务则是判断两个句子是否是连贯的，即判断两个句子是否是属于同一个文档的。通过这样的预训练，迫使模型学习到文本的上下文信息，这是其相对于传统的LM预训练方式的优势。</p>
-<h5 id="下游微调"><a href="#下游微调" class="headerlink" title="下游微调"></a>下游微调</h5><p>在完成预训练后，针对每一个下游任务，只需要使用一定量的全监督人工标注数据，对预训练的BERT在该任务上进行微调即可。所谓微调，其实和训练时更新模型参数的策略一致，只不过在特定的任务、更少的训练数据、更小的batch_size上进行训练，更新参数的幅度更小。对于绝大部分下游任务，都可以直接使用BERT的输出。</p>
-<h3 id="RoBERTa"><a href="#RoBERTa" class="headerlink" title="RoBERTa"></a>RoBERTa</h3><p>RoBERTa是BERT的改进版本，在训练数据、预训练任务、训练参数等方面上进行了优化，以取得能力更强大、在下游任务上表现更亮眼的预训练模型。</p>
-<h5 id="优化点1：去掉NSP任务"><a href="#优化点1：去掉NSP任务" class="headerlink" title="优化点1：去掉NSP任务"></a>优化点1：去掉NSP任务</h5><p>在预训练任务上，有学者质疑 NSP 任务并不能提高模型性能，因为其太过简单，加入到预训练中并不能使下游任务微调时明显受益，甚至会带来负面效果。RoBERTa通过实验发现，去掉NSP任务后，模型的性能提升明显。因此，RoBERTa只使用MLM任务进行预训练。同时RoBERTa也改进了MLM任务，使用动态遮蔽策略。</p>
-<h5 id="优化点2：更大规模的预训练数据和预训练步长"><a href="#优化点2：更大规模的预训练数据和预训练步长" class="headerlink" title="优化点2：更大规模的预训练数据和预训练步长"></a>优化点2：更大规模的预训练数据和预训练步长</h5><p>RoBERTa使用了更大量的无监督语料进行预训练，共计160GB的数据，十倍于BERT。<br>同时，RoBERTa认为更大的batch size既可以提高优化速度，也可以提高任务结束性能。因此，实验在8K的batch size（对比BERT的batch size为256）下训练31K Step，也就是总训练token数和BERT一样是3.3B时，模型性能更好，从而证明了大batch size的意义。在此基础上，RoBERTa一共训练了500K Step（约合66个Epoch）。同时，RoBERTa不再采用BERT在256长度上进行大部分训练再在512长度上完成训练的策略，而是全部在512长度上进行训练。</p>
-<h5 id="优化点3：更大的bpe词表"><a href="#优化点3：更大的bpe词表" class="headerlink" title="优化点3：更大的bpe词表"></a>优化点3：更大的bpe词表</h5><p>RoBERTa使用了BPE作为Tokenizer的编码策略。BPE，即Byte Pair Encoding，字节对编码，是指以子词对作为分词的单位。BERT原始的BPE词表大小为30K，RoBERTa选择了50K大小的词表来优化模型的编码能力。</p>
-<h3 id="ALBERT"><a href="#ALBERT" class="headerlink" title="ALBERT"></a>ALBERT</h3><p>ALBERT从是否能够减小模型参数保持模型能力的角度展开了探究。通过对模型结构进行优化并对NSP预训练任务进行改进，ALBERT成功地以更小规模的参数实现了超越BERT的能力。</p>
-<h5 id="优化点1：将Embedding参数进行分解"><a href="#优化点1：将Embedding参数进行分解" class="headerlink" title="优化点1：将Embedding参数进行分解"></a>优化点1：将Embedding参数进行分解</h5><p>ALBERT对Embedding层的参数矩阵进行了分解，让Embedding层的输出维度和隐藏层维度解绑，也就是在Embedding层的后面加入一个线性矩阵进行维度变换。ALBERT设置了Embedding层的输出为128，因此在Embedding层后面加入了一个$128∗1024$的线性矩阵来将 Embedding 层的输出再升维到隐藏层大小。也就是说，Embedding 层的参数从 $V∗H$降低到了$V∗E+E∗H$，当E的大小远小于H时，该方法对Embedding层参数的优化就会很明显。</p>
-<h5 id="优化点2：跨层进行参数共享"><a href="#优化点2：跨层进行参数共享" class="headerlink" title="优化点2：跨层进行参数共享"></a>优化点2：跨层进行参数共享</h5><p>ALBERT仅初始化了一个Encoder层。在计算过程中，仍然会进行24次计算，但是每一次计算都是经过这一个Encoder层。因此，虽然是24个Encoder计算的模型，但只有一层Encoder参数，从而大大降低了模型参数量。</p>
-<h5 id="优化点3：提出SOP预训练任务"><a href="#优化点3：提出SOP预训练任务" class="headerlink" title="优化点3：提出SOP预训练任务"></a>优化点3：提出SOP预训练任务</h5><p>类似于RoBERTa，ALBERT也同样认为NSP任务过于简单，在预训练中无法对模型效果的提升带来显著影响。但是不同于RoBERTa选择直接去掉NSP，ALBERT选择改进NSP，增加其难度，来优化模型的预训练。<br>在传统的NSP任务中，正例是由两个连续句子组成的句对，而负例则是从任意两篇文档中抽取出的句对，模型可以较容易地判断正负例，并不能很好地学习深度语义。而SOP任务提出的改进是，正例同样由两个连续句子组成，但负例是将这两个的顺序反过来。也就是说，模型不仅要拟合两个句子之间的关系，更要学习其顺序关系，这样就大大提升了预训练的难度。</p>
-<h2 id="2-Encoder-Decoder-PLM"><a href="#2-Encoder-Decoder-PLM" class="headerlink" title="2. Encoder-Decoder PLM"></a>2. Encoder-Decoder PLM</h2><p>BERT存在一些问题，例如MLM任务和下游任务微调的不一致性，以及无法处理超过模型训练长度的输入等问题。为了解决这些问题，研究者们提出了Encoder-Decoder模型，通过引入Decoder部分来解决这些问题，同时也为NLP领域带来了新的思路和方法。我们可以通过T5模型来了解这种模型架构。</p>
-<h3 id="T5"><a href="#T5" class="headerlink" title="T5"></a>T5</h3><p>T5（Text-To-Text Transfer Transformer）是由Google提出的一种预训练语言模型，通过将所有NLP任务统一表示为文本到文本的转换问题，大大简化了模型设计和任务处理。通过这种统一处理方式，T5不仅减少了任务特定的模型调试工作，还能够使用相同的数据处理和训练框架，极大地提升了多任务学习的性能和应用的便捷性。</p>
-<h5 id="模型结构：Encoder-Decoder"><a href="#模型结构：Encoder-Decoder" class="headerlink" title="模型结构：Encoder-Decoder"></a>模型结构：Encoder-Decoder</h5><p>T5采用了Encoder-Decoder结构，其中编码器和解码器都是基于Transformer架构设计。编码器用于处理输入文本，解码器用于生成输出文本。编码器和解码器之间通过注意力机制进行信息交互，从而实现输入文本到输出文本的转换。<br>T5模型的Encoder和Decoder部分都是基于Transformer架构设计的，主要包括Self-Attention和前馈神经网络两种结构。Self-Attention用于捕捉输入序列中的全局依赖关系，前馈神经网络用于处理特征的非线性变换。<br>和Encoder不一样的是，在Decoder中还包含了Encoder-Decoder Attention结构，用于捕捉输入和输出序列之间的依赖关系。这两种Attention结构几乎完全一致，只有在位置编码和Mask机制上有所不同。</p>
-<h5 id="预训练任务-1"><a href="#预训练任务-1" class="headerlink" title="预训练任务"></a>预训练任务</h5><p>T5采用了MLM来进行预训练，预训练时，T5将输入文本转换为”文本到文本”的格式。对于一个给定的文本序列，随机选择一些token进行遮蔽，并用特殊的占位符(token)替换。然后将被遮蔽的token序列作为模型的输出目标。T5还尝试了将多个任务混合在一起进行预训练，而不仅仅是单独的MLM任务。这有助于模型学习更通用的语言表示。</p>
-<h5 id="大一统思想"><a href="#大一统思想" class="headerlink" title="大一统思想"></a>大一统思想</h5><p>T5模型的一个核心理念是“大一统思想”，即所有的NLP任务都可以统一为文本到文本的任务，这一思想在自然语言处理领域具有深远的影响。其设计理念是将所有不同类型的NLP任务（如文本分类、翻译、文本生成、问答等）转换为一个统一的格式：输入和输出都是纯文本。<br>对于不同的NLP任务，每次输入前都会加上一个任务描述前缀，明确指定当前任务的类型。这不仅帮助模型在预训练阶段学习到不同任务之间的通用特征，也便于在微调阶段迅速适应具体任务。例如，任务前缀可以是“summarize: ”用于摘要任务，或“translate English to German: ”用于翻译任务。<br>T5的大一统思想通过将所有NLP任务统一为文本到文本的形式，简化了任务处理流程，增强了模型的通用性和适应性。这一思想不仅推动了自然语言处理技术的发展，也为实际应用提供了更为便捷和高效的解决方案。</p>
-<h2 id="3-Decoder-Only-PLM"><a href="#3-Decoder-Only-PLM" class="headerlink" title="3. Decoder-Only PLM"></a>3. Decoder-Only PLM</h2><p>Decoder-Only是目前大火的LLM的基础架构，目前所有的LLM基本都是Decoder-Only模型。首先，让我们学习打开LLM世界大门的代表模型——由OpenAI发布的GPT。</p>
-<h3 id="GPT"><a href="#GPT" class="headerlink" title="GPT"></a>GPT</h3><p>GPT，全名Generative Pre-Training Language Model。GPT提出了通用预训练的概念，也就是在海量无监督语料上预训练，进而在每个特定任务上进行微调，从而实现这些任务的巨大收益。2020年发布的GPT-3成就了LLM时代的基础，并以GPT-3为基座模型的ChatGPT成功打开新时代的大门，成为LLM时代的最强竞争者也是目前的最大赢家。</p>
-<h5 id="模型架构：Decoder-Only"><a href="#模型架构：Decoder-Only" class="headerlink" title="模型架构：Decoder-Only"></a>模型架构：Decoder-Only</h5><p>GPT的整体结构和BERT是有一些类似的，只是相较于BERT的Encoder，选择使用了Decoder来进行模型结构的堆叠。由于Decoder-Only结构也天生适用于文本生成任务，所以相较于更贴合NLU任务设计的BERT，GPT和T5的模型设计更契合于NLG任务和Seq2Seq任务。<br>另外一个结构上的区别在于，GPT的MLP层没有选择线性矩阵来进行特征提取，而是选择了两个一维卷积核来提取，不过，从效果上说这两者是没有太大区别的。</p>
-<h5 id="预训练任务–CLM"><a href="#预训练任务–CLM" class="headerlink" title="预训练任务–CLM"></a>预训练任务–CLM</h5><p>Decoder-Only的模型结构往往更适合于文本生成任务，因此，Decoder-Only模型往往选择了最传统也最直接的预训练任务——因果语言模型，Causal Language Model，CLM可以看作N-gram语言模型的一个直接扩展。N-gram语言模型是基于前N个token来预测下一个token，CLM则是基于一个自然语言序列的前面所有token来预测下一个token，通过不断重复该过程来实现目标文本序列的生成。<br>CLM 是更直接的预训练任务，其天生和人类书写自然语言文本的习惯相契合，也和下游任务直接匹配，相对于 MLM 任务更加直接，可以在任何自然语言文本上直接应用。</p>
-<h3 id="LLaMA"><a href="#LLaMA" class="headerlink" title="LLaMA"></a>LLaMA</h3><p>LLaMA模型是由Meta（前Facebook）开发的一系列大型预训练语言模型。</p>
-<h5 id="模型架构：Decoder-Only-1"><a href="#模型架构：Decoder-Only-1" class="headerlink" title="模型架构：Decoder-Only"></a>模型架构：Decoder-Only</h5><p>与GPT系列模型一样，LLaMA模型也是基于Decoder-Only架构的预训练语言模型。LLaMA模型的整体结构与GPT系列模型类似，只是在模型规模和预训练数据集上有所不同。</p>
-<h3 id="GLM"><a href="#GLM" class="headerlink" title="GLM"></a>GLM</h3><p>GLM是智谱开发的主流中文LLM之一。在整个中文LLM的发展历程中，GLM具有独特且重大的技术意义。本节将简要叙述GLM系列的发展，并介绍其不同于GPT、LLaMA系列模型的独特技术思路。</p>
-<h5 id="模型架构：相对于GPT的略微调整"><a href="#模型架构：相对于GPT的略微调整" class="headerlink" title="模型架构：相对于GPT的略微调整"></a>模型架构：相对于GPT的略微调整</h5><p>GLM和GPT的模型架构基本相同，只有以下的区别：</p>
+        <h1 id="实验报告"><a href="#实验报告" class="headerlink" title="实验报告"></a>实验报告</h1><h2 id="思考题"><a href="#思考题" class="headerlink" title="思考题"></a>思考题</h2><h3 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h3><p><strong>Thinking 2.1 请根据上述说明，回答问题：在编写的 C 程序中，指针变量中存储的地址被视为虚拟地址，还是物理地址？MIPS 汇编程序中 lw和sw 指令使用的地址被视为虚拟地址，还是物理地址？</strong></p>
 <ul>
-<li>使用 Post Norm 而非 Pre Norm。Post Norm 由于在残差之后做归一化，对参数正则化的效果更强，进而模型的鲁棒性也会更好；Pre Norm相对于因为有一部分参数直接加在了后面，不需要对这部分参数进行正则化，正好可以防止模型的梯度爆炸或者梯度消失。因此，对于更大体量的模型来说，一般认为 Pre Norm 效果会更好。但 GLM 论文提出，使用 Post Norm 可以避免 LLM 的数值错误。</li>
-<li>使用单个线性层实现最终 token 的预测，而不是使用 MLP。</li>
-<li>激活函数从 ReLU 换成了 GeLUs。</li>
+<li>在编写的 C 程序中，指针变量中存储的地址被视为虚拟地址。</li>
+<li>MIPS 汇编程序中 lw和sw 指令使用的地址被视为虚拟地址。</li>
 </ul>
-<h5 id="预训练任务–GLM"><a href="#预训练任务–GLM" class="headerlink" title="预训练任务–GLM"></a>预训练任务–GLM</h5><p>GLM的核心创新点主要在于其提出的GLM（General Language Model，通用语言模型）任务，这也是GLM的名字由来。GLM是一种结合了自编码思想和自回归思想的预训练方法。所谓自编码思想，其实也就是MLM的任务学习思路，在输入文本中随机删除连续的tokens，要求模型学习被删除的tokens；所谓自回归思想，其实就是传统的CLM任务学习思路，也就是要求模型按顺序重建连续tokens。<br>GLM通过优化一个自回归空白填充任务来实现MLM与CLM思想的结合。其核心思想是，对于一个输入序列，会类似于MLM一样进行随机的掩码，但遮蔽的不是和MLM一样的单个token，而是每次遮蔽一连串token；模型在学习时，既需要使用遮蔽部分的上下文预测遮蔽部分，在遮蔽部分内部又需要以CLM的方式完成被遮蔽的tokens的预测。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>说实话这一章的内容很多，我因为很多事耽搁，断断续续看了很久才看完。但大概就是介绍了几种模型架构，内容大差不差，从不同模型的优劣对比，也能更深入的理解模型的训练过程和效果，这些不同的预训练思路和架构优化设计，加深了我对预训练语言模型的理解。Happy-LLM的原文中，这一章还有很多的数学公式和介绍，我看的也不是很懂，感觉想要完全理解这些，还是得后续的学习和大量的练习。</p>
+<h3 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h3><p><strong>Thinking2.2请思考下述两个问题：<br>•从可重用性的角度，阐述用宏来实现链表的好处。<br>•查看实验环境中的&#x2F;usr&#x2F;include&#x2F;sys&#x2F;queue.h，了解其中单向链表与循环链表的实现，比较它们与本实验中使用的双向链表，分析三者在插入与删除操作上的性能差异。</strong></p>
+<ul>
+<li>用宏来实现链表的好处：宏可以减少代码量，提高代码的可读性和可维护性。</li>
+<li>单向链表与循环链表的实现：单向链表的实现比较简单，只需要一个指针指向下一个节点即可；循环链表的实现需要一个指针指向头节点，另一个指针指向当前节点，当到达尾节点时，指针回到头节点。</li>
+<li>分析三者在插入与删除操作上的性能差异：单向链表的插入操作需要遍历链表，而循环链表和双向链表的插入操作只需要修改指针指向即可；单向链表的删除操作需要遍历链表，而循环链表和双向链表的删除操作只需要修改指针指向即可。</li>
+</ul>
+<h3 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h3><p><strong>Thinking2.3请阅读include&#x2F;queue.h以及include&#x2F;pmap.h,将Page_list的结构梳理清楚，选择正确的展开结构。</strong></p>
+<ul>
+<li>正确的展开结构为C选项</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Page_list</span>&#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">        <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">            <span class="class"><span class="keyword">struct</span> <span class="title">Page</span> *<span class="title">le_next</span>;</span></span><br><span class="line">            <span class="class"><span class="keyword">struct</span> <span class="title">Page</span> **<span class="title">le_prev</span>;</span></span><br><span class="line">        &#125;pp_link;</span><br><span class="line">        u_short pp_ref;</span><br><span class="line">    &#125;*lh_first;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h3><p><strong>Thinking 2.4 请思考下面两个问题：<br>• 请阅读上面有关TLB的描述，从虚拟内存和多进程操作系统的实现角度，阐述ASID的必要性。<br>• 请阅读 MIPS 4Kc 文档《MIPS32® 4K™ Processor Core Family Software User’sManual》的 Section 3.3.1 与 Section 3.4，结合 ASID 段的位数，说明 4Kc 中可容纳不同的地址空间的最大数量。</strong></p>
+<ul>
+<li>在多线程操作系统中，对不同的进程，同一虚拟地址可能映射到不同的物理地址，因此需要ASID 用于标识每个进程的虚拟地址对应的物理地址，以便 TLB 可以快速地找到正确的映射关系。</li>
+<li>ASID为8位，因此可容纳的地址空间数量为256个。</li>
+</ul>
+<h3 id="5"><a href="#5" class="headerlink" title="5."></a>5.</h3><p><strong>Thinking 2.5 请回答下述三个问题：<br>• tlb_invalidate 和 tlb_out 的调用关系？<br>• 请用一句话概括tlb_invalidate 的作用。<br>• 逐行解释tlb_out 中的汇编代码。</strong></p>
+<ul>
+<li>tlb_invalidate 和 tlb_out 的调用关系：tlb_invalidate 调用 tlb_out。</li>
+<li>tlb_invalidate 的作用：如果发现TLB中存在该VPN和ASID对应的虚拟地址到PPN的映射，清空TLB中映射关系，使得在删除映射关系时，同步到TLB中。</li>
+<li>tlb_out 中的汇编代码：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"> 3 LEAF(tlb_out)</span><br><span class="line"> 4 .set noreorder</span><br><span class="line"> 5         mfc0    t0, CP0_ENTRYHI</span><br><span class="line"> //将CP0_ENTRYHI寄存器中的值存入t0寄存器</span><br><span class="line"> 6         mfc0    a0, CP0_ENTRYHI</span><br><span class="line"> //将CP0_ENTRYHI寄存器中的值存入a0寄存器</span><br><span class="line"> 7         nop</span><br><span class="line"> 8         /* Step 1: Use &#x27;tlbp&#x27; to probe TLB entry */</span><br><span class="line"> 9         /* Exercise 2.8: Your code here. (1/2) */</span><br><span class="line">10         tlbp</span><br><span class="line">//调用tlbp指令，刷新TLB</span><br><span class="line">11         nop</span><br><span class="line">12         /* Step 2: Fetch the probe result from CP0.Index */</span><br><span class="line">13         mfc0    t1, CP0_INDEX</span><br><span class="line">//将CP0_INDEX寄存器中的值存入t1寄存器</span><br><span class="line">14 .set reorder</span><br><span class="line">15         bltz    t1, NO_SUCH_ENTRY</span><br><span class="line">//如果t1寄存器中的值小于0，则跳转到NO_SUCH_ENTRY处</span><br><span class="line">16 .set noreorder</span><br><span class="line">17         mtc0    zero, CP0_ENTRYHI</span><br><span class="line">//将CP0_ENTRYHI寄存器清0</span><br><span class="line">18         mtc0    zero, CP0_ENTRYLO0</span><br><span class="line">//将CP0_ENTRYLO0寄存器清0</span><br><span class="line">19         mtc0    zero, CP0_ENTRYLO1</span><br><span class="line">//将CP0_ENTRYLO1寄存器清0</span><br><span class="line">20         nop</span><br><span class="line">21         /* Step 3: Use &#x27;tlbwi&#x27; to write CP0.EntryHi/Lo into TLB at CP0.Index  */</span><br><span class="line">22         /* Exercise 2.8: Your code here. (2/2) */</span><br><span class="line">23         tlbwi</span><br><span class="line">//调用tlbwi指令，将CP0_ENTRYHI/LO寄存器中的值写入TLB中</span><br><span class="line">24 .set reorder</span><br><span class="line">25 </span><br><span class="line">26 NO_SUCH_ENTRY:</span><br><span class="line">27         mtc0    t0, CP0_ENTRYHI</span><br><span class="line">//将t0寄存器中的值存入CP0_ENTRYHI寄存器</span><br><span class="line">28         j       ra</span><br><span class="line">//返回到调用者处</span><br><span class="line">29 END(tlb_out)</span><br></pre></td></tr></table></figure>
+
+<h3 id="A-1"><a href="#A-1" class="headerlink" title="A.1."></a>A.1.</h3><p><strong>Thinking A.1 在现代的 64 位系统中，提供了 64 位的字长，但实际上不是 64 位页式存储系统。假设在64位系统中采用三级页表机制，页面大小4KB。由于64位系统中字长为8B，且页目录也占用一页，因此页目录中有512 个页目录项，因此每级页表都需要9位。因此在64位系统下，总共需要3×9+12&#x3D;39位就可以实现三级页表机制，并不需要64位。现考虑上述39位的三级页式存储系统，虚拟地址空间为512GB，若三级页表的基地址为PTbase，请计算：<br>• 三级页表页目录的基地址。<br>• 映射到页目录自身的页目录项（自映射）。</strong></p>
+<ul>
+<li>三级页表页目录的基地址 ：PTbase</li>
+<li>映射到页目录自身的页目录项（自映射）：该页目录项的索引位置为虚拟地址的一级页表最高9位对应的项号</li>
+</ul>
+<h3 id="6"><a href="#6" class="headerlink" title="6."></a>6.</h3><p><strong>Thinking 2.6 请结合 Lab2 开始的 CPU 访存流程与下图中的 Lab2 用户函数部分，尝试将函数调用与CPU访存流程对应起来，思考函数调用与CPU访存流程的关系。</strong></p>
+<ul>
+<li>函数调用与CPU访存流程的关系：函数调用是CPU执行指令的过程，它需要从内存中读取指令，然后执行指令，最后将结果写入内存。CPU访存流程是CPU从内存中读取数据的过程，它需要从内存中读取数据，然后将数据送入CPU的寄存器或运算器进行计算，最后将结果送回内存。函数调用与CPU访存流程的关系是，函数调用是CPU执行指令的过程，用户程序存放在kuseg段中，需要lab2实现的功能来对虚拟地址进行映射到物理地址。</li>
+</ul>
+<h3 id="7"><a href="#7" class="headerlink" title="7."></a>7.</h3><p><strong>Thinking 2.7 从下述三个问题中任选其一回答：<br>• 简单了解并叙述X86体系结构中的内存管理机制，比较X86和MIPS 在内存管理上的区别。<br>• 简单了解并叙述RISC-V 中的内存管理机制，比较RISC-V 与 MIPS 在内存管理上的区别。<br>• 简单了解并叙述LoongArch 中的内存管理机制，比较 LoongArch 与 MIPS 在内存管理上的区别。</strong></p>
+<ul>
+<li>选第一个</li>
+<li>X86内存管理机制：通过分段和分页机制，将内存划分为多个段，每个段有自己的权限，每个段又划分为多个页，每个页有自己的权限。通过分段将逻辑地址转换为线性地址，通过分页将线性地址转换为物理地址。从线性地址到物理地址的转换是CPU自动完成的，转化时使用的Page Directory和Page Table等需要操作系统提供。</li>
+<li>与MIPS区别：MIPS只有分页并没有分段。MIPS在TLBMISS时，触发MIPS缺失与重填，而X86硬件MMU索引获得页框号，直接输出物理地址，MMU充填TLB加快下次访问速度。MIPS地址空间为32位，而X86地址空间为64位。</li>
+</ul>
+<h2 id="难点分析"><a href="#难点分析" class="headerlink" title="难点分析"></a>难点分析</h2><p>lab2的主要内容是内存管理，涉及到页表、页目录、TLB、虚拟地址、物理地址等概念。感觉lab2的难度远远超过了前几次lab，在实现过程中，需要对这些概念有深刻的理解，还要有足够的C语言基础，为了实现空闲页表的高效管理，lab2使用了非常反直觉的指针，在操作时非常烧脑。我认为lab2的主要难点有以下几点。</p>
+<h5 id="1-链表宏操作"><a href="#1-链表宏操作" class="headerlink" title="1. 链表宏操作"></a>1. 链表宏操作</h5><p>在lab2中，为了简化链表操作，使用了链表宏来操作链表，但是即使如此，想要真正使用好，还是得认真阅读链表宏部分的代码，理解其中的原理。而且在这次的exam中，就考查的让自己实现一个链表宏，虽然这次考的比较简单一点，但是还是需要对链表宏有深刻的理解和一定的C语言基础才能做的比较顺利的。</p>
+<h5 id="2-页表管理"><a href="#2-页表管理" class="headerlink" title="2. 页表管理"></a>2. 页表管理</h5><p>在lab2中，最重要的部分就是页表的管理，理解怎么通过两级页表来将虚拟地址映射到物理地址，以及TLB的工作原理等是lab2的关键。在实现课下代码时，我发现自己对页表的理解还是不深入，要仔细研读以下课下代码，了解清楚内存管理的机制。</p>
+<h5 id="3-自映射"><a href="#3-自映射" class="headerlink" title="3. 自映射"></a>3. 自映射</h5><p>在这次的extra中考查了一个非常难的知识点————自映射，这也是理论考试中的重难点，我直到现在也没有搞得很清楚这个知识点。大概就是说，在页表中，如何将页目录映射到自己？还需要课下再去努力学习。</p>
+<h2 id="实验体会"><a href="#实验体会" class="headerlink" title="实验体会"></a>实验体会</h2><p>lab2是我第一次接触到内存管理，并且是我第一次使用C语言来实现内存管理。在实现过程中，我对内存管理的概念有了更深刻的理解，并且对C语言的指针操作有了更深刻的认识。在实现过程中，我也遇到了一些问题，比如链表宏的实现，页表管理的实现等。在解决这些问题的过程中，我逐渐熟悉了C语言的指针操作，并且对内存管理有了更深刻的理解。不过在上机的时候的考查给了我当头一棒，我认识到自己对内存管理的理解还不够深刻，还需要继续努力。</p>
 
       </div>
       <div class="post-tags-categories">
         
         <div class="tags">
           
-            <a href="/tags/Happy-LLM/" class="">
-              Happy-LLM
+            <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="">
+              操作系统
             </a>
           
         </div>
@@ -462,7 +479,7 @@
     </li>
     <li class="post-copyright-link">
     <strong>文章链接:  </strong>
-    <a href="/2026/04/08/预训练语言模型/" target="_blank" title="预训练语言模型">https://nonamer-kkk.github.io/2026/04/08/预训练语言模型/</a>
+    <a href="/2026/04/16/lab2实验报告/" target="_blank" title="OS-lab2实验报告">https://nonamer-kkk.github.io/2026/04/16/lab2实验报告/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明:   </strong>
@@ -484,16 +501,16 @@
   <div class="post-nav-prev post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://picx.zhimg.com/80/v2-9c50d3af0bc62a0e8b6e89e24c769317_1440w.webp" class="lazyload placeholder" data-srcset="https://picx.zhimg.com/80/v2-9c50d3af0bc62a0e8b6e89e24c769317_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+      <img class="lazyload lazyload placeholder" src="https://pic3.zhimg.com/v2-a5267dfbf175991d4b3a69b41f3f678a_b.jpg" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/v2-a5267dfbf175991d4b3a69b41f3f678a_b.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
     </div>
-    <a href="/2026/04/10/24371119-%E5%AE%B9%E6%98%93%E4%B8%BA-%E7%AC%AC%E5%9B%9B%E6%AC%A1%E4%BD%9C%E4%B8%9A/" class="post-nav-link">
+    <a href="/2026/04/16/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" class="post-nav-link">
       <div class="title">
         <i class="fas fa-angle-left"></i> 上一篇:
-        <div class="title-text">仓颉第四次作业</div>
+        <div class="title-text">大语言模型</div>
       </div>
       
       <!-- <div class="content">
-        第四次作业第一题简要思路一个整数如果是happy数，则它每位数字的平方和等于1。经过分析，我们发现最大三位数999的平方
+        大语言模型这一章的内容还是比较少的，也比较好理解一点，主要是在上一章预训练语言模型的基础上，进一步介绍了大预言模型及其训
       </div> -->
     </a>
   </div>
@@ -504,15 +521,15 @@
   <div class="post-nav-next post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" class="lazyload placeholder" data-srcset="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
+      <img class="lazyload lazyload placeholder" src="https://picx.zhimg.com/80/v2-9c50d3af0bc62a0e8b6e89e24c769317_1440w.webp" class="lazyload placeholder" data-srcset="https://picx.zhimg.com/80/v2-9c50d3af0bc62a0e8b6e89e24c769317_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
     </div>
-    <a href="/2026/04/02/24371119-%E5%AE%B9%E6%98%93%E4%B8%BA-%E7%AC%AC%E4%B8%89%E6%AC%A1%E4%BD%9C%E4%B8%9A/" class="post-nav-link">
+    <a href="/2026/04/10/24371119-%E5%AE%B9%E6%98%93%E4%B8%BA-%E7%AC%AC%E5%9B%9B%E6%AC%A1%E4%BD%9C%E4%B8%9A/" class="post-nav-link">
       <div class="title">
         下一篇: <i class="fas fa-angle-right"></i>
-        <div class="title-text">仓颉第三次作业</div>
+        <div class="title-text">仓颉第四次作业</div>
       </div>
       <!-- <div class="content">
-        第三次作业第一题简要思路由于可以按任意顺序返回答案，我们可以使用哈希表+前缀的思路将复杂度从枚举的O(n^2)降低到O(
+        第四次作业第一题简要思路一个整数如果是happy数，则它每位数字的平方和等于1。经过分析，我们发现最大三位数999的平方
       </div> -->
     </a>
   </div>
@@ -734,7 +751,7 @@
   <div class='content'>
     <div class="toc-main">
       <div class="toc-content">
-        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%84%E8%AE%AD%E7%BB%83%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B"><span class="toc-text">预训练语言模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Encoder-Only-PLM"><span class="toc-text">1. Encoder-Only PLM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BERT"><span class="toc-text">BERT</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%A2%84%E8%AE%AD%E7%BB%83%E4%BB%BB%E5%8A%A1"><span class="toc-text">预训练任务</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%8B%E6%B8%B8%E5%BE%AE%E8%B0%83"><span class="toc-text">下游微调</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RoBERTa"><span class="toc-text">RoBERTa</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E7%82%B91%EF%BC%9A%E5%8E%BB%E6%8E%89NSP%E4%BB%BB%E5%8A%A1"><span class="toc-text">优化点1：去掉NSP任务</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E7%82%B92%EF%BC%9A%E6%9B%B4%E5%A4%A7%E8%A7%84%E6%A8%A1%E7%9A%84%E9%A2%84%E8%AE%AD%E7%BB%83%E6%95%B0%E6%8D%AE%E5%92%8C%E9%A2%84%E8%AE%AD%E7%BB%83%E6%AD%A5%E9%95%BF"><span class="toc-text">优化点2：更大规模的预训练数据和预训练步长</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E7%82%B93%EF%BC%9A%E6%9B%B4%E5%A4%A7%E7%9A%84bpe%E8%AF%8D%E8%A1%A8"><span class="toc-text">优化点3：更大的bpe词表</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ALBERT"><span class="toc-text">ALBERT</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E7%82%B91%EF%BC%9A%E5%B0%86Embedding%E5%8F%82%E6%95%B0%E8%BF%9B%E8%A1%8C%E5%88%86%E8%A7%A3"><span class="toc-text">优化点1：将Embedding参数进行分解</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E7%82%B92%EF%BC%9A%E8%B7%A8%E5%B1%82%E8%BF%9B%E8%A1%8C%E5%8F%82%E6%95%B0%E5%85%B1%E4%BA%AB"><span class="toc-text">优化点2：跨层进行参数共享</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E7%82%B93%EF%BC%9A%E6%8F%90%E5%87%BASOP%E9%A2%84%E8%AE%AD%E7%BB%83%E4%BB%BB%E5%8A%A1"><span class="toc-text">优化点3：提出SOP预训练任务</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Encoder-Decoder-PLM"><span class="toc-text">2. Encoder-Decoder PLM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#T5"><span class="toc-text">T5</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84%EF%BC%9AEncoder-Decoder"><span class="toc-text">模型结构：Encoder-Decoder</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%A2%84%E8%AE%AD%E7%BB%83%E4%BB%BB%E5%8A%A1-1"><span class="toc-text">预训练任务</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A4%A7%E4%B8%80%E7%BB%9F%E6%80%9D%E6%83%B3"><span class="toc-text">大一统思想</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Decoder-Only-PLM"><span class="toc-text">3. Decoder-Only PLM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GPT"><span class="toc-text">GPT</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%9E%B6%E6%9E%84%EF%BC%9ADecoder-Only"><span class="toc-text">模型架构：Decoder-Only</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%A2%84%E8%AE%AD%E7%BB%83%E4%BB%BB%E5%8A%A1%E2%80%93CLM"><span class="toc-text">预训练任务–CLM</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LLaMA"><span class="toc-text">LLaMA</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%9E%B6%E6%9E%84%EF%BC%9ADecoder-Only-1"><span class="toc-text">模型架构：Decoder-Only</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GLM"><span class="toc-text">GLM</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%9E%B6%E6%9E%84%EF%BC%9A%E7%9B%B8%E5%AF%B9%E4%BA%8EGPT%E7%9A%84%E7%95%A5%E5%BE%AE%E8%B0%83%E6%95%B4"><span class="toc-text">模型架构：相对于GPT的略微调整</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%A2%84%E8%AE%AD%E7%BB%83%E4%BB%BB%E5%8A%A1%E2%80%93GLM"><span class="toc-text">预训练任务–GLM</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol></li></ol> -->
+        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A"><span class="toc-text">实验报告</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%80%83%E9%A2%98"><span class="toc-text">思考题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1"><span class="toc-text">1.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2"><span class="toc-text">2.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3"><span class="toc-text">3.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4"><span class="toc-text">4.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5"><span class="toc-text">5.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A-1"><span class="toc-text">A.1.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6"><span class="toc-text">6.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7"><span class="toc-text">7.</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%BE%E7%82%B9%E5%88%86%E6%9E%90"><span class="toc-text">难点分析</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E9%93%BE%E8%A1%A8%E5%AE%8F%E6%93%8D%E4%BD%9C"><span class="toc-text">1. 链表宏操作</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E9%A1%B5%E8%A1%A8%E7%AE%A1%E7%90%86"><span class="toc-text">2. 页表管理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E8%87%AA%E6%98%A0%E5%B0%84"><span class="toc-text">3. 自映射</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E4%BD%93%E4%BC%9A"><span class="toc-text">实验体会</span></a></li></ol></li></ol> -->
         <div class="toc"></div>
       </div>
     </div>
