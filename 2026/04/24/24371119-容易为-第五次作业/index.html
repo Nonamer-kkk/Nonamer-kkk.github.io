@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>仓颉第三次作业 | Nonamer&#39;s Blog</title>
+  <title>仓颉第五次作业 | Nonamer&#39;s Blog</title>
 
   <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -370,21 +370,21 @@
 
 
 <div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
-  background-position: center center;position: relative;background-image:url('https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp')">
+  background-position: center center;position: relative;background-image:url('https://pic3.zhimg.com/80/v2-5f7cb7e900b9dcf5354c3d4d2c5cc3c2_1440w.webp')">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
   <div class="post-detail-header_info-box">
     <div class="title-box">
       <span class="title">
-        仓颉第三次作业
+        仓颉第五次作业
       </span>
     </div>
     
     
       
         <span class="post-detail-header_date">
-          <i class="fas fa-calendar"></i> 发表于：2026-04-02 |
+          <i class="fas fa-calendar"></i> 发表于：2026-04-24 |
         </span>
       
 
@@ -408,18 +408,10 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <h1 id="第三次作业"><a href="#第三次作业" class="headerlink" title="第三次作业"></a>第三次作业</h1><h2 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h2><h3 id="简要思路"><a href="#简要思路" class="headerlink" title="简要思路"></a>简要思路</h3><p>由于可以按任意顺序返回答案，我们可以使用哈希表+前缀的思路将复杂度从枚举的O(n^2)降低到O(n)。我们遍历数组nums，如果target-nums[i]在哈希表中，则找到了答案，返回[i,d[target-nums[i]]];否则，将nums[i]存入哈希表中。这样可以保证会找到唯一答案，因为当第一个答案元素被存入哈希表后，一定可以遍历到第二个答案元素并触发return条件。</p>
-<h3 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    func twoSum(nums: Array&lt;Int64&gt;, target: Int64): Array&lt;Int64&gt; &#123;</span><br><span class="line">        // 24371119 容易为</span><br><span class="line">        let d : HashMap&lt;Int64, Int64&gt; = HashMap&lt;Int64, Int64&gt;()</span><br><span class="line">        let n = nums.size</span><br><span class="line">        for(i in 0..n)&#123;</span><br><span class="line">            if(d.contains((target - nums[i])))&#123;</span><br><span class="line">                return [i,d[target-nums[i]]]</span><br><span class="line">            &#125;</span><br><span class="line">            d[nums[i]] = i</span><br><span class="line">        &#125;</span><br><span class="line">        return []</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="第五次作业"><a href="#第五次作业" class="headerlink" title="第五次作业"></a>第五次作业</h1><h2 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h2><h3 id="简要思路"><a href="#简要思路" class="headerlink" title="简要思路"></a>简要思路</h3><p>根据作业提示，通过递归下降方法实现本题，其中主要是实现parseTokens和parseAttribute两个函数。通过i变量遍历字符串，在主函数中通过调用parseTokens函数来解析字符串，在parseTokens函数中，若遇到数字则调用parseAttribute函数来解析数字并返回k，解析完毕后跳过数字后必有的’[&#39;，然后递归调用parseTokens函数解析括号中的字符串，然后将解析结果重复k次添加进res中，若遇到&#39;]’则break出循环返回res，除去这两种情况则必遇到字母，此时将字母直接添加进res中。通过parseTokens函数在遇到数字时的递归调用，可以成功解析出符合答案要求的字符串，并且最终返回的res即为答案，此时在主函数中直接返回parseTokens函数的返回结果ans即可。</p>
+<h3 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    // 24371119 容易为</span><br><span class="line">    var i: Int64 = 0</span><br><span class="line">    func decodeString(s: String): String &#123;</span><br><span class="line">       let runes = s.toRuneArray()</span><br><span class="line">       let ans = parseTokens(runes)</span><br><span class="line">       return ans</span><br><span class="line">    &#125;</span><br><span class="line">    func parseTokens(runes: Array&lt;Rune&gt;): String &#123;</span><br><span class="line">        var res = &#x27;&#x27;</span><br><span class="line">        while(i &lt; runes.size) &#123;</span><br><span class="line">            var ch = runes[i]</span><br><span class="line">            if(ch.isAsciiNumber()) &#123;</span><br><span class="line">                let k = parseAttribute(runes)</span><br><span class="line">                i++ //跳过&#x27;[&#x27;</span><br><span class="line">                let str = parseTokens(runes)</span><br><span class="line">                for(j in 0..k) &#123;</span><br><span class="line">                    res += str</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            else if(ch == r&#x27;]&#x27;) &#123;</span><br><span class="line">                i++</span><br><span class="line">                break</span><br><span class="line">            &#125;</span><br><span class="line">            else &#123;</span><br><span class="line">                res += ch.toString()</span><br><span class="line">                i++</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return res</span><br><span class="line">    &#125;</span><br><span class="line">    func parseAttribute(runes: Array&lt;Rune&gt;) : Int64 &#123;</span><br><span class="line">        var k: Int64 = 0</span><br><span class="line">        while(i&lt;runes.size &amp;&amp; runes[i].isAsciiNumber()) &#123;</span><br><span class="line">            let temp = UInt32(runes[i]) - UInt32(r&#x27;0&#x27;)</span><br><span class="line">            k = k*10 + Int64(temp)</span><br><span class="line">            i++</span><br><span class="line">        &#125;</span><br><span class="line">        return k</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="评测截图"><a href="#评测截图" class="headerlink" title="评测截图"></a>评测截图</h3><p><img src="/./twosum.png" class="lazyload placeholder" data-srcset="/./twosum.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
-<h2 id="第二题"><a href="#第二题" class="headerlink" title="第二题"></a>第二题</h2><h3 id="简要思路-1"><a href="#简要思路-1" class="headerlink" title="简要思路"></a>简要思路</h3><p>由于可以按任意顺序返回，利用HashSet没有重复项和查找快的特性，我们将nums1中的元素存入HashSet中，将返回的答案也设置为HashSet，然后遍历nums2，如果nums2中的元素在num1对应的HashSet中，则添加到答案中。这样可以保证答案中不会有重复元素，且时间复杂度为O(n)，由于函数设置的返回值为Array，最后返回时要使用toArray()转化为数组。</p>
-<h3 id="实现代码-1"><a href="#实现代码-1" class="headerlink" title="实现代码"></a>实现代码</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    func intersection(nums1: Array&lt;Int64&gt;, nums2: Array&lt;Int64&gt;): Array&lt;Int64&gt; &#123;</span><br><span class="line">        //24371119 容易为</span><br><span class="line">        let set1 = HashSet&lt;Int64&gt;()</span><br><span class="line">        for(n in nums1)&#123;</span><br><span class="line">            set1.add(n)</span><br><span class="line">        &#125;</span><br><span class="line">        let ans = HashSet&lt;Int64&gt;()</span><br><span class="line">        for(n in nums2)&#123;</span><br><span class="line">            if(set1.contains(n))&#123;</span><br><span class="line">                ans.add(n)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return ans.toArray()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="评测截图-1"><a href="#评测截图-1" class="headerlink" title="评测截图"></a>评测截图</h3><p><img src="/./jiaoji.png" class="lazyload placeholder" data-srcset="/./jiaoji.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
-<h2 id="第三题"><a href="#第三题" class="headerlink" title="第三题"></a>第三题</h2><h3 id="简要思路-2"><a href="#简要思路-2" class="headerlink" title="简要思路"></a>简要思路</h3><p>我们可以构建一个字符串映射到字符串列表的哈希表，这样含有字母相同的字符串，在排序后是相同的，我们就可以把他们加入到同一个字符串列表中。遍历str，对每一个s，先转为数组，再排序，再转为字符串，然后用排序好的字符串去查找列表，如果已经有的话就把原始字符串加入列表中，不然就新开创一个列表，再把原始字符串加进去，最后返回哈希表的value列表。</p>
-<h3 id="实现代码-2"><a href="#实现代码-2" class="headerlink" title="实现代码"></a>实现代码</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    func groupAnagrams(strs: Array&lt;String&gt;): ArrayList&lt;ArrayList&lt;String&gt;&gt; &#123;</span><br><span class="line">        //24371119 容易为</span><br><span class="line">        let d : HashMap&lt;String, ArrayList&lt;String&gt;&gt; = HashMap&lt;String, ArrayList&lt;String&gt;&gt;()</span><br><span class="line">        for(s in strs)&#123;</span><br><span class="line">            let s_arr = s.toArray()</span><br><span class="line">            sort(s_arr)</span><br><span class="line">            let sorted_s = s_arr.toString()</span><br><span class="line">            if(d.contains(sorted_s))&#123;</span><br><span class="line">                d[sorted_s].add(s)</span><br><span class="line">            &#125;</span><br><span class="line">            else&#123;</span><br><span class="line">                d[sorted_s] = ArrayList&lt;String&gt;()</span><br><span class="line">                d[sorted_s].add(s)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return ArrayList(d.values())</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="评测截图-2"><a href="#评测截图-2" class="headerlink" title="评测截图"></a>评测截图</h3><p><img src="/./zifuchuan.png" class="lazyload placeholder" data-srcset="/./zifuchuan.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<h3 id="评测截图"><a href="#评测截图" class="headerlink" title="评测截图"></a>评测截图</h3><p><img src="/./hong.png" class="lazyload placeholder" data-srcset="/./hong.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
 
       </div>
       <div class="post-tags-categories">
@@ -441,7 +433,7 @@
     </li>
     <li class="post-copyright-link">
     <strong>文章链接:  </strong>
-    <a href="/2026/04/02/24371119-容易为-第三次作业/" target="_blank" title="仓颉第三次作业">https://nonamer-kkk.github.io/2026/04/02/24371119-容易为-第三次作业/</a>
+    <a href="/2026/04/24/24371119-容易为-第五次作业/" target="_blank" title="仓颉第五次作业">https://nonamer-kkk.github.io/2026/04/24/24371119-容易为-第五次作业/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明:   </strong>
@@ -459,24 +451,6 @@
 
 
 
-  
-  <div class="post-nav-prev post-nav-item">
-    <div class="post-nav-img" style="background-size: cover; 
-      background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://pic3.zhimg.com/80/v2-7cfc909ebe8d83683909846edd6b5232_1440w.webp" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/80/v2-7cfc909ebe8d83683909846edd6b5232_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-    </div>
-    <a href="/2026/04/08/%E9%A2%84%E8%AE%AD%E7%BB%83%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" class="post-nav-link">
-      <div class="title">
-        <i class="fas fa-angle-left"></i> 上一篇:
-        <div class="title-text">预训练语言模型</div>
-      </div>
-      
-      <!-- <div class="content">
-        预训练语言模型预训练语言模型，英文缩写为PLM，是一种基于大量文本数据预训练，并通过微调的方式来适用于特定任务的神经网络
-      </div> -->
-    </a>
-  </div>
-
 
 
   
@@ -485,14 +459,13 @@
       background-position: center center;">
       <img class="lazyload lazyload placeholder" src="https://pic3.zhimg.com/v2-a5267dfbf175991d4b3a69b41f3f678a_b.jpg" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/v2-a5267dfbf175991d4b3a69b41f3f678a_b.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
     </div>
-    <a href="/2026/04/02/lab1%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" class="post-nav-link">
+    <a href="/2026/04/16/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" class="post-nav-link">
       <div class="title">
         下一篇: <i class="fas fa-angle-right"></i>
-        <div class="title-text">OS-lab1实验报告</div>
+        <div class="title-text">大语言模型</div>
       </div>
       <!-- <div class="content">
-        实验报告思考题1.main.c
-123456#include &lt;stdio.h&gt;int main()&#12
+        大语言模型这一章的内容还是比较少的，也比较好理解一点，主要是在上一章预训练语言模型的基础上，进一步介绍了大预言模型及其训
       </div> -->
     </a>
   </div>
@@ -714,7 +687,7 @@
   <div class='content'>
     <div class="toc-main">
       <div class="toc-content">
-        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%AC%A1%E4%BD%9C%E4%B8%9A"><span class="toc-text">第三次作业</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E9%A2%98"><span class="toc-text">第一题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E8%A6%81%E6%80%9D%E8%B7%AF"><span class="toc-text">简要思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E4%BB%A3%E7%A0%81"><span class="toc-text">实现代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%84%E6%B5%8B%E6%88%AA%E5%9B%BE"><span class="toc-text">评测截图</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E9%A2%98"><span class="toc-text">第二题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E8%A6%81%E6%80%9D%E8%B7%AF-1"><span class="toc-text">简要思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E4%BB%A3%E7%A0%81-1"><span class="toc-text">实现代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%84%E6%B5%8B%E6%88%AA%E5%9B%BE-1"><span class="toc-text">评测截图</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E9%A2%98"><span class="toc-text">第三题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E8%A6%81%E6%80%9D%E8%B7%AF-2"><span class="toc-text">简要思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E4%BB%A3%E7%A0%81-2"><span class="toc-text">实现代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%84%E6%B5%8B%E6%88%AA%E5%9B%BE-2"><span class="toc-text">评测截图</span></a></li></ol></li></ol></li></ol> -->
+        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E6%AC%A1%E4%BD%9C%E4%B8%9A"><span class="toc-text">第五次作业</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E9%A2%98"><span class="toc-text">第一题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E8%A6%81%E6%80%9D%E8%B7%AF"><span class="toc-text">简要思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E4%BB%A3%E7%A0%81"><span class="toc-text">实现代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%84%E6%B5%8B%E6%88%AA%E5%9B%BE"><span class="toc-text">评测截图</span></a></li></ol></li></ol></li></ol> -->
         <div class="toc"></div>
       </div>
     </div>
