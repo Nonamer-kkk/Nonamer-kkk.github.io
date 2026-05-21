@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>OS-lab0实验报告 | Nonamer&#39;s Blog</title>
+  <title>OS-lab4实验报告 | Nonamer&#39;s Blog</title>
 
   <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -370,21 +370,21 @@
 
 
 <div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
-  background-position: center center;position: relative;background-image:url('https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp')">
+  background-position: center center;position: relative;background-image:url('https://pic2.zhimg.com/80/v2-e22aaad20d20634f506f57fff0fcbc17_1440w.webp')">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
   <div class="post-detail-header_info-box">
     <div class="title-box">
       <span class="title">
-        OS-lab0实验报告
+        OS-lab4实验报告
       </span>
     </div>
     
     
       
         <span class="post-detail-header_date">
-          <i class="fas fa-calendar"></i> 发表于：2026-03-19 |
+          <i class="fas fa-calendar"></i> 发表于：2026-05-21 |
         </span>
       
 
@@ -408,56 +408,60 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <h1 id="实验报告"><a href="#实验报告" class="headerlink" title="实验报告"></a>实验报告</h1><h2 id="思考题"><a href="#思考题" class="headerlink" title="思考题"></a>思考题</h2><h3 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">touch README.txt</span><br><span class="line">git init</span><br><span class="line">git status &gt; Untracked.txt</span><br><span class="line"># 在README.txt中增加内容</span><br><span class="line">git add README.txt</span><br><span class="line">git status &gt; Stage.txt</span><br><span class="line">git commit -m &quot;24371119&quot;</span><br><span class="line">cat Untracked.txt</span><br><span class="line"># 位于分支 master</span><br><span class="line"># 尚无提交</span><br><span class="line"># </span><br><span class="line"># 未跟踪的文件:</span><br><span class="line">#   （使用 &quot;git add &lt;文件&gt;...&quot; 以包含要提交的内容）</span><br><span class="line">#         README.txt</span><br><span class="line">#         Untracked.txt</span><br><span class="line"># </span><br><span class="line">cat Stage.txt</span><br><span class="line"># 位于分支 master</span><br><span class="line"># 要提交的变更：</span><br><span class="line">#   （使用 &quot;git restore --staged &lt;文件&gt;...&quot; 以取消暂存）</span><br><span class="line">#         新文件：   README.txt</span><br><span class="line"># </span><br><span class="line"># 尚无提交</span><br><span class="line"># </span><br><span class="line"># 未跟踪的文件:</span><br><span class="line">#   （使用 &quot;git add &lt;文件&gt;...&quot; 以包含要提交的内容）</span><br><span class="line">#         Stage.txt</span><br><span class="line">#         Untracked.txt</span><br><span class="line"># 修改README.txt</span><br><span class="line">git status &gt; Modified.txt</span><br><span class="line">cat Modified.txt</span><br><span class="line"># 位于分支 master</span><br><span class="line"># 尚未暂存以备提交的变更：</span><br><span class="line">#  （使用 &quot;git add/rm &lt;文件&gt;...&quot; 更新要提交的内容）</span><br><span class="line">#  （使用 &quot;git restore &lt;文件&gt;...&quot; 丢弃工作区的改动）</span><br><span class="line">#         修改：     README.txt</span><br><span class="line"># </span><br><span class="line"># 未跟踪的文件:</span><br><span class="line">#   （使用 &quot;git add &lt;文件&gt;...&quot; 以包含要提交的内容）</span><br><span class="line">#         Modified.txt</span><br><span class="line">#         Stage.txt</span><br><span class="line">#         Untracked.txt</span><br></pre></td></tr></table></figure>
+        <h1 id="实验报告"><a href="#实验报告" class="headerlink" title="实验报告"></a>实验报告</h1><h2 id="思考题"><a href="#思考题" class="headerlink" title="思考题"></a>思考题</h2><h3 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h3><p><strong>Thinking 4.1 思考并回答下面的问题：• 内核在保存现场的时候是如何避免破坏通用寄存器的？• 系统陷入内核调用后可以直接从当时的 ${$a0-$a3}$ 参数寄存器中得到用户调用 <code>msyscall</code>留下的信息吗？• 我们是怎么做到让 <code>sys</code> 开头的函数“认为”我们提供了和用户调用 <code>msyscall</code> 时同样的参数的？• 内核处理系统调用的过程对 <code>Trapframe</code> 做了哪些更改？这种修改对应的用户态的变化是什么？</strong></p>
 <ul>
-<li>不一样，在第一次执行add命令之前，README.txt处于Untracked状态，仅在工作区。</li>
-<li>执行add命令后，README.txt进入暂存区。</li>
-<li>再经过commit后，README.txt被加入版本库。</li>
-<li>最后被修改，README.txt处于已跟踪但修改未暂存状态。</li>
-<li>这与第一次执行add命令前的未跟踪状态不相同，因为未跟踪文件并未被Git管理，而此时文件已被跟踪，只是工作区文件与版本库不相同。</li>
+<li>在保存现场时，内核会通过SAVE_ALL宏将所有的通用寄存器压入栈中，从而避免破坏通用寄存器。</li>
+<li>可以。${$a0-$a3}$寄存器的值在陷入内核调用时并未改变，所以可以直接从当时的 ${$a0-$a3}$ 参数寄存器中得到用户调用 <code>msyscall</code>留下的信息。</li>
+<li>在用户态调用 <code>syscall_*()</code> 函数时，前四个参数会被存入寄存器 ${$a0-$a3}$，而多余的参数会被存入栈中。当用户调用 <code>msyscall</code> 触发系统调用后，CPU 会切换到内核态并跳转到异常处理入口，然后保存${$a0-$a3}$ 和${$sp}$，并取出这些参数传递给<code>do_syscall</code>函数处理异常，这样就相当于我们提供了和用户调用 <code>msyscall</code> 时同样的参数的。</li>
+<li>对<code>Trapframe</code>做了<code>tf-&gt;cp0_epc += 4</code>，这样在返回用户态后，将从异常处理指令的下一条指令开始执行。${$v0}$将被设置为系统调用返回值。</li>
 </ul>
-<h3 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h3><ul>
-<li><code>add the file</code> 对应 <code>git add &lt;file&gt;</code></li>
-<li><code>stage the file</code> 对应 <code>git add &lt;file&gt;</code></li>
-<li><code>commit</code> 对应 <code>git commit -m &quot;提交说明&quot;</code></li>
-</ul>
-<h3 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h3><h5 id="1-1"><a href="#1-1" class="headerlink" title="1."></a>1.</h5><p>错误删除print.c后，Git版本库中还保留着，可以用<code>git restore print.c</code>恢复</p>
-<h5 id="2-1"><a href="#2-1" class="headerlink" title="2."></a>2.</h5><p>错误删除print.c后，执行了<code>git rm print.c</code>命令，此时应该先撤销暂存区内的修改<code>git reset HEAD print.c</code>再用<code>git restore print.c</code>恢复</p>
-<h5 id="3-1"><a href="#3-1" class="headerlink" title="3."></a>3.</h5><p>将hello.txt移出暂存区<code>git rm --cached hello.txt</code></p>
-<h3 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h3><p>提交三次后，使用<code>git log</code>，可以看到已有三次提交记录</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">commit 3ce9e6f15b01b0b63da5680a52dcc5699da5446f (HEAD -&gt; master)</span><br><span class="line">Author: 容易为 &lt;24371119@buaa.edu.cn&gt;</span><br><span class="line">Date:   Mon Mar 16 15:59:38 2026 +0800</span><br><span class="line"></span><br><span class="line">    3</span><br><span class="line"></span><br><span class="line">commit c9ace791b5fc3752e8e81b81bf7d2ad5887a7a58</span><br><span class="line">Author: 容易为 &lt;24371119@buaa.edu.cn&gt;</span><br><span class="line">Date:   Mon Mar 16 15:58:59 2026 +0800</span><br><span class="line"></span><br><span class="line">    2</span><br><span class="line"></span><br><span class="line">commit 14d7baacad40b82b66026213827aca037597ac42</span><br><span class="line">Author: 容易为 &lt;24371119@buaa.edu.cn&gt;</span><br><span class="line">Date:   Mon Mar 16 15:58:16 2026 +0800</span><br><span class="line"></span><br><span class="line">    1</span><br></pre></td></tr></table></figure>
-<p>使用<code>git reset --hard HEAD^</code>后，使用<code>git log</code>，此时只有两次提交记录</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">commit c9ace791b5fc3752e8e81b81bf7d2ad5887a7a58 (HEAD -&gt; master)</span><br><span class="line">Author: 容易为 &lt;24371119@buaa.edu.cn&gt;</span><br><span class="line">Date:   Mon Mar 16 15:58:59 2026 +0800</span><br><span class="line"></span><br><span class="line">    2</span><br><span class="line"></span><br><span class="line">commit 14d7baacad40b82b66026213827aca037597ac42</span><br><span class="line">Author: 容易为 &lt;24371119@buaa.edu.cn&gt;</span><br><span class="line">Date:   Mon Mar 16 15:58:16 2026 +0800</span><br><span class="line"></span><br><span class="line">    1</span><br></pre></td></tr></table></figure>
-<p>使用<code>git reset --hard &lt;hash&gt;</code>就跳转到了第一次提交，此时只有一次提交记录。<br>之后使用<code>git reset --hard &lt;hash&gt;</code>跳转到第三次提交，此时有三次提交记录。</p>
-<h3 id="5"><a href="#5" class="headerlink" title="5."></a>5.</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo first</span><br><span class="line">first</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo second &gt; output.txt</span><br><span class="line">cat output.txt</span><br><span class="line">second</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo third &gt; output.txt</span><br><span class="line">cat output.txt</span><br><span class="line">third</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">echo forth &gt;&gt; output.txt</span><br><span class="line">cat output.txt</span><br><span class="line">third</span><br><span class="line">forth</span><br></pre></td></tr></table></figure>
-
-<h3 id="6"><a href="#6" class="headerlink" title="6."></a>6.</h3><p>command:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">echo echo Shell Start...</span><br><span class="line">echo echo set a = 1</span><br><span class="line">echo a=1</span><br><span class="line">echo echo set b = 2</span><br><span class="line">echo b=2</span><br><span class="line">echo echo set c = a+b</span><br><span class="line">echo &#x27;c=$[$a+$b]&#x27;</span><br><span class="line">echo echo &#x27;c = $c&#x27;</span><br><span class="line">echo echo save c to ./file1</span><br><span class="line">echo &#x27;echo $c&gt;file1&#x27;</span><br><span class="line">echo echo save b to ./file2</span><br><span class="line">echo &#x27;echo $b&gt;file2&#x27;</span><br><span class="line">echo echo save a to ./file3</span><br><span class="line">echo &#x27;echo $a&gt;file3&#x27;</span><br><span class="line">echo echo save file1 file2 file3 to file4</span><br><span class="line">echo &#x27;cat file1&gt;file4&#x27;</span><br><span class="line">echo &#x27;cat file2&gt;&gt;file4&#x27;</span><br><span class="line">echo &#x27;cat file3&gt;&gt;file4&#x27;</span><br><span class="line">echo echo save file4 to ./result</span><br><span class="line">echo &#x27;cat file4&gt;&gt;result&#x27;</span><br></pre></td></tr></table></figure>
-<p>result:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Shell Start...</span><br><span class="line">set a = 1</span><br><span class="line">set b = 2</span><br><span class="line">set c = a+b</span><br><span class="line">c = 3</span><br><span class="line">save c to ./file1</span><br><span class="line">save b to ./file2</span><br><span class="line">save a to ./file3</span><br><span class="line">save file1 file2 file3 to file4</span><br><span class="line">save file4 to ./result</span><br><span class="line">3</span><br><span class="line">2</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+<h3 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h3><p><strong>Thinking 4.2 思考 <code>envid2env</code> 函数: 为什么 <code>envid2env</code> 中需要判断 <code>e-&gt;env_id != envid</code>的情况？如果没有这步判断会发生什么情况？</strong></p>
 <ul>
-<li>test中先分别对a,b赋值为1,2，然后让c&#x3D;a+b，之后将c保存在file1中，将b保存在file2中，将a保存在file3中，之后用file1覆盖file4中的内容，再将file2和file3追加在file4之后，最后将file4追加在result后面。</li>
-<li><code>echo echo Shell Start</code>会直接输出<code>echo Shell Start</code>，而 <code>echo `echo Shell Start` </code>会先执行反引号内指令在传送给外面的echo，最后输出<code>Shell Start</code>。</li>
-<li><code>echo echo $c&gt;file1</code>会<code>echo $c </code>重定向写入file1中,而<code>echo `echo $c&gt;file1` </code>会先执行反引号内部的指令将$c重定向写入file1，然后返回空串输出到终端。</li>
+<li>$ENVX$只取了$envid$的后十位，虽然这个值可以反映进程在$envs$中的位置，并且可以通过它来寻找进程，但是$envid$前面的位数可能与$e-&gt;env_id$不同，甚至非法，所以应该再检查一下。</li>
 </ul>
-<h2 id="难点分析"><a href="#难点分析" class="headerlink" title="难点分析"></a>难点分析</h2><p>lab0实验主要是使用命令行进行操作，这对之前几乎没使用过命令行的我来说是个挑战。我觉得本次实验的难点主要有三个方面。</p>
-<h5 id="第一就是脚本中一些复杂命令的使用"><a href="#第一就是脚本中一些复杂命令的使用" class="headerlink" title="第一就是脚本中一些复杂命令的使用"></a>第一就是脚本中一些复杂命令的使用</h5><ul>
-<li>因为sed,awk等等这些命令过于灵活，他们的使用方法也相当复杂，熟练掌握这些命令是本次实验的重点也是难点，指导书中的用法比较基础，给的例子也比较少，要想熟练使用的话，最好自己多查一查资料并练习。</li>
-</ul>
-<h5 id="第二就是shell脚本中的语法和各种结构"><a href="#第二就是shell脚本中的语法和各种结构" class="headerlink" title="第二就是shell脚本中的语法和各种结构"></a>第二就是shell脚本中的语法和各种结构</h5><p>shell脚本的语法与之前习惯的语言很不同，常见的易错点有：</p>
+<h3 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h3><p><strong>Thinking 4.3 思考下面的问题，并对这个问题谈谈你的理解：请回顾<code>kern/env.c</code> 文件中 <code>mkenvid()</code> 函数的实现，该函数不会返回 0，请结合系统调用和<code>IPC</code>部分的实现与<code>envid2env() </code>函数的行为进行解释。</strong></p>
 <ul>
-<li>赋值是不能有空格</li>
-<li>[]作为判断条件时必须有空格，也可以用[[]]</li>
-<li>(())表示运算</li>
-<li>使用变量时要用$，而且在’’中的变量也要用’’括起来，或者直接使用””</li>
+<li>$mkenvid$决定了$envid$不可能为0，在用户态中，由于不能直接取得内核态中的$curenv$的id，因此用0来指代$curenv$的id。在$IPC$中的$sys_ipc_try_send$调用$envid2env$时，若存在$envid$为0的情况，将影响进程间正常通信。</li>
 </ul>
-<h5 id="第三就是Git的使用了"><a href="#第三就是Git的使用了" class="headerlink" title="第三就是Git的使用了"></a>第三就是Git的使用了</h5><ul>
-<li>虽然lab0对于Git的考察不多，但是能够熟练使用Git还是相当有用处的，怎么实现版本回退，如何撤销删除呀这些操作要是能够熟练掌握，将对以后大有裨益。重要的操作是：<br><code>git checkout -- &lt;file&gt;：从版本库恢复文件到工作区。</code><br><code>git reset HEAD &lt;file&gt;：撤销暂存区的修改。</code><br><code>git rm --cached &lt;file&gt;：移除暂存区文件但保留工作区。</code></li>
+<h3 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h3><p><strong>Thinking 4.4 关于 fork 函数的两个返回值，下面说法正确的是：<br>A、fork 在父进程中被调用两次，产生两个返回值<br>B、fork 在两个进程中分别被调用一次，产生两个不同的返回值<br>C、fork 只在父进程中被调用了一次，在两个进程中各产生一个返回值<br>D、fork 只在子进程中被调用了一次，在两个进程中各产生一个返回值</strong></p>
+<ul>
+<li>C</li>
 </ul>
-<h2 id="实验体会"><a href="#实验体会" class="headerlink" title="实验体会"></a>实验体会</h2><p>lab0实验让我接触到了gcc,Makefile,git还有脚本这些工程中常用的操作，这是我最大的收获，还有就是通过Makefile的编写等加深了我对C语言和编译的理解。刚开始接触到这种命令行界面，虽然经常听人说这样会提高效率，但是我总是感觉不习惯，效率反而降低了，不过随着练习的加多，看着一行行命令也感觉越来越顺眼了，希望以后能够真正熟练使用命令行，提升自己的能力。</p>
+<h3 id="5"><a href="#5" class="headerlink" title="5."></a>5.</h3><p><strong>Thinking 4.5 上述“最小版”策略要求你在遍历时跳过 UXSTACK 与 UVPT&#x2F;VPT&#x2F;VPD等特殊区域。请结合 kern&#x2F;env.c 中 env_init 的映射行为、include&#x2F;mmu.h 的内存布局图，解释：• 为什么子进程的 UXSTACK 必须重新分配，而不能共享或设为 COW？• 为什么不应对 UVPT&#x2F;VPT&#x2F;VPD 等自映射区域调用 duppage？如果误处理，可能引发哪些不一致或错误行为？</strong></p>
+<ul>
+<li>每个进程必须有自己的异常栈，因为异常处理是进程私有的。如果共享同一物理页，子进程的异常处理会覆盖父进程的异常栈数据，导致父进程异常时状态错乱。若将 UXSTACK 设为 COW，当子进程首次写入（例如压入异常帧）时会触发 COW 复制，此时子进程的 COW 复制将得到父进程修改后的内容，而不是 fork 时的快照，违背了 fork 的语义.</li>
+<li>duppage 用于将父进程的物理页映射到子进程，并设置合适的权限（通常为COW）。但自映射区域指向的是页表本身的物理页，而每个进程的页表物理页是独立分配的，因此不用调用duppage。若错误调用duppage将导致子进程的 UVPT 也映射到父进程的页目录物理页，破坏父进程的地址空间。</li>
+</ul>
+<h3 id="6"><a href="#6" class="headerlink" title="6."></a>6.</h3><p><strong>Thinking 4.6 在遍历地址空间存取页表项时你需要使用到 vpd 和 vpt 这两个指针，请参考 user&#x2F;include&#x2F;lib.h 中的相关定义，思考并回答这几个问题：<br>• vpt 和 vpd 的作用是什么？怎样使用它们？<br>• 从实现的角度谈一下为什么进程能够通过这种方式来存取自身的页表？<br>• 它们是如何体现自映射设计的？<br>• 进程能够通过这种方式来修改自己的页表项吗？</strong></p>
+<ul>
+<li>vpt就是用户页表起始位置UVPT，vpd则是利用了自映射，PDX号即为页目录在二级页表中的位置。vpd是页目录首地址，以vpd为基地址，加上页目录项偏移数即可指向va对应页目录项，vpt是页表首地址，以vpt为基地址，加上页表项偏移数即可指向va对应的页表项。</li>
+<li>在 <code>env_setup_vm</code> 中为每个进程创建页目录时，会在页目录自身的自映射（即 <code>UVPT &gt;&gt; 22</code> 对应的目录项）填入该页目录的物理地址，并设置权限为只读（用户可读）。</li>
+<li>进程访问 <code>vpt</code> 时，实际访问的是作为页表解释的页目录物理页。- 进程访问 <code>vpd</code> 时，实际访问的是作为页目录解释的同一个页目录物理页，但偏移从自映射入口开始。它使得用户进程能以普通数组方式查询自己的页表结构，无需陷入内核。</li>
+<li>不能。该区域对用户态只能读不能写。</li>
+</ul>
+<h3 id="7"><a href="#7" class="headerlink" title="7."></a>7.</h3><p><strong>Thinking 4.7 在 do_tlb_mod 函数中，你可能注意到了一个向异常处理栈复制 Trapframe运行现场的过程，请思考并回答这几个问题：• 这里实现了一个支持类似于“异常重入”的机制，而在什么时候会出现这种“异常重入”？• 内核为什么需要将异常的现场 Trapframe 复制到用户空间？</strong></p>
+<ul>
+<li>当出现COW异常时，需要使用用户态的系统调用发生中断，即异常重入。</li>
+<li>内核需要将异常的现场Trapframe复制到用户空间，由用户态实现现场的恢复。</li>
+</ul>
+<h3 id="8"><a href="#8" class="headerlink" title="8."></a>8.</h3><p><strong>Thinking 4.8 在用户态处理页写入异常，相比于在内核态处理有什么优势？</strong></p>
+<ul>
+<li>用户态处理产生的影响更小，相比于内核态更安全。</li>
+<li>避免内核态进行大量拷贝工作，节省内存。</li>
+<li>减少状态切换，提高性能。</li>
+</ul>
+<h3 id="9"><a href="#9" class="headerlink" title="9."></a>9.</h3><p><strong>Thinking 4.9 为什么在设置写时复制保护机制之前，需通过syscall_set_tlb_mod_entry设置父进程页写入异常处理函数？若在写时复制保护机制完成之后再设置会怎样？</strong></p>
+<ul>
+<li>syscall_exofork()返回后父子进程需要修改entry.S中定义的env指针，可能会触发COW写入异常，COW中断的处理机制依赖于syscall_set_tlb_mod_entry，若将syscall_set_tlb_mod_entry的调用放置在syscall_exofork之后，甚至放置在写时复制保护机制完成之后，可能无法处理产生的异常。</li>
+</ul>
+<h2 id="难点分析"><a href="#难点分析" class="headerlink" title="难点分析"></a>难点分析</h2><p>lab4主要学习了系统调用、进程间通信和fork()，内容非常多，难度也比较大，不过就上机考试而言，题型还是比较统一，exam比较简单。我觉得这个lab的难点主要有以下几点：</p>
+<ol>
+<li>系统调用：系统调用的实现涉及到很多知识点，比如中断、异常、陷阱、系统调用号、系统调用表、系统调用参数、系统调用返回值、系统调用的实现等等，这些知识点都需要掌握。<br>在课上测试时，主要就是考查系统调用，要注意系统调用的实现细节，跟着题目引导走，注意好不要遗漏步骤的话就不难。</li>
+<li>进程间通信：进程间通信涉及到很多知识点，比如管道、消息队列、共享内存、信号量、套接字等等，不过在课下，我们只是用了共享内存来实现进程间通信。</li>
+<li>fork()：fork()的实现涉及到很多知识点，比如页表、页目录、页帧、页表项、页目录项、页帧分配、页表项设置、页目录项设置、页帧复制、页表项设置、页目录项设置、进程状态等等，这些知识点都需要掌握。</li>
+<li>在课上测试的时候，虽然exam只考察了系统调用，不过也是需要对Env结构体的理解，还有内存管理那里一堆函数的理解和使用，才能完成。extra就更加难了，还同时考查了tlb_mod等知识，并且需要对内存管理那些函数的熟练使用，我认为这里是个很大的难点。</li>
+</ol>
+<h2 id="实验体会"><a href="#实验体会" class="headerlink" title="实验体会"></a>实验体会</h2><p>由于lab4延期了一周，让我有更多的时间准备，但是感觉准备的还是不够充分吧，完全没有预料到会考察这么多的函数操作，加上我本身对这些很陌生，于是就在考试时不断翻找函数，浪费了很多时间。extra的题目很难，但是感觉跟着Hint的话，也不是完全不能做，可惜最后时间不多了，还是没能完全做完，就剩下次一个lab了，希望可以发挥的更好，不留遗憾。</p>
 
       </div>
       <div class="post-tags-categories">
@@ -479,7 +483,7 @@
     </li>
     <li class="post-copyright-link">
     <strong>文章链接:  </strong>
-    <a href="/2026/03/19/lab0实验报告/" target="_blank" title="OS-lab0实验报告">https://nonamer-kkk.github.io/2026/03/19/lab0实验报告/</a>
+    <a href="/2026/05/21/lab4实验报告/" target="_blank" title="OS-lab4实验报告">https://nonamer-kkk.github.io/2026/05/21/lab4实验报告/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明:   </strong>
@@ -497,39 +501,21 @@
 
 
 
-  
-  <div class="post-nav-prev post-nav-item">
-    <div class="post-nav-img" style="background-size: cover; 
-      background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://pica.zhimg.com/80/v2-573ac3e25de03fad9c32add5a05e5cfc_1440w.webp" class="lazyload placeholder" data-srcset="https://pica.zhimg.com/80/v2-573ac3e25de03fad9c32add5a05e5cfc_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-    </div>
-    <a href="/2026/03/19/24371119-%E5%AE%B9%E6%98%93%E4%B8%BA-%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BD%9C%E4%B8%9A/" class="post-nav-link">
-      <div class="title">
-        <i class="fas fa-angle-left"></i> 上一篇:
-        <div class="title-text">仓颉第一次作业</div>
-      </div>
-      
-      <!-- <div class="content">
-        第一次作业第一题简要思路丑数是只含有2，3，5质因数的正整数，提示中说n可能为0或负数，那么首先判断n若小于1的话直接输
-      </div> -->
-    </a>
-  </div>
-
 
 
   
   <div class="post-nav-next post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
+      <img class="lazyload lazyload placeholder" src="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" class="lazyload placeholder" data-srcset="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
     </div>
-    <a href="/2026/03/16/NPL%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="post-nav-link">
+    <a href="/2026/04/30/lab3%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" class="post-nav-link">
       <div class="title">
         下一篇: <i class="fas fa-angle-right"></i>
-        <div class="title-text">NLP基本概念</div>
+        <div class="title-text">OS-lab3实验报告</div>
       </div>
       <!-- <div class="content">
-        NLP基本概念由于我最近打算跟着Happy-LLM学一点大模型的智识，因此开这个博客系列做一点笔记，这篇博客对应Happ
+        实验报告思考题1.Thinking 3.1 请结合 MOS 中的页目录自映射应用解释代码中 e-&gt;env_pgdi
       </div> -->
     </a>
   </div>
@@ -751,7 +737,7 @@
   <div class='content'>
     <div class="toc-main">
       <div class="toc-content">
-        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A"><span class="toc-text">实验报告</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%80%83%E9%A2%98"><span class="toc-text">思考题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1"><span class="toc-text">1.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2"><span class="toc-text">2.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3"><span class="toc-text">3.</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-1"><span class="toc-text">1.</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1"><span class="toc-text">2.</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-1"><span class="toc-text">3.</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4"><span class="toc-text">4.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5"><span class="toc-text">5.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6"><span class="toc-text">6.</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%BE%E7%82%B9%E5%88%86%E6%9E%90"><span class="toc-text">难点分析</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%B0%B1%E6%98%AF%E8%84%9A%E6%9C%AC%E4%B8%AD%E4%B8%80%E4%BA%9B%E5%A4%8D%E6%9D%82%E5%91%BD%E4%BB%A4%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">第一就是脚本中一些复杂命令的使用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%B0%B1%E6%98%AFshell%E8%84%9A%E6%9C%AC%E4%B8%AD%E7%9A%84%E8%AF%AD%E6%B3%95%E5%92%8C%E5%90%84%E7%A7%8D%E7%BB%93%E6%9E%84"><span class="toc-text">第二就是shell脚本中的语法和各种结构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%B0%B1%E6%98%AFGit%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BA%86"><span class="toc-text">第三就是Git的使用了</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E4%BD%93%E4%BC%9A"><span class="toc-text">实验体会</span></a></li></ol></li></ol> -->
+        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A"><span class="toc-text">实验报告</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%80%83%E9%A2%98"><span class="toc-text">思考题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1"><span class="toc-text">1.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2"><span class="toc-text">2.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3"><span class="toc-text">3.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4"><span class="toc-text">4.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5"><span class="toc-text">5.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6"><span class="toc-text">6.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7"><span class="toc-text">7.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8"><span class="toc-text">8.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9"><span class="toc-text">9.</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%BE%E7%82%B9%E5%88%86%E6%9E%90"><span class="toc-text">难点分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E4%BD%93%E4%BC%9A"><span class="toc-text">实验体会</span></a></li></ol></li></ol> -->
         <div class="toc"></div>
       </div>
     </div>
