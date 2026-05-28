@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>OS-lab0实验报告 | Nonamer&#39;s Blog</title>
+  <title>OS-lab5实验报告 | Nonamer&#39;s Blog</title>
 
   <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -370,21 +370,21 @@
 
 
 <div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
-  background-position: center center;position: relative;background-image:url('https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp')">
+  background-position: center center;position: relative;background-image:url('https://pic3.zhimg.com/80/v2-7cfc909ebe8d83683909846edd6b5232_1440w.webp')">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
   <div class="post-detail-header_info-box">
     <div class="title-box">
       <span class="title">
-        OS-lab0实验报告
+        OS-lab5实验报告
       </span>
     </div>
     
     
       
         <span class="post-detail-header_date">
-          <i class="fas fa-calendar"></i> 发表于：2026-03-19 |
+          <i class="fas fa-calendar"></i> 发表于：2026-05-28 |
         </span>
       
 
@@ -408,56 +408,54 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <h1 id="实验报告"><a href="#实验报告" class="headerlink" title="实验报告"></a>实验报告</h1><h2 id="思考题"><a href="#思考题" class="headerlink" title="思考题"></a>思考题</h2><h3 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">touch README.txt</span><br><span class="line">git init</span><br><span class="line">git status &gt; Untracked.txt</span><br><span class="line"># 在README.txt中增加内容</span><br><span class="line">git add README.txt</span><br><span class="line">git status &gt; Stage.txt</span><br><span class="line">git commit -m &quot;24371119&quot;</span><br><span class="line">cat Untracked.txt</span><br><span class="line"># 位于分支 master</span><br><span class="line"># 尚无提交</span><br><span class="line"># </span><br><span class="line"># 未跟踪的文件:</span><br><span class="line">#   （使用 &quot;git add &lt;文件&gt;...&quot; 以包含要提交的内容）</span><br><span class="line">#         README.txt</span><br><span class="line">#         Untracked.txt</span><br><span class="line"># </span><br><span class="line">cat Stage.txt</span><br><span class="line"># 位于分支 master</span><br><span class="line"># 要提交的变更：</span><br><span class="line">#   （使用 &quot;git restore --staged &lt;文件&gt;...&quot; 以取消暂存）</span><br><span class="line">#         新文件：   README.txt</span><br><span class="line"># </span><br><span class="line"># 尚无提交</span><br><span class="line"># </span><br><span class="line"># 未跟踪的文件:</span><br><span class="line">#   （使用 &quot;git add &lt;文件&gt;...&quot; 以包含要提交的内容）</span><br><span class="line">#         Stage.txt</span><br><span class="line">#         Untracked.txt</span><br><span class="line"># 修改README.txt</span><br><span class="line">git status &gt; Modified.txt</span><br><span class="line">cat Modified.txt</span><br><span class="line"># 位于分支 master</span><br><span class="line"># 尚未暂存以备提交的变更：</span><br><span class="line">#  （使用 &quot;git add/rm &lt;文件&gt;...&quot; 更新要提交的内容）</span><br><span class="line">#  （使用 &quot;git restore &lt;文件&gt;...&quot; 丢弃工作区的改动）</span><br><span class="line">#         修改：     README.txt</span><br><span class="line"># </span><br><span class="line"># 未跟踪的文件:</span><br><span class="line">#   （使用 &quot;git add &lt;文件&gt;...&quot; 以包含要提交的内容）</span><br><span class="line">#         Modified.txt</span><br><span class="line">#         Stage.txt</span><br><span class="line">#         Untracked.txt</span><br></pre></td></tr></table></figure>
+        <h1 id="实验报告"><a href="#实验报告" class="headerlink" title="实验报告"></a>实验报告</h1><h2 id="思考题"><a href="#思考题" class="headerlink" title="思考题"></a>思考题</h2><h3 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h3><p><strong>Thinking 5.1 如果通过 kseg0 读写设备，那么对于设备的写入会缓存到 Cache 中。这是一种错误的行为，在实际编写代码的时候这么做会引发不可预知的问题。请思考：这么做这会引发什么问题？对于不同种类的设备（如我们提到的串口设备和IDE磁盘）的操作会有差异吗？可以从缓存的性质和缓存更新的策略来考虑。</strong></p>
 <ul>
-<li>不一样，在第一次执行add命令之前，README.txt处于Untracked状态，仅在工作区。</li>
-<li>执行add命令后，README.txt进入暂存区。</li>
-<li>再经过commit后，README.txt被加入版本库。</li>
-<li>最后被修改，README.txt处于已跟踪但修改未暂存状态。</li>
-<li>这与第一次执行add命令前的未跟踪状态不相同，因为未跟踪文件并未被Git管理，而此时文件已被跟踪，只是工作区文件与版本库不相同。</li>
+<li>这样会导致读取的数据不正确的问题。因为Cache有较高的操作延迟，当外部设备产生中断信号或者更新数据时，此时Cache中之前旧的数据可能刚完成缓存，此时无法及时更新数据，就会导致读取的数据不正确。 </li>
+<li>串口设备相对于IDE磁盘需要更高的实时性，若使用Cache，串口设备发生错误的概率相较于IDE磁盘会更高。因为串口设备的数据更新频率较高，而Cache的更新策略是基于时间的，如果Cache中旧的数据没有及时更新，就会导致读取的数据不正确。</li>
 </ul>
-<h3 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h3><ul>
-<li><code>add the file</code> 对应 <code>git add &lt;file&gt;</code></li>
-<li><code>stage the file</code> 对应 <code>git add &lt;file&gt;</code></li>
-<li><code>commit</code> 对应 <code>git commit -m &quot;提交说明&quot;</code></li>
+<h3 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h3><p><strong>Thinking 5.2 查找代码中的相关定义，试回答一个磁盘块中最多能存储多少个文件控制块？一个目录下最多能有多少个文件？我们的文件系统支持的单个文件最大为多大？</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#define BLOCK_SIZE PAGE_SIZE // #define PAGE_SIZE 4096</span><br><span class="line">#define FILE_STRUCT_SIZE 256</span><br><span class="line">#define FILE2BLK (BLOCK_SIZE / sizeof(struct File))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>一个磁盘中最多能存储16个文件控制块。一个目录下最多能有16K个文件。我们文件系统支持的单个文件最大为4MB。</li>
 </ul>
-<h3 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h3><h5 id="1-1"><a href="#1-1" class="headerlink" title="1."></a>1.</h5><p>错误删除print.c后，Git版本库中还保留着，可以用<code>git restore print.c</code>恢复</p>
-<h5 id="2-1"><a href="#2-1" class="headerlink" title="2."></a>2.</h5><p>错误删除print.c后，执行了<code>git rm print.c</code>命令，此时应该先撤销暂存区内的修改<code>git reset HEAD print.c</code>再用<code>git restore print.c</code>恢复</p>
-<h5 id="3-1"><a href="#3-1" class="headerlink" title="3."></a>3.</h5><p>将hello.txt移出暂存区<code>git rm --cached hello.txt</code></p>
-<h3 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h3><p>提交三次后，使用<code>git log</code>，可以看到已有三次提交记录</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">commit 3ce9e6f15b01b0b63da5680a52dcc5699da5446f (HEAD -&gt; master)</span><br><span class="line">Author: 容易为 &lt;24371119@buaa.edu.cn&gt;</span><br><span class="line">Date:   Mon Mar 16 15:59:38 2026 +0800</span><br><span class="line"></span><br><span class="line">    3</span><br><span class="line"></span><br><span class="line">commit c9ace791b5fc3752e8e81b81bf7d2ad5887a7a58</span><br><span class="line">Author: 容易为 &lt;24371119@buaa.edu.cn&gt;</span><br><span class="line">Date:   Mon Mar 16 15:58:59 2026 +0800</span><br><span class="line"></span><br><span class="line">    2</span><br><span class="line"></span><br><span class="line">commit 14d7baacad40b82b66026213827aca037597ac42</span><br><span class="line">Author: 容易为 &lt;24371119@buaa.edu.cn&gt;</span><br><span class="line">Date:   Mon Mar 16 15:58:16 2026 +0800</span><br><span class="line"></span><br><span class="line">    1</span><br></pre></td></tr></table></figure>
-<p>使用<code>git reset --hard HEAD^</code>后，使用<code>git log</code>，此时只有两次提交记录</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">commit c9ace791b5fc3752e8e81b81bf7d2ad5887a7a58 (HEAD -&gt; master)</span><br><span class="line">Author: 容易为 &lt;24371119@buaa.edu.cn&gt;</span><br><span class="line">Date:   Mon Mar 16 15:58:59 2026 +0800</span><br><span class="line"></span><br><span class="line">    2</span><br><span class="line"></span><br><span class="line">commit 14d7baacad40b82b66026213827aca037597ac42</span><br><span class="line">Author: 容易为 &lt;24371119@buaa.edu.cn&gt;</span><br><span class="line">Date:   Mon Mar 16 15:58:16 2026 +0800</span><br><span class="line"></span><br><span class="line">    1</span><br></pre></td></tr></table></figure>
-<p>使用<code>git reset --hard &lt;hash&gt;</code>就跳转到了第一次提交，此时只有一次提交记录。<br>之后使用<code>git reset --hard &lt;hash&gt;</code>跳转到第三次提交，此时有三次提交记录。</p>
-<h3 id="5"><a href="#5" class="headerlink" title="5."></a>5.</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo first</span><br><span class="line">first</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo second &gt; output.txt</span><br><span class="line">cat output.txt</span><br><span class="line">second</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo third &gt; output.txt</span><br><span class="line">cat output.txt</span><br><span class="line">third</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">echo forth &gt;&gt; output.txt</span><br><span class="line">cat output.txt</span><br><span class="line">third</span><br><span class="line">forth</span><br></pre></td></tr></table></figure>
+<h3 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h3><p><strong>Thinking 5.3 请思考，在满足磁盘块缓存的设计的前提下，我们实验使用的内核支持的最大磁盘大小是多少？</strong></p>
+<ul>
+<li>最大磁盘大小是1GB。</li>
+</ul>
+<h3 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h3><p><strong>Thinking 5.4 在本实验中，fs&#x2F;serv.h、user&#x2F;include&#x2F;fs.h 等文件中出现了许多宏定义，试列举你认为较为重要的宏定义，同时进行解释，并描述其主要应用之处。</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#define INDEX2FD(i) (FDTABLE + (i)*BY2PG)</span><br><span class="line">#define INDEX2DATA(i) (FILEBASE + (i)*PDMAP)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这两个宏用来找 fd 对应的文件信息页面和文件缓存区地址。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#define BLOCK_SIZE PAGE_SIZE</span><br><span class="line">#define BLOCK_SIZE_BIT (BLOCK_SIZE * 8)</span><br><span class="line">#define FILE_STRUCT_SIZE 256</span><br><span class="line">#define FILE2BLK (BLOCK_SIZE / sizeof(struct File))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这些宏定义了磁盘块大小、块位数、文件结构大小和文件块数。</li>
+</ul>
+<h3 id="5"><a href="#5" class="headerlink" title="5."></a>5.</h3><p><strong>Thinking5.5在Lab4“系统调用与fork”的实验中我们实现了极为重要的fork函数。那么fork前后的父子进程是否会共享文件描述符和定位指针呢？请在完成上述练习的基础上编写一个程序进行验证。</strong></p>
+<ul>
+<li>fork前后的父子进程会共享文件描述符和定位指针。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;lib.h&gt;</span><br><span class="line">int main() &#123;</span><br><span class="line">	int r;</span><br><span class="line">	int fdnum;</span><br><span class="line">	char buf[512];</span><br><span class="line">	int n;</span><br><span class="line">	if ((r = open(&quot;/newmotd&quot;, O_RDWR)) &lt; 0) &#123;</span><br><span class="line">		user_panic(&quot;wrong when open /newmotd: %d&quot;, r);</span><br><span class="line">	&#125;</span><br><span class="line">	fdnum = r;</span><br><span class="line">	debugf(&quot;fdnum == %d\n&quot;, fdnum); // 拿到fdnum号</span><br><span class="line">	if ((n = read(fdnum, buf, 5)) &lt; 0) &#123;</span><br><span class="line">		user_panic(&quot;wrong when read /newmotd: %d&quot;, r);</span><br><span class="line">	&#125; // 读5个字符</span><br><span class="line">	debugf(&quot;read: %s\n&quot;, buf);</span><br><span class="line">    struct Fd *fdd;</span><br><span class="line">    fd_lookup(r, &amp;fdd);</span><br><span class="line">	debugf(&quot;fd == %x\n&quot;, fdd); // fdd的值</span><br><span class="line">    debugf(&quot;now offset == %d\n&quot;,fdd-&gt;fd_offset); // 偏移量</span><br><span class="line">    int id;</span><br><span class="line">    if ((id = fork()) == 0) &#123;</span><br><span class="line">        if ((n = read(fdnum, buf, 5)) &lt; 0) &#123;</span><br><span class="line">            user_panic(&quot;child: wrong when read /newmotd: %d&quot;, r);</span><br><span class="line">        &#125;</span><br><span class="line">		debugf(&quot;child read: %s\n&quot;, buf);</span><br><span class="line">        struct Fd *fdd;</span><br><span class="line">        fd_lookup(r, &amp;fdd);</span><br><span class="line">		debugf(&quot;child: fd == %x\n&quot;, fdd);</span><br><span class="line">        debugf(&quot;child: now offset == %d\n&quot;,fdd-&gt;fd_offset);</span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;</span><br><span class="line">        if((n = read(fdnum, buf, 5)) &lt; 0) &#123;</span><br><span class="line">            user_panic(&quot;father: wrong when read /newmotd: %d&quot;, r);</span><br><span class="line">        &#125;</span><br><span class="line">		debugf(&quot;father read: %s\n&quot;, buf);</span><br><span class="line">        struct Fd *fdd;</span><br><span class="line">        fd_lookup(r, &amp;fdd);</span><br><span class="line">		debugf(&quot;father: fd == %x\n&quot;, fdd);</span><br><span class="line">        debugf(&quot;father: now offset == %d\n&quot;,fdd-&gt;fd_offset);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">init.c: mips_init() is called</span><br><span class="line">Memory size: 65536 KiB, number of pages: 16384</span><br><span class="line">to memory 80430000 for struct Pages.</span><br><span class="line">pmap.c:  mips vm init success</span><br><span class="line">FS is running</span><br><span class="line">superblock is good</span><br><span class="line">read_bitmap is good</span><br><span class="line">fdnum == 0    // 可能是因为第一个文件，分配了号码0</span><br><span class="line">read: This    // 读到&#x27;T&#x27;,&#x27;h&#x27;,&#x27;i&#x27;,&#x27;s&#x27;,&#x27; &#x27;</span><br><span class="line">fd == 5fc00000 // 文件描述符的地址</span><br><span class="line">now offset == 5 // 当前的偏移量 为 5</span><br><span class="line">father read: is a  // 读到&#x27;i&#x27;,&#x27;s&#x27;,&#x27; &#x27;,&#x27;a&#x27;,&#x27; &#x27;</span><br><span class="line">father: fd == 5fc00000</span><br><span class="line">father: now offset == 10 // 当前的偏移量 为 10</span><br><span class="line">child read: diffe // 读到&#x27;d&#x27;,&#x27;i&#x27;,&#x27;f&#x27;,&#x27;f&#x27;,&#x27;e&#x27;</span><br><span class="line">child: fd == 5fc00000</span><br><span class="line">child: now offset == 15 // 当前的偏移量 为 15</span><br><span class="line">[00000800] destroying 00000800</span><br><span class="line">[00000800] free env 00000800</span><br><span class="line">i am killed ... </span><br><span class="line">[00001802] destroying 00001802</span><br><span class="line">[00001802] free env 00001802</span><br><span class="line">i am killed ... </span><br><span class="line">panic at sched.c:45 (schedule): schedule: no runnable envs</span><br><span class="line"></span><br><span class="line">ra:    800260a0  sp:  803ffe80  Status: 00008000</span><br><span class="line">Cause: 00000420  EPC: 004002c0  BadVA:  7fd7f004</span><br><span class="line">curenv:    NULL</span><br><span class="line">cur_pgdir: 83fd1000</span><br></pre></td></tr></table></figure>
 
-<h3 id="6"><a href="#6" class="headerlink" title="6."></a>6.</h3><p>command:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">echo echo Shell Start...</span><br><span class="line">echo echo set a = 1</span><br><span class="line">echo a=1</span><br><span class="line">echo echo set b = 2</span><br><span class="line">echo b=2</span><br><span class="line">echo echo set c = a+b</span><br><span class="line">echo &#x27;c=$[$a+$b]&#x27;</span><br><span class="line">echo echo &#x27;c = $c&#x27;</span><br><span class="line">echo echo save c to ./file1</span><br><span class="line">echo &#x27;echo $c&gt;file1&#x27;</span><br><span class="line">echo echo save b to ./file2</span><br><span class="line">echo &#x27;echo $b&gt;file2&#x27;</span><br><span class="line">echo echo save a to ./file3</span><br><span class="line">echo &#x27;echo $a&gt;file3&#x27;</span><br><span class="line">echo echo save file1 file2 file3 to file4</span><br><span class="line">echo &#x27;cat file1&gt;file4&#x27;</span><br><span class="line">echo &#x27;cat file2&gt;&gt;file4&#x27;</span><br><span class="line">echo &#x27;cat file3&gt;&gt;file4&#x27;</span><br><span class="line">echo echo save file4 to ./result</span><br><span class="line">echo &#x27;cat file4&gt;&gt;result&#x27;</span><br></pre></td></tr></table></figure>
-<p>result:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Shell Start...</span><br><span class="line">set a = 1</span><br><span class="line">set b = 2</span><br><span class="line">set c = a+b</span><br><span class="line">c = 3</span><br><span class="line">save c to ./file1</span><br><span class="line">save b to ./file2</span><br><span class="line">save a to ./file3</span><br><span class="line">save file1 file2 file3 to file4</span><br><span class="line">save file4 to ./result</span><br><span class="line">3</span><br><span class="line">2</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+<h3 id="6"><a href="#6" class="headerlink" title="6."></a>6.</h3><p><strong>Thinking5.6请解释File,Fd,Filefd结构体及其各个域的作用。比如各个结构体会在哪些过程中被使用，是否对应磁盘上的物理实体还是单纯的内存数据等。说明形式自定，要求简洁明了，可大致勾勒出文件系统数据结构与物理实体的对应关系与设计框架。</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">struct File &#123; // 文件控制块（元数据）</span><br><span class="line">	char f_name[MAXNAMELEN]; // filename 且最大长度为128</span><br><span class="line">	uint32_t f_size;	 // 文件大小的字节数</span><br><span class="line">	uint32_t f_type;	 // 文件类型：普通文件FTYPE_REG与目录FTYPE_DIR</span><br><span class="line">	uint32_t f_direct[NDIRECT]; // 直接索引，放着NDIRECT个磁盘块号		</span><br><span class="line">	uint32_t f_indirect; // 间接索引，指向放着许多磁盘块号的磁盘块</span><br><span class="line"></span><br><span class="line">	struct File *f_dir; // 指向所在的目录文件</span><br><span class="line">	char f_pad[FILE_STRUCT_SIZE - MAXNAMELEN - (3 + NDIRECT) * 4 - sizeof(void *)];</span><br><span class="line">	// 字节对齐，保证 #define FILE_STRUCT_SIZE 256</span><br><span class="line">&#125; __attribute__((aligned(4), packed));</span><br><span class="line"></span><br><span class="line">struct Fd &#123; // 用于描述文件操作</span><br><span class="line">	u_int fd_dev_id; // 外设id</span><br><span class="line">	u_int fd_offset; // 文件当前读写的偏移量，在read/write作用较大</span><br><span class="line">	u_int fd_omode; // 文件的打开方式</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">struct Filefd &#123; // 文件操作所需的整体信息</span><br><span class="line">	struct Fd f_fd; // 文件的相关描述</span><br><span class="line">	u_int f_fileid;</span><br><span class="line">	struct File f_file; // 文件控制块</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7"><a href="#7" class="headerlink" title="7."></a>7.</h3><p><strong>Thinking 5.7 图 5.9 中有多种不同形式的箭头，请解释这些不同箭头的差别，并思考我们的操作系统是如何实现对应类型的进程间通信的。</strong></p>
 <ul>
-<li>test中先分别对a,b赋值为1,2，然后让c&#x3D;a+b，之后将c保存在file1中，将b保存在file2中，将a保存在file3中，之后用file1覆盖file4中的内容，再将file2和file3追加在file4之后，最后将file4追加在result后面。</li>
-<li><code>echo echo Shell Start</code>会直接输出<code>echo Shell Start</code>，而 <code>echo `echo Shell Start` </code>会先执行反引号内指令在传送给外面的echo，最后输出<code>Shell Start</code>。</li>
-<li><code>echo echo $c&gt;file1</code>会<code>echo $c </code>重定向写入file1中,而<code>echo `echo $c&gt;file1` </code>会先执行反引号内部的指令将$c重定向写入file1，然后返回空串输出到终端。</li>
+<li>ENV_CREATE(user_env) 和 ENV_CREATE(fs_serv) 都是异步消息，由 init() 发出创建消息后，由 fs 和 user 线程执行自己的初始化工作。</li>
+<li>user_env进行fsipc，并通过IPC向fs_serv通信，fs_serv调用serv相关函数，并通过IPC返回信号给用户进程。fs_serv继续等待请求。</li>
 </ul>
-<h2 id="难点分析"><a href="#难点分析" class="headerlink" title="难点分析"></a>难点分析</h2><p>lab0实验主要是使用命令行进行操作，这对之前几乎没使用过命令行的我来说是个挑战。我觉得本次实验的难点主要有三个方面。</p>
-<h5 id="第一就是脚本中一些复杂命令的使用"><a href="#第一就是脚本中一些复杂命令的使用" class="headerlink" title="第一就是脚本中一些复杂命令的使用"></a>第一就是脚本中一些复杂命令的使用</h5><ul>
-<li>因为sed,awk等等这些命令过于灵活，他们的使用方法也相当复杂，熟练掌握这些命令是本次实验的重点也是难点，指导书中的用法比较基础，给的例子也比较少，要想熟练使用的话，最好自己多查一查资料并练习。</li>
-</ul>
-<h5 id="第二就是shell脚本中的语法和各种结构"><a href="#第二就是shell脚本中的语法和各种结构" class="headerlink" title="第二就是shell脚本中的语法和各种结构"></a>第二就是shell脚本中的语法和各种结构</h5><p>shell脚本的语法与之前习惯的语言很不同，常见的易错点有：</p>
-<ul>
-<li>赋值是不能有空格</li>
-<li>[]作为判断条件时必须有空格，也可以用[[]]</li>
-<li>(())表示运算</li>
-<li>使用变量时要用$，而且在’’中的变量也要用’’括起来，或者直接使用””</li>
-</ul>
-<h5 id="第三就是Git的使用了"><a href="#第三就是Git的使用了" class="headerlink" title="第三就是Git的使用了"></a>第三就是Git的使用了</h5><ul>
-<li>虽然lab0对于Git的考察不多，但是能够熟练使用Git还是相当有用处的，怎么实现版本回退，如何撤销删除呀这些操作要是能够熟练掌握，将对以后大有裨益。重要的操作是：<br><code>git checkout -- &lt;file&gt;：从版本库恢复文件到工作区。</code><br><code>git reset HEAD &lt;file&gt;：撤销暂存区的修改。</code><br><code>git rm --cached &lt;file&gt;：移除暂存区文件但保留工作区。</code></li>
-</ul>
-<h2 id="实验体会"><a href="#实验体会" class="headerlink" title="实验体会"></a>实验体会</h2><p>lab0实验让我接触到了gcc,Makefile,git还有脚本这些工程中常用的操作，这是我最大的收获，还有就是通过Makefile的编写等加深了我对C语言和编译的理解。刚开始接触到这种命令行界面，虽然经常听人说这样会提高效率，但是我总是感觉不习惯，效率反而降低了，不过随着练习的加多，看着一行行命令也感觉越来越顺眼了，希望以后能够真正熟练使用命令行，提升自己的能力。</p>
+<h2 id="难点分析"><a href="#难点分析" class="headerlink" title="难点分析"></a>难点分析</h2><p>本次lab5实验的重点是文件系统，感觉非常复杂，需要了解的内容非常多，这点从课下和课上都能感受到，需要的代码量远超过前几个lab。而且由于lab4上机实验的延迟，感觉这次实验的时间就愈发紧迫了。我感觉本次实验主要有以下几个难点：</p>
+<ol>
+<li>IDE磁盘驱动<br>该驱动通过系统调用对磁盘镜像进行读写操作。感觉这里的系统调用实现比较复杂，需要深入理解系统调用的实现过程，还有IDE磁盘的结构和内存映射方式。</li>
+<li>文件系统的实现<br>课下和课上都要仔细阅读并理解文件系统的相关文件，掌握其中的函数和结构体等等，如tools中的fsformat，fs中的fs.c,ide.c,serv.c，user&#x2F;lib​中的fsipc.c,file.c,fd.c等等。</li>
+<li>文件系统新服务功能的添加<br>这部分感觉是上机考试的重点，lab5的上机实验感觉代码量比较大，对这部分课下理解的好的话，可以节省很多上机的时间，不过也还是要注意课下的一些C语言的写法，课上也经常会出现这方面的知识，这次上机就会有字符串处理，也要注意不要出现野指针等等语法问题。</li>
+</ol>
+<h2 id="实验体会"><a href="#实验体会" class="headerlink" title="实验体会"></a>实验体会</h2><p>由于上次上机考试延迟的缘故，这次lab5准备的非常仓促，感觉课下的指导书和代码都还没有来得及细细研究，不过课上测试出题的助教们并没有出很难的题，所以这次上机考试的结果还是非常好的。os的上机也终于结束了，希望之后的lab6和挑战性任务都顺利完成，我好想光荣成为明年的助教。</p>
+<h2 id="致谢"><a href="#致谢" class="headerlink" title="致谢"></a>致谢</h2><p>感谢<a target="_blank" rel="noopener" href="https://demiurge-zby.github.io/">demiurge-zby</a>学长的博客帮助，学长的博客写的非常详细，帮我理解了许多知识</p>
+<p>感谢<a target="_blank" rel="noopener" href="https://yanna-zy.github.io/">yanna-zy</a>杨导的博客帮助，杨导的每次博客都写到了课下和上机的体验，帮我开拓思路，帮助我理解了很多知识</p>
 
       </div>
       <div class="post-tags-categories">
@@ -479,7 +477,7 @@
     </li>
     <li class="post-copyright-link">
     <strong>文章链接:  </strong>
-    <a href="/2026/03/19/lab0实验报告/" target="_blank" title="OS-lab0实验报告">https://nonamer-kkk.github.io/2026/03/19/lab0实验报告/</a>
+    <a href="/2026/05/28/lab5实验报告/" target="_blank" title="OS-lab5实验报告">https://nonamer-kkk.github.io/2026/05/28/lab5实验报告/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明:   </strong>
@@ -497,39 +495,21 @@
 
 
 
-  
-  <div class="post-nav-prev post-nav-item">
-    <div class="post-nav-img" style="background-size: cover; 
-      background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://pica.zhimg.com/80/v2-573ac3e25de03fad9c32add5a05e5cfc_1440w.webp" class="lazyload placeholder" data-srcset="https://pica.zhimg.com/80/v2-573ac3e25de03fad9c32add5a05e5cfc_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-    </div>
-    <a href="/2026/03/19/24371119-%E5%AE%B9%E6%98%93%E4%B8%BA-%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BD%9C%E4%B8%9A/" class="post-nav-link">
-      <div class="title">
-        <i class="fas fa-angle-left"></i> 上一篇:
-        <div class="title-text">仓颉第一次作业</div>
-      </div>
-      
-      <!-- <div class="content">
-        第一次作业第一题简要思路丑数是只含有2，3，5质因数的正整数，提示中说n可能为0或负数，那么首先判断n若小于1的话直接输
-      </div> -->
-    </a>
-  </div>
-
 
 
   
   <div class="post-nav-next post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
+      <img class="lazyload lazyload placeholder" src="https://pic2.zhimg.com/80/v2-e22aaad20d20634f506f57fff0fcbc17_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-e22aaad20d20634f506f57fff0fcbc17_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
     </div>
-    <a href="/2026/03/16/NPL%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="post-nav-link">
+    <a href="/2026/05/21/lab4%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" class="post-nav-link">
       <div class="title">
         下一篇: <i class="fas fa-angle-right"></i>
-        <div class="title-text">NLP基本概念</div>
+        <div class="title-text">OS-lab4实验报告</div>
       </div>
       <!-- <div class="content">
-        NLP基本概念由于我最近打算跟着Happy-LLM学一点大模型的智识，因此开这个博客系列做一点笔记，这篇博客对应Happ
+        实验报告思考题1.Thinking 4.1 思考并回答下面的问题：• 内核在保存现场的时候是如何避免破坏通用寄存器的？•
       </div> -->
     </a>
   </div>
@@ -751,7 +731,7 @@
   <div class='content'>
     <div class="toc-main">
       <div class="toc-content">
-        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A"><span class="toc-text">实验报告</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%80%83%E9%A2%98"><span class="toc-text">思考题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1"><span class="toc-text">1.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2"><span class="toc-text">2.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3"><span class="toc-text">3.</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-1"><span class="toc-text">1.</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1"><span class="toc-text">2.</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-1"><span class="toc-text">3.</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4"><span class="toc-text">4.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5"><span class="toc-text">5.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6"><span class="toc-text">6.</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%BE%E7%82%B9%E5%88%86%E6%9E%90"><span class="toc-text">难点分析</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%B0%B1%E6%98%AF%E8%84%9A%E6%9C%AC%E4%B8%AD%E4%B8%80%E4%BA%9B%E5%A4%8D%E6%9D%82%E5%91%BD%E4%BB%A4%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">第一就是脚本中一些复杂命令的使用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%B0%B1%E6%98%AFshell%E8%84%9A%E6%9C%AC%E4%B8%AD%E7%9A%84%E8%AF%AD%E6%B3%95%E5%92%8C%E5%90%84%E7%A7%8D%E7%BB%93%E6%9E%84"><span class="toc-text">第二就是shell脚本中的语法和各种结构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%B0%B1%E6%98%AFGit%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BA%86"><span class="toc-text">第三就是Git的使用了</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E4%BD%93%E4%BC%9A"><span class="toc-text">实验体会</span></a></li></ol></li></ol> -->
+        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A"><span class="toc-text">实验报告</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%80%83%E9%A2%98"><span class="toc-text">思考题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1"><span class="toc-text">1.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2"><span class="toc-text">2.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3"><span class="toc-text">3.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4"><span class="toc-text">4.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5"><span class="toc-text">5.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6"><span class="toc-text">6.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7"><span class="toc-text">7.</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%BE%E7%82%B9%E5%88%86%E6%9E%90"><span class="toc-text">难点分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E4%BD%93%E4%BC%9A"><span class="toc-text">实验体会</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%B4%E8%B0%A2"><span class="toc-text">致谢</span></a></li></ol></li></ol> -->
         <div class="toc"></div>
       </div>
     </div>
